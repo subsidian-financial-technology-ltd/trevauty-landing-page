@@ -103,5 +103,14 @@
   },
   "cli": {
     "analytics": "d0df9efd-dac0-4750-95e9-0351d4ce9323"
-  }
+  },
+  "assets": [
+    "src/favicon.ico",
+    "src/assets",
+    {
+      "glob": "*.+(ttf|otf|woff|woff2)",
+      "input": "src/assets/fonts",
+      "output": "/assets/fonts/"
+    }
+  ]
 }

@@ -142,9 +142,10 @@ label.label {
 
     
 }
-a.terms {
+.terms {
     font-weight: 400;
     color: #2B3674;
+    margin-left: 90px;
 }
 .checking{
     margin: 0.5rem 0;
@@ -165,7 +166,7 @@ button {
   margin: 1rem 0;
 }
 .sign-in {
-    font: DM Sans;
+    font: 'DM Sans';
     font-weight: 400;
     size: 14px;
     color: #707EAE;
@@ -174,6 +175,7 @@ button {
     font-weight: 700;
     color: #4318FF;
     text-decoration: none;
+    text-align: right;
 
 }
 .reserved {
