@@ -1,5 +1,3 @@
-
-
 ::-webkit-scrollbar {
     display: none;
 }
@@ -228,18 +226,14 @@
     width: 10px;
 }
 
-
 .scrollwrap::-webkit-scrollbar-track {
     background: transparent;
 }
-
 
 .scrollwrap::-webkit-scrollbar-thumb {
     // background-color: #556268;
     border-radius: 20px;
 }
-
-
 // works on firefox
 .scrollwrap {
     scrollbar-width: thin;
@@ -257,6 +251,4 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
-
-
 }
