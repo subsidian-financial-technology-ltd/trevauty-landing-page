@@ -95,7 +95,7 @@ form {
 
 }
 label {
-    line-height: 40px;
+    line-height: 20px;
 
 }
 .inputWrapper  {
@@ -110,8 +110,7 @@ label {
     padding: 0.8rem 0.5rem;
     display: flex;
     justify-content: space-between;
-
-
+    margin-bottom: 10px;
 }
 
 .inputWrapper > div img{
@@ -125,6 +124,7 @@ label {
     font-size: 14px;
     width: 90%;
     box-sizing: border-box;
+    padding: 0.5rem;
     
 }
 img {
@@ -139,9 +139,8 @@ label.label {
     font-weight: 400;
     color: #2B3674;
     margin-right: 15px;
-
-    
 }
+
 .terms {
     font-weight: 400;
     color: #2B3674;
@@ -150,13 +149,15 @@ label.label {
 .checking{
     margin: 0.5rem 0;
     font-size: 14px;
+    display: flex;
+
 }
 .checking input{
     margin-right: 5px;
 }
 button {
   width: 100%;
-  padding: 1rem;
+  padding: 1.2rem;
   border-radius: 16px;
   padding: 10px, 8px, 10px, 8px;
   gap: 10px;  

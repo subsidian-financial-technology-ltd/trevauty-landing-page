@@ -11,6 +11,8 @@ import { SublevelMenuComponent } from './components/dashboard/sidenav/sublevel-m
 import { PasswordresetComponent } from './components/auth/passwordreset/passwordreset.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AnalyticComponent } from './components/dashboard/analytic/analytic.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BodyComponent } from './components/dashboard/body/body.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { AnalyticComponent } from './components/dashboard/analytic/analytic.comp
     PasswordresetComponent,
     OverviewComponent,
     AnalyticComponent,
+    DashboardComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,
