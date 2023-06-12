@@ -9,6 +9,10 @@ import { SinginComponent } from './components/auth/singin/singin.component';
 import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 import { SublevelMenuComponent } from './components/dashboard/sidenav/sublevel-menu.component';
 import { PasswordresetComponent } from './components/auth/passwordreset/passwordreset.component';
+import { OverviewComponent } from './components/dashboard/overview/overview.component';
+import { AnalyticComponent } from './components/dashboard/analytic/analytic.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BodyComponent } from './components/dashboard/body/body.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +20,12 @@ import { PasswordresetComponent } from './components/auth/passwordreset/password
     SignupComponent,
     SinginComponent,
     SidenavComponent,
-    SublevelMenuComponent
+    SublevelMenuComponent,
     PasswordresetComponent,
+    OverviewComponent,
+    AnalyticComponent,
+    DashboardComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,
