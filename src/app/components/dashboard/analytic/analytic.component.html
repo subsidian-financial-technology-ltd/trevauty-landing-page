@@ -62,12 +62,7 @@
     </div>
 
 
-
-
-
-
-    <!-- Filter -->
-
+    
 
         <div class="flex items-center justify-between pb-4 ">
             <div class="w-[100%] md:flex gap-[2rem] justify-between items-center py-[2rem]">
@@ -391,12 +386,9 @@
                 </tr>
             </tbody>
         </table>
-
         <div class="mt-[4rem] bg-[#fff] flex justify-between p-[1rem] px-[2rem]">
-
             <div>
                 <span> 5 Result</span>
-
             </div>
             <div class="flex justify-end gap-[2rem] md:mr-[20rem]">
                 <div class="p-[1rem] py-[0.5rem] border rounded-[4px]">
@@ -405,18 +397,38 @@
                 <div class="p-[1rem] py-[0.5rem] border rounded-[4px]">
                     Next
                 </div>
-
             </div>
-
-
         </div>
     </div>
-
-
-
-
-
-
-
-
 </div>
+
+
+    <!-- 
+        Todo
+        1. create an orguser and create an org under him *
+        2. activate the org, only authorized by OAGF Admin.*
+     -->
+
+     <!-- Requirements 
+        1. OAGF should receive a mail about the organization with a list of all the unactivated org *
+        2. all users under the org should get a mail with verification token
+        3. the user should change their password and login
+    -->
+
+    <!-- 
+        endpoint when an org is registered, an OAGF admin should get the mail. #
+        the mail should contain the org Name. #
+        the mail should have the link to all unactivated organization list.
+        only OAGF admin should activate an org. #
+        when an org gets activated all the users should get a mail that they have been activated and they should be able to log in. #
+        immediately without the verification code.
+        when a user registers he should not get a mail for verification until his org gets activated.
+        and he should be able to login immediately
+     -->
+
+     <!-- 
+        receipt
+        display multiple items
+        display custom fields.
+        change the description to desc instead of service type
+      -->

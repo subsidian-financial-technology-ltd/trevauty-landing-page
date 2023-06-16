@@ -9,8 +9,9 @@
     src: url('/assets/fonts/DM_Sans/DMSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  
 }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
   
 @font-face {
     font-family: 'DM Sans';
