@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,24 @@ import { OverviewComponent } from './components/dashboard/overview/overview.comp
 import { AnalyticComponent } from './components/dashboard/analytic/analytic.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BodyComponent } from './components/dashboard/body/body.component';
+// import { ManageTerminalComponent } from './components/dashboard/manage-terminal/manage-terminal.component';
+import { TerminalComponent } from './components/dashboard/terminal/terminal.component';
+import { MaterialModule } from './components/dashboard/manage-terminal/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ManageTerminalModule } from './components/dashboard/manage-terminal/manage-terminal.module';
+import { ManageTerminalHomeComponent } from './components/dashboard/manage-terminal-home/manage-terminal-home.component';
+import { OverviewterminalListComponent } from './components/dashboard/overviewterminal-list/overviewterminal-list.component';
+import { NewterminalrequestRoutingModule } from './components/dashboard/newterminalrequest/newterminalrequest-routing.module';
+// import { DeactivateTerminalModule } from './components/dashboard/deactivate-terminal/deactivate-terminal.module';
+import { DeactivateTerminalRouteModule } from './components/dashboard/deactivate-terminal/deactivate-terminal-route.module';
+import { ManageTerminalRouteModule } from './components/dashboard/manage-terminal/manage-terminal-route.module';
+import { DeactivateTerminalsComponent } from './components/dashboard/deactivate-terminal/deactivate-terminals.component';
+import { DeactivateTerminalModule } from './components/dashboard/deactivate-terminal/deactivate-terminal.module';
+// import { ModalComponent } from './components/modal/modal.component';
+// import { ModalModule } from './components/modal/modal.module';
+import { NewterminalrequestComponent } from './components/dashboard/newterminalrequest/newterminalrequest.component';
+// import { ManageTerminalRoutingModule } from './components/dashboard/manage-terminal-home/manage-terminal-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -26,12 +44,29 @@ import { BodyComponent } from './components/dashboard/body/body.component';
     AnalyticComponent,
     DashboardComponent,
     BodyComponent,
+    TerminalComponent,
+    ManageTerminalHomeComponent,
+    OverviewterminalListComponent,
+    DeactivateTerminalsComponent,
+    // ModalComponent,
+    NewterminalrequestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    ManageTerminalModule,
+    NewterminalrequestRoutingModule,
+    DeactivateTerminalModule,
+    DeactivateTerminalRouteModule,
+    ManageTerminalRouteModule,
+    
+    // ManageTerminalRoutingModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class AppModule { }
