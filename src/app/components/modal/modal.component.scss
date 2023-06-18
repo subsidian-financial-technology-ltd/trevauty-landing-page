@@ -53,3 +53,14 @@ body.jw-modal-open {
     /* body overflow is hidden to hide main scrollbar when modal window is open */
     overflow: hidden;
 }
+
+
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    input {
+      margin-bottom: 10px;
+    }
+  }
