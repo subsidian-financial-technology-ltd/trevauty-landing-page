@@ -1,24 +1,24 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ManageTerminalComponent } from './manage-terminal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { MaterialModule } from './material.module';
-import { NewterminalrequestComponent } from '../newterminalrequest/newterminalrequest.component';
+import { MaterialModule } from '../manage-terminal/material.module';
+import { RefundTransactionComponent } from './refund-transaction.component';
 
 @NgModule({
-  declarations: [ManageTerminalComponent],
+  declarations: [RefundTransactionComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    CommonModule
+    // CommonModule
   ],
   providers: [],
-  bootstrap: [ManageTerminalComponent],
+  bootstrap:[RefundTransactionComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
-export class ManageTerminalModule { }
+export class RefundTransactionModule { }

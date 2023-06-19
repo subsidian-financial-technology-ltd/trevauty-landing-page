@@ -12,6 +12,10 @@ import { OverviewterminalListComponent } from './components/dashboard/overviewte
 import { NewterminalrequestComponent } from './components/dashboard/newterminalrequest/newterminalrequest.component';
 import { DeactivateTerminalModule } from './components/dashboard/deactivate-terminal/deactivate-terminal.module';
 import { DeactivateTerminalsComponent } from './components/dashboard/deactivate-terminal/deactivate-terminals.component';
+import { RefundTransactionHomeComponent } from './components/dashboard/refund-transaction-home/refund-transaction-home.component';
+import { RefundTransactionComponent } from './components/dashboard/refund-transaction/refund-transaction.component';
+import { OverviewRefundTransactionsComponent } from './components/dashboard/overview-refund-transactions/overview-refund-transactions.component';
+import { NewRefundFormComponent } from './components/dashboard/new-refund-form/new-refund-form.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -29,6 +33,13 @@ const routes: Routes = [
         { path:"deactivate", component: DeactivateTerminalsComponent }
       ]},
     ] },
+    { path:'refund-transaction', component: RefundTransactionComponent, children:[
+      { path: '', component: RefundTransactionHomeComponent, children:[
+        { path:"", redirectTo: 'list', pathMatch: 'full'},
+        { path:"list", component: OverviewRefundTransactionsComponent },
+        { path:"refund", component: NewRefundFormComponent },
+      ]}
+    ]}
   ]},
   { path: '**', redirectTo: 'login' } 
 

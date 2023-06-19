@@ -26,8 +26,9 @@ export class NewterminalrequestComponent {
       this.modalService.close(id);
   }
 
-  toggleModal(){
+  toggleModal(): void {
     this.showModal = !this.showModal;
   }
+
 
 }
