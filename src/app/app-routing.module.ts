@@ -16,6 +16,12 @@ import { RefundTransactionHomeComponent } from './components/dashboard/refund-tr
 import { RefundTransactionComponent } from './components/dashboard/refund-transaction/refund-transaction.component';
 import { OverviewRefundTransactionsComponent } from './components/dashboard/overview-refund-transactions/overview-refund-transactions.component';
 import { NewRefundFormComponent } from './components/dashboard/new-refund-form/new-refund-form.component';
+import { ProfileComponent } from './components/dashboard/profile/profile.component';
+import { ProfileHomeComponent } from './components/dashboard/profile-home/profile-home.component';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { EditUserFormComponent } from './components/dashboard/edit-user-form/edit-user-form.component';
+import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
+import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -38,6 +44,16 @@ const routes: Routes = [
         { path:"", redirectTo: 'list', pathMatch: 'full'},
         { path:"list", component: OverviewRefundTransactionsComponent },
         { path:"refund", component: NewRefundFormComponent },
+      ]}
+    ]},
+    { path:'profile', component: ProfileComponent, children:[
+      { path: '', component: ProfileHomeComponent, children:[
+        { path:"", redirectTo: 'user', pathMatch: 'full'},
+        { path:"user", component: UserProfileComponent },
+        { path:"edit-user", component: EditUserFormComponent },
+        { path:"auth", component: ProfileAuthComponent },
+        { path:"help", component:ProfileHelpComponent },
+
       ]}
     ]}
   ]},

@@ -13,8 +13,7 @@ import { RefundTransactionComponent } from './refund-transaction.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule,
-    // CommonModule
+    MaterialModule
   ],
   providers: [],
   bootstrap:[RefundTransactionComponent],
