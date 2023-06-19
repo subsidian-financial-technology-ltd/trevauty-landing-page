@@ -29,6 +29,19 @@ import { DeactivateTerminalModule } from './components/dashboard/deactivate-term
 // import { ModalComponent } from './components/modal/modal.component';
 // import { ModalModule } from './components/modal/modal.module';
 import { NewterminalrequestComponent } from './components/dashboard/newterminalrequest/newterminalrequest.component';
+import { ModalComponent } from './components/modal/modal.component';
+// import { RefundTransactionComponent } from './components/dashboard/refund-transaction/refund-transaction.component';
+import { RefundTransactionHomeComponent } from './components/dashboard/refund-transaction-home/refund-transaction-home.component';
+import { OverviewRefundTransactionsComponent } from './components/dashboard/overview-refund-transactions/overview-refund-transactions.component';
+import { RefundTransactionModule } from './components/dashboard/refund-transaction/refund-transaction.module';
+import { NewRefundFormComponent } from './components/dashboard/new-refund-form/new-refund-form.component';
+import { ProfileComponent } from './components/dashboard/profile/profile.component';
+import { ProfileHomeComponent } from './components/dashboard/profile-home/profile-home.component';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { EditUserFormComponent } from './components/dashboard/edit-user-form/edit-user-form.component';
+import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
+import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
+// import { RefundTransactionModule } from './components/dashboard/refund-transaction/refund-transaction.module';
 // import { ManageTerminalRoutingModule } from './components/dashboard/manage-terminal-home/manage-terminal-routing.module';
 
 
@@ -48,8 +61,20 @@ import { NewterminalrequestComponent } from './components/dashboard/newterminalr
     ManageTerminalHomeComponent,
     OverviewterminalListComponent,
     DeactivateTerminalsComponent,
-    // ModalComponent,
-    NewterminalrequestComponent
+    ModalComponent,
+    NewterminalrequestComponent,
+    
+    // RefundTransactionComponent,
+    RefundTransactionHomeComponent,
+    OverviewRefundTransactionsComponent,
+    NewRefundFormComponent,
+    ProfileComponent,
+    ProfileHomeComponent,
+    UserProfileComponent,
+    EditUserFormComponent,
+    ProfileAuthComponent,
+    ProfileHelpComponent,
+    // RefundTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +85,7 @@ import { NewterminalrequestComponent } from './components/dashboard/newterminalr
     DeactivateTerminalModule,
     DeactivateTerminalRouteModule,
     ManageTerminalRouteModule,
-    
+    RefundTransactionModule
     // ManageTerminalRoutingModule,
 
   ],

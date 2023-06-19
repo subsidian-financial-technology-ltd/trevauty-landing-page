@@ -7,11 +7,11 @@ import { ModalModule } from '../../modal/modal.module';
 @NgModule({
   declarations: [
     NewterminalrequestComponent,
-    ModalComponent
+    // ModalComponent
   ],
   imports: [
     CommonModule,
-    ModalModule
+    // ModalModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

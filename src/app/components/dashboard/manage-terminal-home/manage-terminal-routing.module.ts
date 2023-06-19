@@ -3,18 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ManageTerminalHomeComponent } from './manage-terminal-home.component';
 import { Route } from '@angular/router';
 
-
-// @NgModule({
-//   declarations: [],
-//   imports: [
-//     CommonModule
-//   ]
-// })
-// export class ManageTerminalRoutingModule { }
-
-
-
-
 export const HOME_ROUTE: Route = {
   path: '',
   component: ManageTerminalHomeComponent,

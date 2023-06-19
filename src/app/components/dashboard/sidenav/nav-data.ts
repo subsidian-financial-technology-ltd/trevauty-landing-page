@@ -1,11 +1,7 @@
 import { INavbarData } from "./helper";
 
 export const navbarData: INavbarData[] = [
-    {
-        routeLink: 'profile',
-        icon: 'assets/icons/Profile.png',
-        label: 'Profile'
-    },
+
     {
         routeLink: 'overview',
         icon: 'assets/icons/Document.png',
@@ -62,30 +58,36 @@ export const navbarData: INavbarData[] = [
         // ]
     },
     {
-        routeLink: 'request-terminal',
+        routeLink: 'refund-transaction',
         icon: 'assets/icons/Stroke 1.png',
-        label: 'Request Terminal'
-    },
-    {
-        routeLink: 'refund',
-        icon: 'fal fa-camera',
         label: 'Refund Transactions'
     },
+    // {
+    //     routeLink: 'refund',
+    //     icon: 'fal fa-camera',
+    //     label: 'Refund Transactions'
+    // },
     {
-        routeLink: 'Route4',
-        icon: 'fal fa-cog',
-        label: 'Route4',
-        expanded: true,
+        routeLink: 'profile',
+        icon: 'assets/icons/Profile.png',
+        label: 'Profile'
+    }
+    ,
+    // {
+    //     routeLink: 'Route4',
+    //     icon: 'fal fa-cog',
+    //     label: 'Route4',
+    //     expanded: true,
 
-        // items: [
-        //     {
-        //         routeLink: 'settings/profile',
-        //         label: 'Profile'
-        //     },
-        //     {
-        //         routeLink: 'settings/customize',
-        //         label: 'Customize'
-        //     }
-        // ]
-    },
+    //     items: [
+    //         {
+    //             routeLink: 'settings/profile',
+    //             label: 'Profile'
+    //         },
+    //         {
+    //             routeLink: 'settings/customize',
+    //             label: 'Customize'
+    //         }
+    //     ]
+    // },
 ];

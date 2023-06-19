@@ -9,6 +9,8 @@ import { ModalService } from 'src/app/services/modal.service';
 export class NewterminalrequestComponent {
 
   bodyText: string = "";
+  showModal = false;
+
 
   constructor(private modalService: ModalService) { }
 
@@ -23,5 +25,10 @@ export class NewterminalrequestComponent {
   closeModal(id: string) {
       this.modalService.close(id);
   }
+
+  toggleModal(): void {
+    this.showModal = !this.showModal;
+  }
+
 
 }
