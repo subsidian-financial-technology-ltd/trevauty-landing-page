@@ -38,7 +38,7 @@
                         <label for="checking" class="label">Keep me logged in</label>
                         <a href="#" class="terms">Forget password?</a>
                     </div>
-                    <button>Sign In</button>
+                    <button (click)="toggleModal()">Sign In</button>
                 </form>
     
                 <p class="sign-in">Not registered yet? <a href="#" class="sign">Create an Account</a></p>
@@ -49,7 +49,7 @@
         </div>
 
     </div>
-    <div class="right">
+    <div class="right flex">
         <div class="rightComponent">
             <img src="assets/images/LOGO 3.png">
             <div class="boxing">
@@ -68,3 +68,38 @@
         </footer>
     </div>
 </div>
+
+
+
+
+
+
+
+
+<!-- <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+    Open regular modal
+  </button> -->
+  <div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto max-w-3xl">
+      <!--content-->
+      <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+        <div class="grid place-items-center items-center p-[4rem] w-full">
+            <div class="flex justify-end w-full">
+                <span (click)="toggleModal()">close</span>
+            </div>
+            <div class="py-[2rem] grid gap-[1rem]">
+                <div class="text-center text-[24px] font-[600] leading-[30px]">Pin</div>
+                <div  class="text-center">Kindly put in <b>Trevauty</b>  secret  pin number</div>
+            </div>
+            <ngx-otp-input [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)">
+            </ngx-otp-input>
+            <div class="flex">
+                <span>you don't Trevauty secret  pin number ?  </span> <a href="" class="text-[#7B57FC] underline">click here to start</a>
+            </div>
+        </div>
+        <div class="flex items-center justify-end p-6 rounded-b">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
