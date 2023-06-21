@@ -41,6 +41,8 @@ import { UserProfileComponent } from './components/dashboard/user-profile/user-p
 import { EditUserFormComponent } from './components/dashboard/edit-user-form/edit-user-form.component';
 import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
 import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
+import { FormsModule } from '@angular/forms';
+import { NgxOtpInputModule } from 'ngx-otp-input';
 // import { RefundTransactionModule } from './components/dashboard/refund-transaction/refund-transaction.module';
 // import { ManageTerminalRoutingModule } from './components/dashboard/manage-terminal-home/manage-terminal-routing.module';
 
@@ -85,7 +87,9 @@ import { ProfileHelpComponent } from './components/dashboard/profile-help/profil
     DeactivateTerminalModule,
     DeactivateTerminalRouteModule,
     ManageTerminalRouteModule,
-    RefundTransactionModule
+    RefundTransactionModule,
+    FormsModule,
+    NgxOtpInputModule
     // ManageTerminalRoutingModule,
 
   ],
