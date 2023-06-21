@@ -42,5 +42,160 @@
         </div>
     </form>
 
-    <span>Forget password? </span> <a href="#" class="text-[#7B57FC] font-[200] underline">Click here to recover</a>
+    <span>Forget password? </span> <span (click)="toggleModal()" class="text-[#7B57FC] cursor-pointer font-[200] underline">Click here to recover</span>
 </div>
+
+
+
+
+
+
+
+
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed top-0 left-0 inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto max-w-3xl">
+      <!--content-->
+      <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+        <div class="grid place-items-center items-center p-[4rem] w-full">
+            <div class="flex justify-end items-center gap-[12rem] w-full mb-[3rem]">
+                <span>Forgot Password</span>
+                <span class="cursor-pointer" (click)="toggleModal()"><img class="h-[20px]" src="/assets/images/x.png" alt=""></span>
+            </div>
+            <form action="">
+
+            <div class="py-[2rem] grid gap-[1rem]">
+                <div class="text-center text-[24px] font-[600] leading-[30px]">Pin</div>
+                <div  class="text-center m-auto my-[2rem] w-[80%]">Enter your email address associated with 
+                    your account</div>
+
+                    <div>
+                        <div class="text-[#4C535F]">
+                            <label for="">Password</label>
+                        </div>
+                        <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
+                            <input type="text" placeholder="Please enter your password" class="bg-[transparent] w-[95%]">
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="py-[2rem] w-[100%] flex justify-center">
+                <button (click)="toggleOtpModal()" class="bg-[#7B57FC] w-[80%] m-auto text-[#fff] py-[0.8rem] px-[4rem] text-[16px] rounded-[8.4px]">Recover password</button>
+            </div>
+
+        </form>
+
+
+        </div>
+        <div class="flex items-center justify-end p-6 rounded-b">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
+
+
+
+
+
+
+
+
+  <div *ngIf="showOtpModal" class="overflow-x-hidden overflow-y-auto fixed top-0 left-0 inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto max-w-3xl">
+      <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+        <div class="grid place-items-center items-center p-[4rem] w-full">
+            <div class="flex justify-end w-full">
+                <span class="cursor-pointer" (click)="toggleOtpModal()"><img src="/assets/images/x.png" alt=""></span>
+            </div>
+            <div class="py-[2rem] grid gap-[1rem]">
+                <div  class="text-center">Enter the code sent to your mail <br>
+                    example@mail.com</div>
+            </div>
+            <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
+                <ngx-otp-input [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)">
+                </ngx-otp-input>
+                <div class="flex">
+                    <div class="py-[2rem] w-[100%] flex justify-center">
+                        <button (click)="toggleResetPasswordModal()" class="bg-[#7B57FC] m-auto text-[#fff] py-[0.8rem] px-[4rem] text-[16px] rounded-[8.4px]">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="flex items-center justify-end p-6 rounded-b">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showOtpModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="showResetPasswordModal" class="overflow-x-hidden overflow-y-auto fixed top-0 left-0 inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto max-w-3xl">
+      <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+        <div class="grid place-items-center items-center p-[4rem] w-full">
+            <div class="flex justify-end items-center gap-[12rem] w-full mb-[3rem]">
+                <span>Forgot Password</span>
+                <span class="cursor-pointer" (click)="toggleResetPasswordModal()"><img class="h-[20px]" src="/assets/images/x.png" alt=""></span>
+            </div>
+            <form action="">
+
+            <div class="py-[2rem] grid gap-[1rem]">
+                <div class="text-center text-[24px] font-[600] leading-[30px]">Pin</div>
+                <div  class="text-center m-auto my-[2rem] w-[80%]">Enter your email address associated with 
+                    your account</div>
+
+                    <div>
+                        <div class="text-[#4C535F]">
+                            <label for="">Password</label>
+                        </div>
+                        <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
+                            <input type="text" placeholder="Enter your new password" class="bg-[transparent] w-[95%]">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="text-[#4C535F]">
+                            <label for="">Confirm Password</label>
+                        </div>
+                        <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
+                            <input type="text" placeholder="Confirm your new password" class="bg-[transparent] w-[95%]">
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="py-[2rem] w-[100%] flex justify-center">
+                <button (click)="toggleResetPasswordModal()" class="bg-[#7B57FC] w-[80%] m-auto text-[#fff] py-[0.8rem] px-[4rem] text-[16px] rounded-[8.4px]">Update</button>
+            </div>
+
+        </form>
+
+
+        </div>
+        <div class="flex items-center justify-end p-6 rounded-b">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showResetPasswordModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
+

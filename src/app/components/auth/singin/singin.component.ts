@@ -9,6 +9,8 @@ import { NgxOtpInputConfig } from 'ngx-otp-input';
 })
 export class SinginComponent {
 
+  showModal = false;
+
   otpInputConfig: NgxOtpInputConfig = {
     otpLength: 6,
     autofocus: true,
@@ -31,7 +33,6 @@ export class SinginComponent {
   }
 
 
-  showModal = false;
   toggleModal(){
     this.showModal = !this.showModal;
   }
