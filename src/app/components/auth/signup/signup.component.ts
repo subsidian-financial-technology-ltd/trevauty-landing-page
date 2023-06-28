@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,17 +11,25 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http';
 export class SignupComponent {
 
   myform: FormGroup;	  
-  constructor( private http: HttpClient) {
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+  password:string = "password";
+  confirmPassword:string = "password";
+
+  constructor( private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+    
+    ) {
     this.myform = new FormGroup({
        uName: new FormControl(	'',	[Validators.required]),
        mobile: new FormControl(	'',	[Validators.required,  Validators.pattern(/^\+?\d{1,3}[-\s]?\d{9,11}$/)]),
        password: new FormControl(  '',  [Validators.required]),
-       eMail: new FormControl(  '',  [Validators.required, Validators.pattern('^.+@.+\..+$')]),
+       eMail: new FormControl(  '',  [ Validators.pattern('^.+@.+\..+$')]),
        cOption: new FormControl('',   [Validators.required]),
-       optionsRadios : new FormControl('',   [Validators.required]),
        optionChecked : new FormControl('',   [Validators.required]),
-       address: new FormControl('', 	[Validators.required]),
-       dBirth : new FormControl('',   [Validators.required])
+  
     });  
   }
 
@@ -30,6 +40,25 @@ validateForm() {
 for(let i in this.myform.controls)
   this.myform.controls[i].markAsTouched();
 
+}
+
+toggleShowPassword(){
+  if (this.password === 'password') {
+    this.password = 'text';
+    this.showPassword = true;
+  } else {
+    this.password = 'password';
+    this.showPassword = false;
+  }
+}
+toggleShowConfirmPassword(){
+  if (this.confirmPassword === 'password') {
+    this.confirmPassword = 'text';
+    this.showConfirmPassword = true;
+  } else {
+    this.confirmPassword = 'password';
+    this.showConfirmPassword = false;
+  }
 }
 
 resetFormInputs() {
@@ -47,18 +76,28 @@ resetFormInputs() {
 }
 
 onSubmit (user: any): void  {
-console.log(user);    
-// this.myform.reset(); // for clearing the inputs field
-// this.resetFormInputs();
+// console.log(user);    
   if (this.myform.valid) {
-  let url = "https://reqres.in/api/users";     
-      const headers = new HttpHeaders()
-        .set('Authorization', 'my-auth-token')
-        .set('Content-Type', 'application/json');
-    this.http.post(url, user).subscribe((res:any) => console.log("Data Post Done"));
+console.log({user});    
+
+    this.authService.accountSignUp(this.myform).subscribe({
+    next:(response)=>{
+      console.log("response =>>>>",response);
+      this.resetFormInputs();
+      this.router.navigate(['login']);
+    },
+    error:(error)=>{
+      console.log("sign up failed", error);
+      this.router.navigate([]);
+    }
+  })
   
 }
-else{this.validateForm()}
+else{
+console.log(user);    
+
+  this.validateForm()
+}
 }
 
 }
