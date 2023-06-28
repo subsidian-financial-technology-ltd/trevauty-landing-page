@@ -1,0 +1,18 @@
+<div class="w-full"
+[ngClass]="{'has-error': !formData['password'].valid && formData['password'].touched}">
+<label for="password">Full Name*</label>
+<div class="border-none " *ngIf="formData['password'].touched && formData['password'].errors">
+    <div class="shadow-none border-none  text-danger"
+        *ngIf="formData['password'].errors['required']">
+        The Password is required
+    </div>
+    <div class="shadow-none text-danger" *ngIf="formData['password'].errors['pattern']">
+
+        The Password is not valid
+    </div>
+</div>
+<div class="rounded-[16px] border px-[0.5rem] py-[0.8rem] flex justify-between mb-[10px]">
+    <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
+        placeholder="mail@simmmple.com" name="password" formControlName="password">
+</div>
+</div>

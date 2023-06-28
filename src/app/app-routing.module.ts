@@ -10,7 +10,6 @@ import { ManageTerminalComponent } from './components/dashboard/manage-terminal/
 import { ManageTerminalHomeComponent } from './components/dashboard/manage-terminal-home/manage-terminal-home.component';
 import { OverviewterminalListComponent } from './components/dashboard/overviewterminal-list/overviewterminal-list.component';
 import { NewterminalrequestComponent } from './components/dashboard/newterminalrequest/newterminalrequest.component';
-import { DeactivateTerminalModule } from './components/dashboard/deactivate-terminal/deactivate-terminal.module';
 import { DeactivateTerminalsComponent } from './components/dashboard/deactivate-terminal/deactivate-terminals.component';
 import { RefundTransactionHomeComponent } from './components/dashboard/refund-transaction-home/refund-transaction-home.component';
 import { RefundTransactionComponent } from './components/dashboard/refund-transaction/refund-transaction.component';
@@ -53,11 +52,10 @@ const routes: Routes = [
         { path:"edit-user", component: EditUserFormComponent },
         { path:"auth", component: ProfileAuthComponent },
         { path:"help", component:ProfileHelpComponent },
-
       ]}
     ]}
   ]},
-  { path: '**', redirectTo: 'login' } 
+  { path: '**', redirectTo: 'login' }
 
 ];
 

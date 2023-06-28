@@ -98,69 +98,18 @@ label {
     line-height: 20px;
 
 }
-.inputWrapper  {
-    width: 100%;
-}
-.inputWrapper label {
-    font-size: 14px;
-}
-.inputWrapper > div{
-    border-radius: 16px;
-    border: 1px solid #E0E5F2;
-    padding: 0.8rem 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
 
-.inputWrapper > div img{
-    height: 100%;
-}
-.inputWrapper input {
-    background-color: transparent;
-    border: none;
-    outline-width: 0;
-    font-size: 14px;
-    width: 90%;
-    box-sizing: border-box;
-    padding: 0.5rem;
-}
 img {
     margin-bottom: 0px;
     cursor: pointer;
 }
-input.checkbox {
-    width: 12px;
-    height: 12px;
-}
-label.label {
-    font-weight: 400;
-    color: #2B3674;
-    margin-right: 15px;
-}
+
+
 a.terms {
     font-weight: 400;
     color: #2B3674;
 }
-.checking{
-    margin: 0.5rem 0;
-    font-size: 14px;
-    display: flex;
-}
-.checking input{
-    margin-right: 5px;
-}
-button {
-  width: 100%;
-  padding: 1.2rem;
-  border-radius: 16px;
-  padding: 10px, 8px, 10px, 8px;
-  gap: 10px;  
-  color: #FFFFFF;
-  background: #7B57FC;
-  border: none;
-  margin: 1rem 0;
-}
+
 .sign-in {
     font: DM Sans;
     font-weight: 400;
