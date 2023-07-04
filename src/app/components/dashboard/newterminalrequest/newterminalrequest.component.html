@@ -1,73 +1,141 @@
 <div>
     <div class="bg-[#fff] rounded-[2px] mt-[50px] md:w-[50%]">
         <h1 class="p-[2rem] border-b">Terminal Request Form</h1>
-        <form class="grid gap-[2rem] p-[2rem]">
+        <form  [formGroup]="terminalRequestForm" (ngSubmit)="onSubmit(terminalRequestForm.value)" class="grid gap-[2rem] p-[2rem]">
             <div class="flex gap-[2rem] w-[100%]">
-                <div class="w-[100%]">
+                <div class="w-full" [ngClass]="{'has-error': !formData['firstName'].valid && formData['firstName'].touched}">
                     <div>
                         <label class="leading-[22px] text-[#212B36] font-[500]" for="">
                             Operator's First name</label>
                     </div>
+                    <div class="border-none " *ngIf="formData['firstName'].touched && formData['firstName'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['firstName'].errors['required']">
+                            The First Name is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['firstName'].errors['pattern']">
+                    
+                            The First Name is not valid
+                        </div>
+                    </div>
                     <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
-                        <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name">
+
+                        <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name"  name="firstName" formControlName="firstName">
                     </div>
                 </div>
-                <div class="w-[100%]">
+                <div class="w-full" [ngClass]="{'has-error': !formData['lastName'].valid && formData['lastName'].touched}">
                     <div>
                         <label class="leading-[22px] text-[#212B36] font-[500]" for="">
                             Operator's Last name</label>
                     </div>
+                    <div class="border-none " *ngIf="formData['lastName'].touched && formData['lastName'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['lastName'].errors['required']">
+                            The Last Name is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['lastName'].errors['pattern']">
+                    
+                            The Last Name is not valid
+                        </div>
+                    </div>
                     <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
-                        <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's last name">
+                
+                        <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name"  name="lastName" formControlName="lastName">
                     </div>
                 </div>
             </div>
-            <div class="w-[100%]">
+            <div class="w-full" [ngClass]="{'has-error': !formData['location'].valid && formData['location'].touched}">
                 <div>
                     <label class="leading-[22px] text-[#212B36] font-[500]" for="">
-                        Operator's Last name</label>
+                        Location of Terminal</label>
+                </div>
+                <div class="border-none " *ngIf="formData['location'].touched && formData['location'].errors">
+                    <div class="shadow-none border-none  text-danger"
+                        *ngIf="formData['location'].errors['required']">
+                        The Location is required
+                    </div>
+                    <div class="shadow-none text-danger" *ngIf="formData['location'].errors['pattern']">
+                
+                        The Location is not valid
+                    </div>
                 </div>
                 <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
-                    <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's last name">
+            
+                    <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name"  name="location" formControlName="location">
+                </div>
+            </div>
+
+            <div class="w-full" [ngClass]="{'has-error': !formData['terminalName'].valid && formData['terminalName'].touched}">
+                <div>
+                    <label class="leading-[22px] text-[#212B36] font-[500]" for="">
+                        Terminal Name</label>
+                </div>
+                <div class="border-none " *ngIf="formData['terminalName'].touched && formData['terminalName'].errors">
+                    <div class="shadow-none border-none  text-danger"
+                        *ngIf="formData['terminalName'].errors['required']">
+                        The Name of Terminal is required
+                    </div>
+                    <div class="shadow-none text-danger" *ngIf="formData['terminalName'].errors['pattern']">
+                
+                        The Name of Terminal is not valid
+                    </div>
+                </div>
+                <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
+            
+                    <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name"  name="terminalName" formControlName="terminalName">
+                </div>
+            </div>
+
+            <div class="w-full" [ngClass]="{'has-error': !formData['phoneNumber'].valid && formData['phoneNumber'].touched}">
+                <div>
+                    <label class="leading-[22px] text-[#212B36] font-[500]" for="">
+                        Operator's Phone Number</label>
+                </div>
+                <div class="border-none " *ngIf="formData['phoneNumber'].touched && formData['phoneNumber'].errors">
+                    <div class="shadow-none border-none  text-danger"
+                        *ngIf="formData['phoneNumber'].errors['required']">
+                        The Operator's Phone Number is required
+                    </div>
+                    <div class="shadow-none text-danger" *ngIf="formData['phoneNumber'].errors['pattern']">
+                
+                        The Operator's Phone Number is not valid
+                    </div>
+                </div>
+                <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
+            
+                    <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name"  name="phoneNumber" formControlName="phoneNumber">
+                </div>
+            </div>
+
+
+            <div class="w-full" [ngClass]="{'has-error': !formData['comment'].valid && formData['comment'].touched}">
+                <div>
+                    <label class="leading-[22px] text-[#212B36] font-[500]" for="">
+                        Note to Trevauty</label>
+                </div>
+                <div class="border-none " *ngIf="formData['comment'].touched && formData['comment'].errors">
+                    <div class="shadow-none border-none  text-danger"
+                        *ngIf="formData['comment'].errors['required']">
+                        Note to Trevauty is required
+                    </div>
+                    <div class="shadow-none text-danger" *ngIf="formData['comment'].errors['pattern']">
+                
+                        Note to Trevauty is not valid
+                    </div>
+                </div>
+                <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
+            
+                    <textarea class="outline-none w-[100%]" type="text" placeholder="Enter operator's first name"  name="comment" formControlName="comment">
+
+                    </textarea>
                 </div>
             </div>
 
             <div class="w-[100%]">
-                <div>
-                    <label class="leading-[22px] text-[#212B36] font-[500]" for="">
-                        Operator's Last name</label>
-                </div>
-                <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
-                    <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's last name">
-                </div>
-            </div>
-
-            <div class="w-[100%]">
-                <div>
-                    <label class="leading-[22px] text-[#212B36] font-[500]" for="">
-                        Operator's Last name
-                    </label>
-                </div>
-                <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
-                    <input class="outline-none w-[100%]" type="text" placeholder="Enter operator's last name">
-                </div>
-            </div>
-
-            <div class="w-[100%]">
-                <div>
-                    <label class="leading-[22px] text-[#212B36] font-[500]" for="">
-                        Operator's Last name</label>
-                </div>
-                <div class="border rounded-[4px] border-[#E2E8F0] p-[1.5rem]">
-                    <textarea class="outline-none w-[100%]" type="text" placeholder="Enter operator's last name">
-                </textarea>
-                </div>
-            </div>
-
-            <div class="w-[100%]">
-                <button (click)="openModal('custom-modal-2')"
+                <!-- <button (click)="openModal('custom-modal-2')"
                 (click)="toggleModal()"
-                    class="bg-[#7B57FC] text-[#fff] w-[100%] p-[1rem] rounded-[4px]">Request Terminal</button>
+                    class="bg-[#7B57FC] text-[#fff] w-[100%] p-[1rem] rounded-[4px]">Request Terminal</button> -->
+                    <button type="submit" class="bg-[#7B57FC] text-[#fff] w-[100%] p-[1rem] rounded-[4px]">Request Terminal</button>
             </div>
         </form>
     </div>

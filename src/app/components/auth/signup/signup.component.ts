@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,7 +21,7 @@ export class SignupComponent {
   constructor( private http: HttpClient,
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
     
     ) {
     this.myform = new FormGroup({
@@ -33,7 +35,7 @@ export class SignupComponent {
     });  
   }
 
-   get formData() { return this.myform.controls; };
+  get formData() { return this.myform.controls; };
 
 validateForm() { 
 
@@ -75,29 +77,53 @@ resetFormInputs() {
   });
 }
 
-onSubmit (user: any): void  {
-// console.log(user);    
+// onSubmit(user: any): void {
+//   if (this.myform.valid) {
+//     console.log({ user });
+//     this.authService.accountSignUp(this.myform.value).subscribe({
+//       next: (response) => {
+//         console.log("response =>>>>", response);
+//         this.resetFormInputs();
+//         this.router.navigate(['login']);
+//       },
+//       error: (error) => {
+//         console.log("sign up failed", error);
+//         this.router.navigate([]);
+//       }
+//     });
+//   } else {
+//     console.log(user);
+//     this.validateForm();
+//   }
+// }
+
+
+
+onSubmit(user: any): void {
   if (this.myform.valid) {
-console.log({user});    
-
-    this.authService.accountSignUp(this.myform).subscribe({
-    next:(response)=>{
-      console.log("response =>>>>",response);
-      this.resetFormInputs();
-      this.router.navigate(['login']);
-    },
-    error:(error)=>{
-      console.log("sign up failed", error);
-      this.router.navigate([]);
-    }
-  })
-  
-}
-else{
-console.log(user);    
-
-  this.validateForm()
-}
+    console.log({ user });
+    this.authService.accountSignUp(this.myform.value).subscribe({
+      next: (response) => {
+        console.log("response =>>>>", response);
+        // this.resetFormInputs();
+        this.myform.markAsPristine(); // Reset form state
+        this.myform.markAsUntouched(); // Reset form state
+        this.router.navigate(['login']);
+      },
+      error: (error) => {
+        console.log("sign up failed", error);
+        // Handle validation errors
+        if (error.status === 400 && error.error && error.error.errors) {
+          // You can access the validation errors from the error object
+          const validationErrors = error.error.errors;
+          // Display the validation errors or handle them accordingly
+        }
+      }
+    });
+  } else {
+    console.log(user);
+    this.validateForm();
+  }
 }
 
 }

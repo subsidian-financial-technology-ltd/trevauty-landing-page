@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   baseURL = "http://localhost:8080";
+  singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +16,20 @@ export class AuthService {
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(this.baseURL, signup);
+  }
+
+  accountLogin(authCredentials:any){
+    console.log("hello world");
+    const headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    return this.http.post<any>(this.singupUrl, authCredentials);
+  }
+
+  passwordReset(usersDetail:any){
+    console.log("hello world");
+    const headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    return this.http.post<any>(this.singupUrl, usersDetail);
   }
 }
 

@@ -46,6 +46,7 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
 // import { RefundTransactionModule } from './components/dashboard/refund-transaction/refund-transaction.module';
 // import { ManageTerminalRoutingModule } from './components/dashboard/manage-terminal-home/manage-terminal-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgxOtpInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule 
 
 
     // ManageTerminalRoutingModule,

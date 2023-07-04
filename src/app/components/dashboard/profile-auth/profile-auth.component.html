@@ -1,38 +1,74 @@
 <div class="md:w-[50%] w-[100%] mt-[3rem]">
-    <form action="" class="w-[80%] grid gap-[3rem]">
-        <div>
+    <form [formGroup]="passwordResetDetails" (ngSubmit)="onSubmit(passwordResetDetails.value)" action="" class="w-[80%] grid gap-[3rem]">
+        <div [ngClass]="{'has-error': !formData['password'].valid && formData['password'].touched}">
             <div class="text-[#4C535F]">
                 <label for="">Password</label>
             </div>
+
+            <div class="border-none " *ngIf="formData['password'].touched && formData['password'].errors">
+                <div class="shadow-none border-none  text-danger"
+                    *ngIf="formData['password'].errors['required']">
+                    Password is required
+                </div>
+                <div class="shadow-none text-danger" *ngIf="formData['password'].errors['pattern']">
+            
+                    Password is not valid
+                </div>
+            </div>
+
             <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
-                <input type="text" placeholder="Please enter your password" class="bg-[transparent] w-[95%]">
+                <input [type]="password" placeholder="Please enter your password" class="bg-[transparent] w-[95%]" formControlName="password" name="password">
                 <span>
-                    <img src="/assets/images/showPassword.png" alt="">
+                    <img (click)="toggleShowPassword()" src="/assets/images/showPassword.png" alt="">
                 </span>
             </div>
         </div>
 
-        <div>
+        
+        <div [ngClass]="{'has-error': !formData['newPassword'].valid && formData['newPassword'].touched}">
             <div class="text-[#4C535F]">
-                <label for="">Password</label>
+                <label for="">New Password</label>
             </div>
+        
+            <div class="border-none " *ngIf="formData['newPassword'].touched && formData['newPassword'].errors">
+                <div class="shadow-none border-none  text-danger"
+                    *ngIf="formData['newPassword'].errors['required']">
+                    New Password is required
+                </div>
+                <div class="shadow-none text-danger" *ngIf="formData['newPassword'].errors['pattern']">
+            
+                    New Password is not valid
+                </div>
+            </div>
+        
             <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
-                <input type="text" placeholder="Please enter your password" class="bg-[transparent] w-[95%]">
+                <input [type]="newPassword" placeholder="Please enter your new password" class="bg-[transparent] w-[95%]" formControlName="newPassword" name="newPassword">
                 <span>
-                    <img src="/assets/images/showPassword.png" alt="">
+                    <img (click)="toggleShowNewPassword()" src="/assets/images/showPassword.png" alt="">
                 </span>
             </div>
         </div>
 
-
-        <div>
+        <div [ngClass]="{'has-error': !formData['confirmNewPassword'].valid && formData['confirmNewPassword'].touched}">
             <div class="text-[#4C535F]">
-                <label for="">Password</label>
+                <label for="">Confirm New Password</label>
             </div>
+        
+            <div class="border-none " *ngIf="formData['confirmNewPassword'].touched && formData['confirmNewPassword'].errors">
+                <div class="shadow-none border-none  text-danger"
+                    *ngIf="formData['confirmNewPassword'].errors['required']">
+                    Password is required
+                </div>
+                <div class="shadow-none text-danger" *ngIf="formData['confirmNewPassword'].errors['pattern']">
+            
+                    Password is not valid
+                </div>
+            </div>
+        
             <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
-                <input type="text" placeholder="Please enter your password" class="bg-[transparent] w-[95%]">
+                <input [type]="confirmNewPassword" placeholder="Please enter your confirmNewPassword" class="bg-[transparent] w-[95%]">
                 <span>
-                    <img src="/assets/images/showPassword.png" alt="">
+                    <img (click)="toggleShowConfirmNewPassword()" src="/assets/images/showPassword.png" alt="">
                 </span>
             </div>
         </div>
