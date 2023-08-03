@@ -22,13 +22,12 @@ export class SignupComponent {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    
     ) {
     this.myform = new FormGroup({
-       uName: new FormControl(	'',	[Validators.required]),
-       mobile: new FormControl(	'',	[Validators.required,  Validators.pattern(/^\+?\d{1,3}[-\s]?\d{9,11}$/)]),
-       password: new FormControl(  '',  [Validators.required]),
-       eMail: new FormControl(  '',  [ Validators.pattern('^.+@.+\..+$')]),
+       uName: new FormControl('',	[Validators.required]),
+       mobile: new FormControl('',	[Validators.required,  Validators.pattern(/^\+?\d{1,3}[-\s]?\d{9,11}$/)]),
+       password: new FormControl('',  [Validators.required]),
+       eMail: new FormControl('',  [ Validators.pattern('^.+@.+\..+$')]),
        cOption: new FormControl('',   [Validators.required]),
        optionChecked : new FormControl('',   [Validators.required]),
   

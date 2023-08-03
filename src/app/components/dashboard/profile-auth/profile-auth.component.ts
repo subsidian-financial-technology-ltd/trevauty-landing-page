@@ -15,12 +15,17 @@ export class ProfileAuthComponent {
 
   apiResponse: any;
   passwordResetDetails: FormGroup;
+  forgotPasswordDetails:FormGroup;
+  changePasswordRequest:FormGroup;
   showPassword: boolean = false;
   showNewPassword: boolean = false;
   showConfirmNewPassword: boolean = false;
   password:string = "password";
   newPassword:string = "password";
   confirmNewPassword = "password"
+  showModal = false;
+  showOtpModal = false;
+  showResetPasswordModal = false;
 
 
   constructor(
@@ -32,6 +37,16 @@ export class ProfileAuthComponent {
       password: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
       confirmNewPassword : new FormControl('', [Validators.required])
+    })
+
+    this.forgotPasswordDetails = new FormGroup({
+      email: new FormControl([Validators.required, Validators.email])
+    })
+
+    this.changePasswordRequest = new FormGroup({
+        password: new FormControl([Validators.required]),
+        confirmPassword: new FormControl([Validators.required]),
+
     })
   }
 
@@ -78,13 +93,29 @@ export class ProfileAuthComponent {
   }
 
   validateForm() {
-
     for (let i in this.passwordResetDetails.controls)
       this.passwordResetDetails.controls[i].markAsTouched();
+  }
+  validateFormForgotPasswordEmail() {
+    for (let i in this.forgotPasswordDetails.controls)
+      this.forgotPasswordDetails.controls[i].markAsTouched();
+  }
+
+  validateFormChangePasswordRequest() {
+    for (let i in this.changePasswordRequest.controls)
+      this.changePasswordRequest.controls[i].markAsTouched();
   }
 
   get formData() {
     return this.passwordResetDetails.controls
+  }
+
+  get passwordResetFormData() {
+    return this.forgotPasswordDetails.controls
+  }
+
+  get passwordChangeFormData(){
+    return this.changePasswordRequest.controls
   }
 
   onSubmit(passwordResetDetails: any) {
@@ -106,22 +137,54 @@ export class ProfileAuthComponent {
 
   }
 
-  showModal = false;
-  showOtpModal = false;
-  showResetPasswordModal = false;
+ submitForgotPassword(forgotPasswordDetails: any){
+  this.toggleOtpModal();
+  if (this.forgotPasswordDetails.valid) {
+    this.authService.forgotPasswordAuth(forgotPasswordDetails).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.toggleOtpModal()
+      },
+      error: (err: any) => {
+        console.log(err)
+      }
+    })
+  } else {
+    this.validateFormForgotPasswordEmail();
+  }
+ }
+
+ submitChangePassword(forgotPasswordDetails: any){
+  this.toggleResetPasswordModal();
+  if (this.changePasswordRequest.valid) {
+    this.authService.changePasswordAuth(forgotPasswordDetails).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.toggleResetPasswordModal();
+      },
+      error: (err: any) => {
+        console.log(err)
+      }
+    })
+  } else {
+    this.validateFormChangePasswordRequest();
+  }
+ }
+
 
   toggleModal() {
     this.showModal = !this.showModal;
   }
+
   toggleOtpModal() {
     this.showOtpModal = !this.showOtpModal;
     this.showModal = false;
   }
+
   toggleResetPasswordModal() {
     this.showResetPasswordModal = !this.showResetPasswordModal;
     this.showOtpModal = false;
   }
-
 
   otpInputConfig: NgxOtpInputConfig = {
     otpLength: 6,

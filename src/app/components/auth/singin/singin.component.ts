@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { Component, VERSION } from '@angular/core';
 import { NgxOtpInputConfig } from 'ngx-otp-input';
-import { AuthService } from 'src/app/services/auth.service';
 import { NgToastService } from 'ng-angular-popup';
+import { AuthService } from 'src/app/services/auth.service';
+// import {Component} from '@angular/core';
 
 
 @Component({
   selector: 'app-singin',
   templateUrl: './singin.component.html',
-  styleUrls: ['./singin.component.scss']
+  styleUrls: ['./singin.component.scss'],
+
 })
 export class SinginComponent implements OnInit{
 

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,28 +10,109 @@ export class AuthService {
   baseURL = "http://localhost:8080";
   singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
 
+  data = [
+    {
+      paymentId:"06c1774-7f3d-46ad...90a1",
+      status:"succeded",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"visa",
+      cardRef:"•••• 4242"
+    },
+    {
+      paymentId:"06c1774-7f3d-46ad...90a2",
+      status:"pending",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"master",
+      cardRef:"•••• 4242"
+    },
+    {
+      paymentId:"06c1774-7f3d-46ad...90a3",
+      status:"created",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"visa",
+      cardRef:"•••• 4242"
+    },
+    {
+      paymentId:"06c1774-7f3d-46ad...90a4",
+      status:"rejected",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"visa",
+      cardRef:"•••• 4242"
+    },
+    {
+      paymentId:"06c1774-7f3d-46ad...90a5",
+      status:"pending",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"visa",
+      cardRef:"•••• 4242"
+    },
+    {
+      paymentId:"06c1774-7f3d-46ad...90a6",
+      status:"pending",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"nibbs",
+      cardRef:"•••• 4242"
+    },
+    {
+      paymentId:"06c1774-7f3d-46ad...90a7",
+      status:"succeded",
+      amount:19623.00,
+      creationDate:"Mar 23, 2022, 13:00 PM",
+      paymentMethod:"nibbs",
+      cardRef:"•••• 4242"
+    }
+  ]
+
   constructor(private http: HttpClient) { }
 
-  accountSignUp(signup:any){
+  accountSignUp(signup:any): Observable<any>{
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(this.baseURL, signup);
   }
 
-  accountLogin(authCredentials:any){
+  accountLogin(authCredentials:any): Observable<any>{
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(this.singupUrl, authCredentials);
   }
 
-  passwordReset(usersDetail:any){
+  forgotPasswordAuth(authCredentials:any): Observable<any>{
+    console.log("hello world");
+    const headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    return this.http.post<any>(this.singupUrl, authCredentials);
+  }
+
+  passwordReset(usersDetail:any): Observable<any>{
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(this.singupUrl, usersDetail);
   }
+
+  changePasswordAuth(usersDetail:any): Observable<any>{
+    console.log("hello world");
+    const headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    return this.http.post<any>(this.singupUrl, usersDetail);
+  }
+
+  getTerminalAnalysis(): Observable<any>{
+    const headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    return this.http.get<any>(this.singupUrl);
+  }
+
+
 }
 
 

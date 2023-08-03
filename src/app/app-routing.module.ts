@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
     { path: 'overview', component: OverviewComponent },
     { path: 'analytic', component: AnalyticComponent },
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
