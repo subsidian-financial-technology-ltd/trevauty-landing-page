@@ -24,12 +24,13 @@ export class SignupComponent {
     private router: Router,
     ) {
     this.myform = new FormGroup({
-       uName: new FormControl('',	[Validators.required]),
-       mobile: new FormControl('',	[Validators.required,  Validators.pattern(/^\+?\d{1,3}[-\s]?\d{9,11}$/)]),
+       firstName: new FormControl('',	[Validators.required]),
+       lastName: new FormControl('',	[Validators.required]),
+       email: new FormControl('',  [ Validators.pattern('^.+@.+\..+$')]),
+       phoneNumber: new FormControl('',	[Validators.required,  Validators.pattern(/^\+?\d{1,3}[-\s]?\d{9,11}$/)]),
        password: new FormControl('',  [Validators.required]),
-       eMail: new FormControl('',  [ Validators.pattern('^.+@.+\..+$')]),
-       cOption: new FormControl('',   [Validators.required]),
-       optionChecked : new FormControl('',   [Validators.required]),
+      //  cOption: new FormControl('',   [Validators.required]),
+       agreeWithTermsAndCondition : new FormControl('',   [Validators.required]),
   
     });  
   }
@@ -64,13 +65,14 @@ toggleShowConfirmPassword(){
 
 resetFormInputs() {
   this.myform.setValue({
-    uName: '',
-    mobile: '',
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
     password: '',
-    eMail: '',
+    email: '',
     cOption: '',
     optionsRadios: '',
-    optionChecked: '',
+    agreeWithTermsAndCondition: '',
     address: '',
     dBirth: ''
   });

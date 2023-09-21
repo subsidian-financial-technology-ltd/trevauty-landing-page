@@ -22,25 +22,33 @@ export class SinginComponent implements OnInit{
   password:string = "password";
   formSubmitted: boolean = false;
   apiResponse:any;
+  message:string = "";
+  otp:string  = "";
+  otpObj: FormGroup;
 
   constructor( private http: HttpClient,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toast: NgToastService
+    private toast: NgToastService,
+  
     
     ) {
     this.authForm = new FormGroup({
       email: new FormControl(  '',  [Validators.required, Validators.pattern('^.+@.+\..+$')]),
        password: new FormControl(  '',  [Validators.required]),
-       optionChecked : new FormControl('',   [Validators.required]),
+       keepMeLoggedIn : new FormControl('',   [Validators.required]),
   
     }); 
+
+    this.otpObj = new FormGroup({
+      otp: new FormControl('', [Validators.required, Validators.maxLength(6), Validators.minLength(6)])
+    })
     
     // this.authForm = this.formBuilder.group({
     //   email: ['', [Validators.required, Validators.pattern('^.+@.+\..+$')]],
     //   password: ['', [Validators.required]],
-    //   optionChecked: ['', [Validators.required]],
+    //   keepMeLoggedIn: ['', [Validators.required]],
     // });
   }
 
@@ -53,12 +61,12 @@ for(let i in this.authForm.controls)
   this.authForm.controls[i].markAsTouched();
 }
 
-showSuccess() {
-  this.toast.success({detail:"SUCCESS",summary:this.apiResponse.displayMessage ,duration:5000});
+showSuccess(message: string) {
+  this.toast.success({detail:message,summary:this.apiResponse.displayMessage ,duration:5000});
 }
 
 ngOnInit(): void {
-  this.showSuccess();
+  this.showSuccess(this.message);
 console.log(this.formSubmitted);
 
   
@@ -79,7 +87,7 @@ resetFormInputs() {
   this.authForm.setValue({
     email: '',
     password: '',
-    optionChecked: '',
+    keepMeLoggedIn: '',
   });
 }
 
@@ -94,7 +102,9 @@ console.log(this.formSubmitted);
         this.apiResponse = response;
         console.log(this.apiResponse);
         this.resetFormInputs();
-        this.showSuccess()
+        this.message = response?.response;
+        window.localStorage.setItem("token", response?.token);
+        this.showSuccess(this.message);
         this.toggleModal();
         
         // this.router.navigate(['login']);
@@ -124,16 +134,54 @@ console.log(this.formSubmitted);
   };
 
   handeOtpChange(value: string[]): void {
-    console.log(value);
+
+    if(this.otp.length === 6){
+      console.log("correct");
+      this.otp = value.join();
+      let optObj = {
+        otp:this.otp
+      }
+      this.authService.validateToken(optObj).subscribe({
+        next:(res: any)=>{
+          console.log(res)
+  
+        },
+        error:(err: any)=>{
+          console.log(err);
+        }
+      })
+    }
+
+
   }
 
   handleFillEvent(value: string): void {
+    if(value.length === 6){
+      console.log("correct");
+      // this.otp = value.join();
+      let optObj = {
+        otp:value
+      }
+      this.authService.validateToken(JSON.stringify(optObj)).subscribe({
+        next:(res: any)=>{
+          console.log(res);
+        },
+        error:(err: any)=>{
+          console.log(err);
+        }
+      })
+    }
     console.log(value);
   }
 
   toggleModal(){
     this.showModal = !this.showModal;
   }
+
+  handleToken(tokenValue: string){
+    // this.handleToken = !
+  }
+
 
 
 }

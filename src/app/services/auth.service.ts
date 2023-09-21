@@ -1,14 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  baseURL = "http://localhost:8080";
+  baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
   singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
+  authToken = window.localStorage.getItem("token");
 
   data = [
     {
@@ -75,14 +76,22 @@ export class AuthService {
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.baseURL, signup);
+    return this.http.post<any>(`${this.baseURL}api/v1/authenticate/register`, signup);
   }
 
   accountLogin(authCredentials:any): Observable<any>{
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.singupUrl, authCredentials);
+    return this.http.post<any>(`${this.baseURL}api/v1/authenticate/auth`, authCredentials);
+  }
+
+  validateToken(tokenDetails: any): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.post<any>(`${this.baseURL}api/v1/authenticate/login`, tokenDetails, { headers: headers });
   }
 
   forgotPasswordAuth(authCredentials:any): Observable<any>{
