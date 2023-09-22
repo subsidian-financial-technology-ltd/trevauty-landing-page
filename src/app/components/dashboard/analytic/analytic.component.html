@@ -18,7 +18,7 @@
     <div class="grid md:grid-cols-4 grid-cols-1 gap-[3rem]">
         <div class="bg-[#fff] rounded-[11px] p-[2rem] grid gap-[2rem]">
             <h1 class="text-[#A1A0BD] ">Total Income</h1>
-            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">N 156,853,200 <span>.52</span></p>
+            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">N {{analyticsOverview.totalIncome}} <span></span></p>
             <div class="bg-[#DCF5E8] rounded-[19px] text-[#4FD18B] w-[40%] flex justify-center p-[1rem] gap-[1rem]">
                 <div class="flex justify-center">
                     <img src="/assets/images/graphArrowUp.png" alt="">
@@ -29,7 +29,7 @@
 
         <div class="bg-[#fff] rounded-[11px] p-[2rem] grid gap-[2rem]">
             <h1 class="text-[#A1A0BD] text-[16px]">Total Income</h1>
-            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">N 156,853,200 <span>.52</span></p>
+            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">{{analyticsOverview.terminal}}</p>
             <div class="bg-[#F5DCDC] rounded-[19px] text-[#D14F4F] w-[40%] flex justify-center p-[1rem] gap-[1rem]">
                 <div class="flex justify-center">
                     <img src="/assets/images/graphArrowDown.png" alt="">
@@ -40,7 +40,7 @@
         </div>
         <div class="bg-[#fff] rounded-[11px] p-[2rem] grid gap-[2rem]">
             <h1 class="text-[#A1A0BD] ">Total Income</h1>
-            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">N 156,853,200 <span>.52</span></p>
+            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">{{analyticsOverview.totalTransaction}}</p>
             <div class="bg-[#DCF5E8] rounded-[19px] text-[#4FD18B] w-[40%] flex justify-center p-[1rem] gap-[1rem]">
                 <div class="flex justify-center">
                     <img src="/assets/images/graphArrowUp.png" alt="">
@@ -51,7 +51,7 @@
         </div>
         <div class="bg-[#fff] rounded-[11px] p-[2rem] grid gap-[2rem]">
             <h1 class="text-[#A1A0BD] ">Total Income</h1>
-            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">N 156,853,200 <span>.52</span></p>
+            <p class="leading-[35px] font-[800] color-[#000] text-[29px]">{{analyticsOverview.upcoming}}</p>
             <div class="border border-[#4C49ED] rounded-[19px] w-[40%] flex justify-center p-[1rem] gap-[1rem]">
                 <div class="text-[#4C49ED] text-[12px]">
                     View Details
@@ -220,7 +220,7 @@
                         NGN{{terminal.amount}}
                     </td>
                     <td class="p-[2rem]">
-                        {{terminal.creationDate}}
+                        {{terminal.createdAt}}
 
                     </td>
                     <td class="p-[2rem]">
@@ -231,13 +231,13 @@
         </table>
         <div class="mt-[4rem] bg-[#fff] flex justify-between p-[1rem] px-[2rem]">
             <div>
-                <span> 5 Result</span>
+                <span> {{size}} Result</span>
             </div>
             <div class="flex justify-end gap-[2rem] md:mr-[20rem]">
-                <div class="p-[1rem] py-[0.5rem] border rounded-[4px]">
+                <div (click)="pageIncrement()" class="p-[1rem] py-[0.5rem] border rounded-[4px]">
                     Previous
                 </div>
-                <div class="p-[1rem] py-[0.5rem] border rounded-[4px]">
+                <div (click)="pageDecrement()" class="p-[1rem] py-[0.5rem] border rounded-[4px]">
                     Next
                 </div>
             </div>

@@ -8,18 +8,26 @@ import { TerminalService } from 'src/app/services/terminal.service';
 })
 export class AnalyticComponent {
 
-  data: any[] = []
+  apiResponse: any;
+  data: any[] = [];
+  page: number = 0;
+  size: number = 10;
+  analyticsOverview: any;
 
   constructor(private terminalService: TerminalService) {}
 
   ngOnInit(): void {
     this.getTerminals();
+    this.getAnalyticsOverview();
   }
 
-  getTerminals(){
-    this.terminalService.getTerminals().subscribe({
-      next:(items: any)=>{
-          this.data = items;
+  getTerminals(): void{
+    console.log(this.page, this.size);
+    this.terminalService.getTransactions(this.page, this.size).subscribe({
+      next:(response: any)=>{
+          this.apiResponse = response;
+          this.data = this.apiResponse?.content;
+          console.log(this.data);
       },
       error:(items:any)=>{
 
@@ -27,10 +35,42 @@ export class AnalyticComponent {
     })
   }
 
+  getAnalyticsOverview(): void{
+    this.terminalService.getAnalyticsOverview().subscribe({
+      next:(response: any)=>{
+          this.analyticsOverview = response;
+          console.log(this.analyticsOverview);
+      },
+      error:(error:any)=>{
+        console.log(error);
+      }
+    })
+  }
+
+  
+
+  pageIncrement(){
+    console.log("hello 1");
+    if(this.page < this.apiResponse?.totalPages){
+      this.page + 1;
+    this.getTerminals();
+    }
+  }
+  pageDecrement(){
+    console.log("hello 2");
+    if(this.page > 1){
+      this.page - 1;
+    this.getTerminals();
+
+    }
+}
+
   // constructor(private decimalPipe: DecimalPipe) { }
 
   // public formatNumberWithCommas(number: number) {
   //   return this.decimalPipe.transform(number, '1.0-0');
   // }
+
+
 
 }

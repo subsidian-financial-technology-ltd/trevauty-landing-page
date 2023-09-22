@@ -20,4 +20,6 @@ export class DashboardComponent {
     this.isSideNavCollapsed = data.collapsed;
   }
 
+  
+
 }
