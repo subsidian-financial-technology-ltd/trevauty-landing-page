@@ -20,6 +20,13 @@ export class TerminalService {
     return this.http.post<any>(this.baseURL + "terminal request", userDetails);
   }
 
+  terminalRefundRequest(userDetails:any){
+    console.log("hello world");
+    const headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    return this.http.post<any>(`${this.baseURL}api/v1/customer/terminal_refund_request`, userDetails);
+  }
+
   accountLogin(authCredentials:any){
     console.log("hello world");
     const headers = new HttpHeaders()

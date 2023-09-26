@@ -67,7 +67,7 @@
                             <p>Active</p>
                         </div>
                         <div class="text-[20px] leading-[30px] text-[#15192C]">
-                            <p>{{overviewReport.balance}}</p>
+                            <p>{{overviewReport?.balance}}</p>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                             <p>Users</p>
                         </div>
                         <div class="text-[20px] leading-[30px] text-[#15192C]">
-                            <p>{{overviewReport.numberOfTerminals}}</p>
+                            <p>{{overviewReport?.numberOfTerminals}}</p>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                             <p>Balance</p>
                         </div>
                         <div class="text-[20px] leading-[30px] text-[#15192C]">
-                            <p class="whitespace-nowrap">{{overviewReport.numberOfUsers}}</p>
+                            <p class="whitespace-nowrap">{{overviewReport?.numberOfUsers}}</p>
                         </div>
                     </div>
                 </div>
@@ -124,14 +124,14 @@
                             </div>
                             <div class="desc">
                                 <div class="desc_1">
-                                    <p>{{deposit.location}}</p>
+                                    <p>{{deposit?.location}}</p>
                                 </div>
                                 <div class="desc_2">
-                                    <p>{{deposit.operatorName}}</p>
+                                    <p>{{deposit?.operatorName}}</p>
                                 </div>
                             </div>
                             <div class="amt">
-                                <p>+N{{deposit.amount}}</p>
+                                <p>+N{{deposit?.amount}}</p>
                             </div>
                         </div>
                     </div>

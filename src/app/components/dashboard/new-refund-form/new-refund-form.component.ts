@@ -27,15 +27,15 @@ export class NewRefundFormComponent {
 
     ) {
     this.terminalRequestForm = new FormGroup({
-      firstName: new FormControl(  '',  [Validators.required]),
-      lastName: new FormControl(  '',  [Validators.required]),
-      location : new FormControl('',   [Validators.required]),
-      terminalName: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl('', [Validators.required]),
-      comment: new FormControl('', [Validators.required]),
-      operator: new FormControl('', [Validators.required]),
-      amount: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
+      customersFirstName: new FormControl(  '',  [Validators.required]),
+      customersLastName: new FormControl(  '',  [Validators.required]),
+      locationOfTerminal : new FormControl('',   [Validators.required]),
+      nameOfTerminal: new FormControl('', [Validators.required]),
+      customersPhoneNumber: new FormControl('', [Validators.required]),
+      noteToTreVauty: new FormControl('', [Validators.required]),
+      operatorsName: new FormControl('', [Validators.required]),
+      disputedAMount: new FormControl('', [Validators.required]),
+      dateAndTimeOfTransaction: new FormControl('', [Validators.required]),
     })
    }
 
@@ -49,15 +49,15 @@ export class NewRefundFormComponent {
 
     resetFormInputs() {
       this.terminalRequestForm.setValue({
-        firstName: '',
-        lastName: '',
-        location: '',
-        terminalName: '',
-        phoneNumber: '',
-        comment: '',
-        operator: '', 
-        amount:'', 
-        date:''
+        customersFirstName: '',
+        customersLastName: '',
+        locationOfTerminal: '',
+        nameOfTerminal: '',
+        customersPhoneNumber: '',
+        noteToTreVauty: '',
+        operatorsName: '', 
+        disputedAMount:'', 
+        dateAndTimeOfTransaction:''
 
       });
     }
@@ -67,9 +67,9 @@ export class NewRefundFormComponent {
     }
 
     onSubmit(user: any): void {
-        if (this.terminalRequestForm.valid) {
+        if (this.terminalRequestForm) {
           console.log({ user });
-          this.terminalService.terminalRequest(this.terminalRequestForm.value).subscribe({
+          this.terminalService.terminalRefundRequest(this.terminalRequestForm.value).subscribe({
             next: (response: any) => {
               console.log("response =>>>>", response);
               this.apiResponse = response;
