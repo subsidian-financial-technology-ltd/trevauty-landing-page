@@ -27,12 +27,12 @@ export class NewterminalrequestComponent {
 
     ) {
     this.terminalRequestForm = new FormGroup({
-      firstName: new FormControl(  '',  [Validators.required]),
-      lastName: new FormControl(  '',  [Validators.required]),
-      location : new FormControl('',   [Validators.required]),
-      terminalName: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl('', [Validators.required]),
-      comment: new FormControl('', [Validators.required]),
+      operatorsFirstName: new FormControl(  '',  [Validators.required]),
+      operatorsLastName: new FormControl(  '',  [Validators.required]),
+      locationOfTerminal : new FormControl('',   [Validators.required]),
+      nameOfTerminal: new FormControl('', [Validators.required]),
+      operatorsPhoneNumber: new FormControl('', [Validators.required]),
+      noteToTreVauty: new FormControl('', [Validators.required]),
     })
    }
 
@@ -46,12 +46,12 @@ export class NewterminalrequestComponent {
 
     resetFormInputs() {
       this.terminalRequestForm.setValue({
-        firstName: '',
-        lastName: '',
-        location: '',
-        terminalName: '',
-        phoneNumber: '',
-        comment: '',
+        operatorsFirstName: '',
+        operatorsLastName: '',
+        locationOfTerminal: '',
+        nameOfTerminal: '',
+        operatorsPhoneNumber: '',
+        noteToTreVauty: '',
       });
     }
 

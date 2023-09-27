@@ -36,6 +36,7 @@ export class NewRefundFormComponent {
       operatorsName: new FormControl('', [Validators.required]),
       disputedAMount: new FormControl('', [Validators.required]),
       dateAndTimeOfTransaction: new FormControl('', [Validators.required]),
+      // note: new FormControl('', [Validators.required])
     })
    }
 
@@ -57,7 +58,7 @@ export class NewRefundFormComponent {
         noteToTreVauty: '',
         operatorsName: '', 
         disputedAMount:'', 
-        dateAndTimeOfTransaction:''
+        dateAndTimeOfTransaction:'',
 
       });
     }

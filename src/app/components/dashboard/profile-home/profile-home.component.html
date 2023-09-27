@@ -3,7 +3,7 @@
     <p class="18px leading-[25px] text-[#64748B] font-Nunito">Manage profile details and account settings</p>
 </div>
 
-<nav mat-tab-nav-bar class="w-[50%]">
+<nav mat-tab-nav-bar class="w-[50%]" [tabPanel]="tabPanel">
     <div mat-tab-link
     *ngFor="let link of navLinks"
     [routerLink]="link.link"
@@ -14,4 +14,7 @@
    {{link.label}}
 </div>
   </nav>
-  <router-outlet></router-outlet>
+
+  <mat-tab-nav-panel #tabPanel>
+    <router-outlet></router-outlet>
+</mat-tab-nav-panel>
