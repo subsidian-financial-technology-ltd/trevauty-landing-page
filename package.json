@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "jwt-decode": "^3.1.2",
     "ng-angular-popup": "^0.4.7",
     "ngx-otp-input": "^0.11.4",
     "ngx-tabs": "^0.0.13",

@@ -9,7 +9,7 @@ export class TerminalService {
 
   baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
   // authToken = window.localStorage.getItem("token");
-  authToken = `eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NSIsImlhdCI6MTY5NTI4NjU5MCwiZXhwIjoxNjk1NDM2NTkwfQ.e0mHdiqaK_C2YTgWnIuAFHmbGoVJjuZbF4OJuSwgNvE`;
+  authToken = `eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NSIsImlhdCI6MTY5NTg5OTA0MCwiZXhwIjoxNjk2MDQ5MDQwfQ.NEVH_dwZrci2F6kA0okF1Yz9s9KgKQj1ELDWadvE0_8`;
 
   constructor(private http: HttpClient) { }
 
@@ -17,14 +17,14 @@ export class TerminalService {
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.baseURL + "terminal request", userDetails);
+    return this.http.post<any>(`${this.baseURL}api/v1/terminal/terminal_request`, userDetails);
   }
 
   terminalRefundRequest(userDetails:any){
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(`${this.baseURL}api/v1/customer/terminal_refund_request`, userDetails);
+    return this.http.post<any>(`${this.baseURL}api/v1/terminal/refund/terminal_refund_request`, userDetails);
   }
 
   accountLogin(authCredentials:any){
