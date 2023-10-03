@@ -38,3 +38,12 @@ input{
 // background-color: transparent; /* Set the background color to transparent */
 
 // }
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  body {
+    scrollbar-width: none; /* Firefox */
+  }

@@ -15,6 +15,7 @@ export class PasswordresetComponent {
   apiResponse:any;
   showSuccessResponse : boolean = false;
 
+
   constructor( private http: HttpClient,
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -35,7 +36,7 @@ for(let i in this.passwordResetForm.controls)
 }
 
 showSuccess() {
-  this.toast.success({detail:"SUCCESS",summary:this.apiResponse.displayMessage ,duration:5000});
+  this.toast.success({detail:"SUCCESS",summary:this.apiResponse?.displayMessage ,duration:5000});
 }
 
 ngOnInit(): void {
@@ -57,7 +58,7 @@ onSubmit(user: any): void {
     this.authService.passwordReset(this.passwordResetForm.value).subscribe({
       next: (response) => {
         console.log("response =>>>>", response);
-        this.apiResponse = response;
+        this.apiResponse = response.data;
         console.log(this.apiResponse);
         this.resetFormInputs();
         this.showSuccess()

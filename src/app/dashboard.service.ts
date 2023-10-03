@@ -14,7 +14,7 @@ export class DashboardService {
     baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
     singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
     // authToken = window.localStorage.getItem("token");
-    authToken = `eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NSIsImlhdCI6MTY5NTI4NjU5MCwiZXhwIjoxNjk1NDM2NTkwfQ.e0mHdiqaK_C2YTgWnIuAFHmbGoVJjuZbF4OJuSwgNvE`;
+    authToken = `eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NSIsImlhdCI6MTY5NTk5OTUxNCwiZXhwIjoxNjk2MTQ5NTE0fQ.OjY9ZVZJEwmRl2UcPpA9DHb6O78xbQrg4OYw3VQEkFY`;
   
     data = [
       {

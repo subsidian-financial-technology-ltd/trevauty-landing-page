@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "preinstall": "npm cache clean -f",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

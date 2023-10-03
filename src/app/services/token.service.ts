@@ -9,7 +9,7 @@ export class TokenService {
 
   static isTokenExpired(token: string): boolean {
     const decodedToken = this.decodeToken(token);
-    const expirationDate = new Date(decodedToken.exp * 1000); 
+    const expirationDate = new Date(decodedToken?.exp * 1000); 
     return expirationDate < new Date(); 
   }
   static decodeToken(token: string): any {

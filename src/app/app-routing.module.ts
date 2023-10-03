@@ -21,9 +21,10 @@ import { UserProfileComponent } from './components/dashboard/user-profile/user-p
 import { EditUserFormComponent } from './components/dashboard/edit-user-form/edit-user-form.component';
 import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
 import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
+import { authGuard } from './pageGuard/auth.guard';
 
 const routes: Routes = [
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', component: SignupComponent, canActivate:[authGuard] },
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
@@ -54,7 +55,7 @@ const routes: Routes = [
         { path:"help", component:ProfileHelpComponent },
       ]}
     ]}
-  ]},
+  ], canActivate:[authGuard]},
   { path: '**', redirectTo: 'login' }
 
 ];

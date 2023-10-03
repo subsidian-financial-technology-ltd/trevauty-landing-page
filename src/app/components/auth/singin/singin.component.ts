@@ -62,7 +62,7 @@ for(let i in this.authForm.controls)
 }
 
 showSuccess(message: string) {
-  this.toast.success({detail:message,summary:this.apiResponse.displayMessage ,duration:5000});
+  this.toast.success({detail:message,summary:this.apiResponse?.displayMessage ,duration:5000});
 }
 
 ngOnInit(): void {

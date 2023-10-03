@@ -105,7 +105,7 @@ export class AuthService {
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.singupUrl, usersDetail);
+    return this.http.post<any>(`${this.baseURL}api/v1/authenticate/forget_password`, usersDetail);
   }
 
   changePasswordAuth(usersDetail:any): Observable<any>{
