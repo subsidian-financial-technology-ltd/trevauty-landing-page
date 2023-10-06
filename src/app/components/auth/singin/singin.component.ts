@@ -92,6 +92,7 @@ resetFormInputs() {
 }
 
 onSubmit(user: any): void {
+  // window.localStorage.setItem("token");
 console.log(this.formSubmitted);
   this.formSubmitted = true;
   if (this.authForm.valid) {
@@ -165,9 +166,14 @@ console.log(this.formSubmitted);
       this.authService.validateToken(JSON.stringify(optObj)).subscribe({
         next:(res: any)=>{
           console.log(res);
+          this.router.navigate(['dashboard']);
+          window.localStorage.setItem('token', res?.token);
+          console.log("success");
         },
         error:(err: any)=>{
           console.log(err);
+          this.router.navigate(['login']); 
+          console.log("failure");
         }
       })
     }
