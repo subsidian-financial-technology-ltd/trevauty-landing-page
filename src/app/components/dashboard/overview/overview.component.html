@@ -148,89 +148,21 @@
                         </div>
                     </div>
 
-                    <div class="terminal_rows">
+                    <div class="terminal_rows" *ngFor="let eachWithdrwawal of withdrawal">
                         <div class="pos_locatn">
                             <div class="pos_img">
                                 <img src="/assets/images/calc.png" />
                             </div>
                             <div class="desc">
                                 <div class="desc_1">
-                                    <p>Unilag Terminal 2</p>
+                                    <p>{{eachWithdrwawal?.location}}</p>
                                 </div>
                                 <div class="desc_2">
-                                    <p>Paypal deposit</p>
+                                    <p>{{eachWithdrwawal.operatorName}}</p>
                                 </div>
                             </div>
                             <div class="amt">
-                                <p>-N14, 500</p>
-                            </div>
-                        </div>
-
-                        <div class="pos_locatn">
-                            <div class="pos_img">
-                                <img src="/assets/images/calc.png" />
-                            </div>
-                            <div class="desc">
-                                <div class="desc_1">
-                                    <p>Ajah Terminal 3</p>
-                                </div>
-                                <div class="desc_2">
-                                    <p>Andrew Ogidan</p>
-                                </div>
-                            </div>
-                            <div class="amt">
-                                <p>-N187, 000</p>
-                            </div>
-                        </div>
-
-                        <div class="pos_locatn">
-                            <div class="pos_img">
-                                <img src="/assets/images/calc.png" />
-                            </div>
-                            <div class="desc">
-                                <div class="desc_1">
-                                    <p>Ikeja Terminal 1</p>
-                                </div>
-                                <div class="desc_2">
-                                    <p>Operation Emmanuel 2</p>
-                                </div>
-                            </div>
-                            <div class="amt">
-                                <p>-N45, 000</p>
-                            </div>
-                        </div>
-
-                        <div class="pos_locatn">
-                            <div class="pos_img">
-                                <img src="/assets/images/calc.png" />
-                            </div>
-                            <div class="desc">
-                                <div class="desc_1">
-                                    <p>Victoria Island Terminal 4</p>
-                                </div>
-                                <div class="desc_2">
-                                    <p>Operator Eli Agbo</p>
-                                </div>
-                            </div>
-                            <div class="amt">
-                                <p>+N5, 400</p>
-                            </div>
-                        </div>
-
-                        <div class="pos_locatn">
-                            <div class="pos_img">
-                                <img src="/assets/images/calc.png" />
-                            </div>
-                            <div class="desc">
-                                <div class="desc_1">
-                                    <p>Unilag Terminal 1</p>
-                                </div>
-                                <div class="desc_2">
-                                    <p>Operator Makinde Alfa</p>
-                                </div>
-                            </div>
-                            <div class="amt">
-                                <p>-N21, 400</p>
+                                <p>-N{{eachWithdrwawal.amount}}</p>
                             </div>
                         </div>
                     </div>

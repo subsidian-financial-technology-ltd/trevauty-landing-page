@@ -65,11 +65,14 @@ showSuccess(message: string) {
   this.toast.success({detail:message,summary:this.apiResponse?.displayMessage ,duration:5000});
 }
 
+showError(message: string) {
+  this.toast.error({detail:message,summary:this.apiResponse?.displayMessage ,duration:5000});
+}
+
+
 ngOnInit(): void {
   this.showSuccess(this.message);
 console.log(this.formSubmitted);
-
-  
 }
 
 
@@ -106,12 +109,16 @@ console.log(this.formSubmitted);
         this.message = response?.response;
         window.localStorage.setItem("token", response?.token);
         this.showSuccess(this.message);
+
         this.toggleModal();
         
         // this.router.navigate(['login']);
       },
       error: (error) => {
         console.log("sign up failed", error);
+        let errRes = error?.response;
+        let errReason = error?.debugMessage;
+        this.showError(errRes + errReason);
         this.router.navigate([]);
       }
     });

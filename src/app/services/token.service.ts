@@ -7,6 +7,10 @@ export class TokenService {
     return localStorage.getItem('token'); // Example using localStorage
   }
 
+  static setToken(val: string): void | null {
+    return localStorage.setItem('token', val); // Example using localStorage
+  }
+
   static isTokenExpired(token: string): boolean {
     const decodedToken = this.decodeToken(token);
     const expirationDate = new Date(decodedToken?.exp * 1000); 

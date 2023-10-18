@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class AuthService {
 
   baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
   singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
-  authToken = window.localStorage.getItem("token");
+  // authToken = window.localStorage.getItem("token");
+  // TokenService.getToken();
+  authToken = TokenService.getToken();
 
   data = [
     {

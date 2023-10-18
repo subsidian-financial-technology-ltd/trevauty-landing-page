@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TokenService } from './services/token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class DashboardService {
     baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
     singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
     // authToken = window.localStorage.getItem("token");
-    authToken = `eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NSIsImlhdCI6MTY5NTk5OTUxNCwiZXhwIjoxNjk2MTQ5NTE0fQ.OjY9ZVZJEwmRl2UcPpA9DHb6O78xbQrg4OYw3VQEkFY`;
+    authToken = TokenService.getToken();
   
     data = [
       {
@@ -129,6 +130,23 @@ export class DashboardService {
     }
 
     getDeposit(): Observable<any>{
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authToken}`
+      });
+      return this.http.get<any>(`${this.baseURL}api/v1/analytic/deposit_data?page=0&size=5`, { headers: headers });
+    }
+
+    getWithdrawal(): Observable<any>{
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authToken}`
+      });
+      return this.http.get<any>(`${this.baseURL}api/v1/analytic/withdrawal_data?page=0&size=5`, { headers: headers });
+    }
+    
+
+    getCustomerDeposit(): Observable<any>{
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`

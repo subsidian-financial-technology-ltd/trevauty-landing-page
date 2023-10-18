@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,7 @@ import { Observable } from 'rxjs';
 export class TerminalService {
 
   baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
-  // authToken = window.localStorage.getItem("token");
-  authToken = `eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NSIsImlhdCI6MTY5NTg5OTA0MCwiZXhwIjoxNjk2MDQ5MDQwfQ.NEVH_dwZrci2F6kA0okF1Yz9s9KgKQj1ELDWadvE0_8`;
+  authToken = TokenService.getToken();
 
   constructor(private http: HttpClient) { }
 

@@ -10,6 +10,7 @@ export class OverviewComponent{
 
   overviewReport: any;
   deposits:any;
+  withdrawal:any;
   constructor( private dashboardService: DashboardService){
     
   }
@@ -44,5 +45,18 @@ export class OverviewComponent{
         }
       });
   }
+
+  getWithdrawal(): void {
+    this.dashboardService.getWithdrawal().subscribe({
+      next: (response) => {
+        console.log("response =>>>>", response);
+        this.withdrawal = response.content;
+        console.log(this.deposits);
+      },
+      error: (error) => {
+        console.log("sign up failed", error);
+      }
+    });
+}
 
 }

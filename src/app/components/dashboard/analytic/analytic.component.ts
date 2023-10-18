@@ -13,6 +13,9 @@ export class AnalyticComponent {
   page: number = 0;
   size: number = 10;
   analyticsOverview: any;
+  filterParams : any = {
+    
+  }
 
   constructor(private terminalService: TerminalService) {}
 
@@ -61,7 +64,6 @@ export class AnalyticComponent {
     if(this.page > 1){
       this.page - 1;
     this.getTerminals();
-
     }
 }
 
