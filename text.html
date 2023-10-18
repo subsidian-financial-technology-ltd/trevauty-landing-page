@@ -1,0 +1,20 @@
+<div [ngClass]="{'has-error': !passwordResetFormData['email'].valid && passwordResetFormData['email'].touched}">
+    <div class="text-[#4C535F]">
+        <label for="">Email</label>
+    </div>
+
+    <div class="border-none " *ngIf="passwordResetFormData['email'].touched && passwordResetFormData['email'].errors">
+        <div class="shadow-none border-none  text-danger"
+            *ngIf="passwordResetFormData['email'].errors['required']">
+            Email is required
+        </div>
+        <div class="shadow-none text-danger" *ngIf="passwordResetFormData['email'].errors['pattern']">
+    
+            Email is not valid
+        </div>
+    </div>
+
+    <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
+        <input type="text" placeholder="Please enter your email" class="bg-[transparent] w-[95%]">
+    </div>
+</div>

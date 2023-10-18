@@ -10,7 +10,6 @@ import { ManageTerminalComponent } from './components/dashboard/manage-terminal/
 import { ManageTerminalHomeComponent } from './components/dashboard/manage-terminal-home/manage-terminal-home.component';
 import { OverviewterminalListComponent } from './components/dashboard/overviewterminal-list/overviewterminal-list.component';
 import { NewterminalrequestComponent } from './components/dashboard/newterminalrequest/newterminalrequest.component';
-import { DeactivateTerminalModule } from './components/dashboard/deactivate-terminal/deactivate-terminal.module';
 import { DeactivateTerminalsComponent } from './components/dashboard/deactivate-terminal/deactivate-terminals.component';
 import { RefundTransactionHomeComponent } from './components/dashboard/refund-transaction-home/refund-transaction-home.component';
 import { RefundTransactionComponent } from './components/dashboard/refund-transaction/refund-transaction.component';
@@ -22,13 +21,14 @@ import { UserProfileComponent } from './components/dashboard/user-profile/user-p
 import { EditUserFormComponent } from './components/dashboard/edit-user-form/edit-user-form.component';
 import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
 import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
+import { authGuard } from './pageGuard/auth.guard';
 
 const routes: Routes = [
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', component: SignupComponent, canActivate:[authGuard] },
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
     { path: 'overview', component: OverviewComponent },
     { path: 'analytic', component: AnalyticComponent },
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
@@ -53,11 +53,10 @@ const routes: Routes = [
         { path:"edit-user", component: EditUserFormComponent },
         { path:"auth", component: ProfileAuthComponent },
         { path:"help", component:ProfileHelpComponent },
-
       ]}
     ]}
-  ]},
-  { path: '**', redirectTo: 'login' } 
+  ], canActivate:[authGuard]},
+  { path: '**', redirectTo: 'login' }
 
 ];
 

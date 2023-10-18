@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
@@ -45,7 +45,9 @@ import { FormsModule } from '@angular/forms';
 import { NgxOtpInputModule } from 'ngx-otp-input';
 // import { RefundTransactionModule } from './components/dashboard/refund-transaction/refund-transaction.module';
 // import { ManageTerminalRoutingModule } from './components/dashboard/manage-terminal-home/manage-terminal-routing.module';
-
+import { HttpClientModule } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup'
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -89,11 +91,18 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
     ManageTerminalRouteModule,
     RefundTransactionModule,
     FormsModule,
-    NgxOtpInputModule
+    NgxOtpInputModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgToastModule 
+
+
     // ManageTerminalRoutingModule,
 
   ],
-  providers: [],
+  providers: [
+    // {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

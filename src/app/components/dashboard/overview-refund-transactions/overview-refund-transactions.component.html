@@ -1,350 +1,126 @@
-
-
-<div class="two_col">
-    <div class="table1 bg-[#fff]">
-        <div class="table_name">
-            <p>Top Terminal</p>
+<div class="two_col flex mt-[50px] mb-[30px]">
+    <div class="table1 px-[10px] mb-[20px] pb-4 rounded-[5px] shadow-sm flex-[0.8] bg-[#fff]">
+        <div class="table_name py-[15px]">
+            <p class="font-[700] text-[20px] leading-[26px] font-[Satoshi] text-[#212B36]">Top Terminal</p>
         </div>
-        <div class="terminal_header">
-            <div class="th_1">
+        <div class="terminal_header grid grid-cols-6 bg-[#F7F9FC] p-[15px] my-[10px] rounded-[5px]">
+            <div class="th_1 col-span-2">
                 <p>Source</p>
             </div>
 
-            <div class="th">
+            <div class="th col-span-1">
                 <p>Visitors</p>
             </div>
 
-            <div class="th">
-                <p>Revenue</p>
+            <div class="th col-span-1">
+                <p class="font-[500] leading-[22px] text-[#64748B] font-[Satoshi]">Revenue</p>
             </div>
 
-            <div class="th">
+            <div class="th col-span-1">
                 <p>Sales</p>
             </div>
 
-            <div class="th">
+            <div class="th col-span-1 ">
                 <p>Conversion</p>
             </div>
 
         </div>
 
         <div class="table_body">
-            <div class="td">
-                <div class="td_desc">
-                    <div class="td_img">
-                        <img src="/assets/images/Gumroad 1.png" />
+            <div class="p-[15px]" *ngFor="let terminal of topTerminalData">
+
+                <div class="td grid grid-cols-6 py-[10px]">
+                    <div class="td_desc flex col-span-2 pl-[20px] text-center">
+                        <div class="td_img bg-[#EEF0F2] h-[50px] w-[50px] rounded-[50px] flex justify-center items-center text-center">
+                            <img src="/assets/images/Gumroad 1.png" />
+                        </div>
+                        <div class="td_locatn pl-[8px] flex items-center">
+                            <p class="font-[Satoshi] font-[500] text-[16px] leading-[24px] text-[#1C2434]">{{terminal.source}}</p>
+                        </div>
                     </div>
-                    <div class="td_locatn">
-                        <p>Lekki Phase 1</p>
+
+                    <div class="td_values bg-[#fff] col-span-1 text-center flex items-center">
+                        <p class="font-[Satoshi] font-[500] text-[16px] leading-[24px] text-[#1C2434]">{{terminal.visitors}}K</p>
+                        <!-- <p class="font-[Satoshi] font-[500] text-[16px] leading-[24px] text-[#1C2434]"></p> -->
                     </div>
-                </div>
 
-                <div class="td_values">
-                    <p>3.5K</p>
-                </div>
-
-                <div class="green">
-                    <p>$5.768</p>
-                </div>
-
-                <div class="td_values_2">
-                    <p>590</p>
-                </div>
-
-                <div class="blue">
-                    <p>4.8%</p>
-                </div>
-
-            </div>
-
-            <div class="line_across">
-
-            </div>
-
-            <div class="td">
-                <div class="td_desc">
-                    <div class="td_img">
-                        <img src="/assets/images/Gumroad 1.png" />
+                    <div class="green font-[Satoshi] text-[16px] leading-[24px] col-span-1 text-center flex items-center text-[#10B981]">
+                        <p>${{terminal.revenue}}</p>
                     </div>
-                    <div class="td_locatn">
-                        <p>Ajah 1</p>
+
+                    <div class="td_values_2 text-center flex items-center">
+                        <p>{{terminal.sales}}</p>
                     </div>
-                </div>
 
-                <div class="td_values">
-                    <p>2.2K</p>
-                </div>
-
-                <div class="green">
-                    <p>$4.365</p>
-                </div>
-
-                <div class="td_values_2">
-                    <p>467</p>
-                </div>
-
-                <div class="blue">
-                    <p>4.3%</p>
-                </div>
-
-            </div>
-
-            <div class="line_across">
-
-            </div>
-
-            <div class="td">
-                <div class="td_desc">
-                    <div class="td_img">
-                        <img src="/assets/images/Gumroad 1.png" />
+                    <div class="blue font-[Satoshi] text-[16px] leading-[24px] col-span-1 text-center flex items-center text-[#259AE6] pl-[10px]">
+                        <p>{{terminal.conversion}}%</p>
                     </div>
-                    <div class="td_locatn">
-                        <p>Unilag 3</p>
-                    </div>
+
                 </div>
 
-                <div class="td_values">
-                    <p>2.1K</p>
+                <div class="w-[96%] m-auto h-[1px] bg-[#ebe7e7]">
+
                 </div>
-
-                <div class="green">
-                    <p>$4.290</p>
-                </div>
-
-                <div class="td_values_2">
-                    <p>420</p>
-                </div>
-
-                <div class="blue">
-                    <p>3.7%</p>
-                </div>
-
-            </div>
-
-            <div class="line_across">
-
-            </div>
-
-            <div class="td">
-                <div class="td_desc">
-                    <div class="td_img">
-                        <img src="/assets/images/Gumroad 1.png" />
-                    </div>
-                    <div class="td_locatn">
-                        <p>Victoria Island 4</p>
-                    </div>
-                </div>
-
-                <div class="td_values">
-                    <p>1.5K</p>
-                </div>
-
-                <div class="green">
-                    <p>$3.580</p>
-                </div>
-
-                <div class="td_values_2">
-                    <p>389</p>
-                </div>
-
-                <div class="blue">
-                    <p>42.5%</p>
-                </div>
-
-            </div>
-
-            <div class="line_across">
-
-            </div>
-
-            <div class="td">
-                <div class="td_desc">
-                    <div class="td_img">
-                        <img src="/assets/images/Gumroad 1.png" />
-                    </div>
-                    <div class="td_locatn">
-                        <p>Ikorodu 9</p>
-                    </div>
-                </div>
-
-                <div class="td_values">
-                    <p>1.2K</p>
-                </div>
-
-                <div class="green">
-                    <p>$2.730</p>
-                </div>
-
-                <div class="td_values_2">
-                    <p>230</p>
-                </div>
-
-                <div class="blue">
-                    <p>1.9%</p>
-                </div>
-
             </div>
 
         </div>
     </div>
 
 
-    <div class="empt_col">
+    <div class="flex-[0.2]">
 
     </div>
 </div>
 
 
-<div class="two_col_2">
+<div class="two_col_2 flex">
 
-    <div class="table2 bg-[#fff]">
-       <div class="headers">
-          <div class="terminal head">
-            <p>Terminal</p>
-          </div>
-          <div class="invoice head">
-            <p>Invoice Date</p>
-          </div>
-          <div class="status head">
-             <p>Status</p>
-          </div>
-          <div class="actions head">
-              <p>Actions</p>
-          </div>
-       </div>  
-       
-       <div class="t_row">
-         <div class="venue">
-             <div class="place">
-                <p>Lekki Phase 1</p>
-             </div>
-             <div class="amt">
-                <p>$0.00</p>
-             </div>
-         </div>
-         <div class="date">
-            <p>Jan 13,2023</p>
-         </div>
-         <div class="stat">
-           <p>paid</p>
-         </div>
-         <div class="action_img image">
-           <div class="eye_icon">
-            <img src="/assets/images/eye.png" />
-           </div>
-           <div class="trash_icon">
-             <img src="/assets/images/trash-can.png" />
-           </div>
-           <div class="download_icon">
-               <img src="/assets/images/download-alt.png" />
-           </div>
-         </div>
-       </div>
-
-       <div class="line_across">
-
-       </div>
-
-       <div class="t_row">
-        <div class="venue">
-            <div class="place">
-               <p>Unilag 3</p>
+    <div class="table2 flex-[0.8] py-[10px] p-[25px] rounded-[5px] shadow-sm mb-[60px] bg-[#fff]">
+        <div class="headers pr-[28px] grid grid-cols-11 place-content-center rounded-[3px] bg-[#F7F9FC] py-[12px] px-[5px] mt-[20px] mb-0">
+            <div class="terminal head col-span-3">
+                <p class="font-[Satoshi] font-[500] text-[16px] leading-[24px] text-[#1C2434]">Terminal</p>
             </div>
-            <div class="amt">
-               <p>$59.00</p>
+            <div class="invoice head col-span-3">
+                <p>Invoice Date</p>
+            </div>
+            <div class="status head col-span-3">
+                <p>Status</p>
+            </div>
+            <div class="actions head col-span-2">
+                <p>Actions</p>
             </div>
         </div>
-        <div class="date">
-           <p>Jan 13,2023</p>
-        </div>
-        <div class="stat">
-          <p>paid</p>
-        </div>
-        <div class="action_img image">
-          <div class="eye_icon">
-           <img src="/assets/images/eye.png" />
-          </div>
-          <div class="trash_icon">
-            <img src="/assets/images/trash-can.png" />
-          </div>
-          <div class="download_icon">
-              <img src="/assets/images/download-alt.png" />
-          </div>
-        </div>
-      </div>
+        <div *ngFor="let terminal of dataTerminal">
 
-      <div class="line_across">
-
-      </div>
-
-      <div class="t_row">
-        <div class="venue">
-            <div class="place">
-               <p>Victoria Island 4</p>
+        <div class="t_row grid grid-cols-11 py-[10px] px-[5px] pr-[28px]">
+            <div class="venue col-span-3 gird place-items-center">
+                <div class="place">
+                    <p class="font-[Satoshi] font-[500] text-[16px] leading-[24px] text-[#1C2434]">{{terminal.terminal}}</p>
+                </div>
+                <div class="amt">
+                    <p class="font-[Satoshi] leading-[22px] text-[#64748B] font-[500]">${{terminal.amount}}</p>
+                </div>
             </div>
-            <div class="amt">
-               <p>$99.00</p>
+            <div class="date col-span-3 flex items-center">
+                <p class="font-[Satoshi] text-[16px] leading-[24px] text-[#1C2434]">{{terminal.invoiceDate}}</p>
+            </div>
+            <div class="stat col-span-3 flex  items-center">
+                <p class="font-[Inter] font-[500] rounded-[8px] leading-[22px] py-[5px] px-[15px] bg-[#EDF7F1]  text-[#219653]">{{terminal.status}}</p>
+            </div>
+            <div class="action_img image flex items-center col-span-2">
+                <div class="eye_icon pr-[18px]">
+                    <img src="/assets/images/eye.png" />
+                </div>
+                <div class="trash_icon pr-[18px]">
+                    <img src="/assets/images/trash-can.png" />
+                </div>
+                <div class="download_icon pr-[18px]">
+                    <img src="/assets/images/download-alt.png" />
+                </div>
             </div>
         </div>
-        <div class="date">
-           <p>March 22,2023</p>
-        </div>
-        <div class="stat unpaid">
-          <p>unpaid</p>
-        </div>
-        <div class="action_img image">
-          <div class="eye_icon">
-           <img src="/assets/images/eye.png" />
-          </div>
-          <div class="trash_icon">
-            <img src="/assets/images/trash-can.png" />
-          </div>
-          <div class="download_icon">
-              <img src="/assets/images/download-alt.png" />
-          </div>
-        </div>
-      </div>
+        <div class="w-[100%] m-auto h-[1px] bg-[#ebe7e7]">
 
-      <div class="line_across">
-
-      </div>
-
-      <div class="t_row">
-        <div class="venue">
-            <div class="place">
-               <p>Ikorodu 9</p>
-            </div>
-            <div class="amt">
-               <p>$59.00</p>
-            </div>
         </div>
-        <div class="date">
-           <p>Feb 22,2023</p>
-        </div>
-        <div class="stat">
-          <p>pending</p>
-        </div>
-        <div class="action_img image">
-          <div class="eye_icon">
-           <img src="/assets/images/eye.png" />
-          </div>
-          <div class="trash_icon">
-            <img src="/assets/images/trash-can.png" />
-          </div>
-          <div class="download_icon">
-              <img src="/assets/images/download-alt.png" />
-          </div>
-        </div>
-      </div>
-
     </div>
-    
-    <div class="empt_col_2">
-          
-    </div>
-    
 </div>
-
-
-
-
