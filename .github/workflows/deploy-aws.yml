@@ -17,8 +17,8 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
-          aws_access_key: ${{ AKIAXEMYIFOUJWGXZU5I }}
-          aws_secret_key: ${{ 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 }}
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: trevauty-external
           environment_name: Trevauty-external-env
           version_label: ${{ github.sha }}
