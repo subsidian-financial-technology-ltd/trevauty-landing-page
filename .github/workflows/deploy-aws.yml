@@ -1,27 +1,131 @@
-name: trevauty-external-app
-on:
-  push:
-    branches:
-      - "main"
+# name: trevauty-external-app
+# on:
+#   push:
+#     branches:
+#       - "main"
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout source code
+#         uses: actions/checkout@v2
 
-      - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+#       - name: Generate deployment package
+#         run: zip -r deploy.zip . -x '*.git*'
 
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v21
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: trevauty-external
-          environment_name: Trevauty-external-env
-          version_label: ${{ github.sha }}
-          existing_bucket_name: trevauty-external
-          region: eu-north-1
-          deployment_package: deploy.zip
+#       - name: Deploy to EB
+#         uses: einaregilsson/beanstalk-deploy@v21
+#         with:
+#           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           application_name: trevauty-external
+#           environment_name: Trevauty-external-env
+#           version_label: ${{ github.sha }}
+#           existing_bucket_name: trevauty-external
+#           region: eu-north-1
+#           deployment_package: deploy.zip
+
+
+
+
+
+
+
+
+
+# name: trevauty-internal-app
+# on:
+#   push:
+#     branches:
+#       - "main"
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout source code
+#         uses: actions/checkout@v2
+
+#       - name: Generate deployment package
+#         run: zip -r deploy.zip . -x '*.git*'
+        
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
+
+#       - name: Deploy to EB
+#         uses: einaregilsson/beanstalk-deploy@v21
+#         with:
+#           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           application_name: trevauty-internal
+#           environment_name: Trevauty-internal-env
+#           version_label: ${{ github.sha }}
+#           existing_bucket_name: trevauty-internal
+#           region: eu-north-1
+#           deployment_package: deploy.zip
+
+
+
+
+
+
+
+# {
+#     "Version": "2012-10-17",
+#     "Statement": [
+#         {
+#             "Sid": "S3Permissions",
+#             "Effect": "Allow",
+#             "Principal": "*",
+#             "Action": [
+#                 "s3:Get*",
+#                 "s3:List*",
+#                 "s3:GetObject",
+#                 "s3:PutBucketPolicy"
+#             ],
+#             "Resource": "arn:aws:s3:::trevauty-internal/*"
+#         }
+#     ]
+# }
+
+
+
+
+
+
+
+version: 0.2
+env:
+  variables:
+    NODE_OPTIONS: "--max-old-space-size=252400"
+    CACHE_CONTROL: "252400"
+    APP_NAME: "buymorr"
+    S3_BUCKET: "arn:aws:s3:::vendeur-hub-dashboard"
+    BUILD_FOLDER: "dist"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16.x
+    commands:
+      - echo install process started
+      - npm install
+  pre_build:
+    commands:
+      - echo installing dependencies...
+  build:
+    commands:
+      - echo build process started now
+      - npm run build -- --configuration=production
+      - echo Finished the build project
+  post_build:
+    commands:
+      - echo publish app...
+      # - aws s3 cp s3://vendeur-hub-dashboard/Procfile ./dist 
+      - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
+artifacts:
+  files:
+    - '**/*'
+  base-directory: './'
