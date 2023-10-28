@@ -4,7 +4,7 @@ env:
     NODE_OPTIONS: "--max-old-space-size=252400"
     CACHE_CONTROL: "252400"
     APP_NAME: "trevauty-external"
-    S3_BUCKET: "arn:aws:s3:::vendeur-hub-dashboard"
+    S3_BUCKET: "arn:aws:s3:::trevauty-external"
     BUILD_FOLDER: "dist"
 phases:
   install:
