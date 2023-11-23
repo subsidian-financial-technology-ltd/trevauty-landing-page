@@ -1,0 +1,22 @@
+.caption{
+    font-family: "Nunito";
+}
+
+.mobile{
+    display: none;
+}
+.desktop{
+    display: block;
+}
+
+@media screen and (max-width:768px) {
+    .logo-badge{
+        display: none;
+    } 
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+    }
+}

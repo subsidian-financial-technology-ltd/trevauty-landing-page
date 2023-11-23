@@ -48,6 +48,10 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup'
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { InventorymanagementComponent } from './components/inventorymanagement/inventorymanagement.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +82,10 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     EditUserFormComponent,
     ProfileAuthComponent,
     ProfileHelpComponent,
+    NavbarComponent,
+    LandingpageComponent,
+    FooterComponent,
+    InventorymanagementComponent,
     // RefundTransactionComponent
   ],
   imports: [
