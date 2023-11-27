@@ -25,10 +25,14 @@ import { authGuard } from './pageGuard/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { InventorymanagementComponent } from './components/inventorymanagement/inventorymanagement.component';
+import { PosComponent } from './components/pos/pos.component';
+import { CardpaymentComponent } from './components/cardpayment/cardpayment.component';
 
 
 const routes: Routes = [
   { path: 'home', component: LandingpageComponent },
+  { path: 'card', component: CardpaymentComponent },
+  { path: 'pos', component: PosComponent },
   { path: 'inventory', component: InventorymanagementComponent },
   { path: 'signup', component: SignupComponent, canActivate:[authGuard] },
   { path: 'login', component: SinginComponent },

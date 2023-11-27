@@ -52,6 +52,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InventorymanagementComponent } from './components/inventorymanagement/inventorymanagement.component';
+import { PosComponent } from './components/pos/pos.component';
+import { CardpaymentComponent } from './components/cardpayment/cardpayment.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { InventorymanagementComponent } from './components/inventorymanagement/i
     LandingpageComponent,
     FooterComponent,
     InventorymanagementComponent,
+    PosComponent,
+    CardpaymentComponent,
     // RefundTransactionComponent
   ],
   imports: [
