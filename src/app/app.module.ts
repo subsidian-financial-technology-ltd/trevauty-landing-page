@@ -54,6 +54,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { InventorymanagementComponent } from './components/inventorymanagement/inventorymanagement.component';
 import { PosComponent } from './components/pos/pos.component';
 import { CardpaymentComponent } from './components/cardpayment/cardpayment.component';
+import { AboutComponent } from './components/about/about.component';
+import { ReceiptComponent } from './components/receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { CardpaymentComponent } from './components/cardpayment/cardpayment.compo
     InventorymanagementComponent,
     PosComponent,
     CardpaymentComponent,
+    AboutComponent,
+    ReceiptComponent,
     // RefundTransactionComponent
   ],
   imports: [

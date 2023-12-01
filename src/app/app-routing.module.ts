@@ -27,10 +27,14 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { InventorymanagementComponent } from './components/inventorymanagement/inventorymanagement.component';
 import { PosComponent } from './components/pos/pos.component';
 import { CardpaymentComponent } from './components/cardpayment/cardpayment.component';
+import { AboutComponent } from './components/about/about.component';
+import { ReceiptComponent } from './components/receipt/receipt.component';
 
 
 const routes: Routes = [
   { path: 'home', component: LandingpageComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'receipt', component: ReceiptComponent },
   { path: 'card', component: CardpaymentComponent },
   { path: 'pos', component: PosComponent },
   { path: 'inventory', component: InventorymanagementComponent },
