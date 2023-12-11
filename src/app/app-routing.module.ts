@@ -29,10 +29,12 @@ import { PosComponent } from './components/pos/pos.component';
 import { CardpaymentComponent } from './components/cardpayment/cardpayment.component';
 import { AboutComponent } from './components/about/about.component';
 import { ReceiptComponent } from './components/receipt/receipt.component';
+import { NfcComponent } from './components/nfc/nfc.component';
 
 
 const routes: Routes = [
   { path: 'home', component: LandingpageComponent },
+  { path: 'nfc', component: NfcComponent },
   { path: 'about', component: AboutComponent },
   { path: 'receipt', component: ReceiptComponent },
   { path: 'card', component: CardpaymentComponent },
@@ -42,9 +44,9 @@ const routes: Routes = [
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
-    { path: '', redirectTo: 'overview', pathMatch: 'full' },
-    { path: 'overview', component: OverviewComponent },
-    { path: 'analytic', component: AnalyticComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: OverviewComponent },
+    { path: 'transaction', component: AnalyticComponent },
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},

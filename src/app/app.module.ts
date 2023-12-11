@@ -56,6 +56,7 @@ import { PosComponent } from './components/pos/pos.component';
 import { CardpaymentComponent } from './components/cardpayment/cardpayment.component';
 import { AboutComponent } from './components/about/about.component';
 import { ReceiptComponent } from './components/receipt/receipt.component';
+import { NfcComponent } from './components/nfc/nfc.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ReceiptComponent } from './components/receipt/receipt.component';
     CardpaymentComponent,
     AboutComponent,
     ReceiptComponent,
+    NfcComponent,
     // RefundTransactionComponent
   ],
   imports: [

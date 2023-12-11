@@ -1,0 +1,108 @@
+// slanted edges here
+.quote {
+    background: #141A3C;
+    position: relative;
+    z-index: 1;
+    
+    &:before,
+    &:after {
+      background: inherit;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden; // for Chrome Windows
+    }
+  
+    &:before {
+      top: 0;
+      transform: skewY(8deg);
+      transform-origin: 100% 0;
+    }
+    
+    &:after {
+      bottom: 0;
+      transform: skewY(-1.5deg);
+      transform-origin: 100%;
+    }
+  }
+  
+  // demo code below
+  .quote {
+    color: #fff;
+    font-family: 'Fira Sans', sans-serif;
+    margin: 350px 0;
+    padding: 10px 5% 50px 5%;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: 500;
+  }
+  
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 0.5em;
+  }
+
+
+
+
+
+  // slanted edges here
+.quote2 {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    
+    &:before,
+    &:after {
+      background: inherit;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden; // for Chrome Windows
+    }
+  
+    &:before {
+      top: 0;
+      transform: skewY(8deg);
+      transform-origin: 100% 0;
+    }
+    
+    &:after {
+      bottom: 0;
+      transform: skewY(-1.5deg);
+      transform-origin: 100%;
+    }
+  }
+  
+  // demo code below
+  .quote2 {
+    color: black;
+    font-family: 'Fira Sans', sans-serif;
+    margin: 350px 0;
+    padding: 0% 5%;
+
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: 500;
+  }
+  
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 0.5em;
+  }

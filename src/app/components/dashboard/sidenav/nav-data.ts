@@ -3,9 +3,9 @@ import { INavbarData } from "./helper";
 export const navbarData: INavbarData[] = [
 
     {
-        routeLink: 'overview',
-        icon: 'assets/icons/Document.png',
-        label: 'Overview',
+        routeLink: 'dashboard',
+        icon: 'assets/icons/home-icon.png',
+        label: 'Dashboard',
         // items: [
         //     {
         //         routeLink: 'products/level1.1',
@@ -38,56 +38,8 @@ export const navbarData: INavbarData[] = [
         // ]
     },
     {
-        routeLink: 'analytic',
-        icon: 'assets/icons/Wallet.png',
-        label: 'Analytic'
-    },
-    {
-        routeLink: 'manage-terminal',
-        icon: 'fal fa-tags',
-        label: 'Manage Terminal',
-        // items: [
-        //     {
-        //         routeLink: 'coupens/list',
-        //         label: 'List Coupens'
-        //     },
-        //     {
-        //         routeLink: 'coupens/create',
-        //         label: 'Create Coupens'
-        //     }
-        // ]
-    },
-    {
-        routeLink: 'refund-transaction',
-        icon: 'assets/icons/Stroke 1.png',
-        label: 'Refund Transactions'
-    },
-    // {
-    //     routeLink: 'refund',
-    //     icon: 'fal fa-camera',
-    //     label: 'Refund Transactions'
-    // },
-    {
-        routeLink: 'profile',
-        icon: 'assets/icons/Profile.png',
-        label: 'Profile'
+        routeLink: 'transaction',
+        icon: 'assets/icons/Transaction-icon.png',
+        label: 'Transaction'
     }
-    ,
-    // {
-    //     routeLink: 'Route4',
-    //     icon: 'fal fa-cog',
-    //     label: 'Route4',
-    //     expanded: true,
-
-    //     items: [
-    //         {
-    //             routeLink: 'settings/profile',
-    //             label: 'Profile'
-    //         },
-    //         {
-    //             routeLink: 'settings/customize',
-    //             label: 'Customize'
-    //         }
-    //     ]
-    // },
 ];
