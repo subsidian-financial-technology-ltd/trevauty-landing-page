@@ -19,7 +19,7 @@ export class AnalyticComponent {
       amount:"500",
       email:"johnDoe@gmail.com",
       productId:60,
-      status:'succeded'
+      status:'approve'
     },
     {
       id:2,
@@ -29,7 +29,7 @@ export class AnalyticComponent {
       amount:"500",
       email:"johnDoe@gmail.com",
       productId:60,
-      status:'succeded'
+      status:'decline'
     },
     {
       id:3,
@@ -39,7 +39,7 @@ export class AnalyticComponent {
       amount:"500",
       email:"johnDoe@gmail.com",
       productId:60,
-      status:'succeded'
+      status:'approve'
     },
     {
       id:4,
@@ -49,7 +49,7 @@ export class AnalyticComponent {
       amount:"500",
       email:"johnDoe@gmail.com",
       productId:60,
-      status:'succeded'
+      status:'decline'
     },
 
   ];

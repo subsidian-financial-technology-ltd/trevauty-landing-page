@@ -4,7 +4,8 @@ export const navbarData: INavbarData[] = [
 
     {
         routeLink: 'dashboard',
-        icon: 'assets/icons/home-icon.png',
+        // icon: 'assets/icons/home-icon.png',
+        icon:'fas fa-home',
         label: 'Dashboard',
         // items: [
         //     {
@@ -39,7 +40,8 @@ export const navbarData: INavbarData[] = [
     },
     {
         routeLink: 'transaction',
-        icon: 'assets/icons/Transaction-icon.png',
+        // icon: 'assets/icons/Transaction-icon.png',
+        icon: 'fas fa-exchange-alt',
         label: 'Transaction'
     }
 ];
