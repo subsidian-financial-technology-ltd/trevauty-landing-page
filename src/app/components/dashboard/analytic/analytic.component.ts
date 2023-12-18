@@ -9,7 +9,50 @@ import { TerminalService } from 'src/app/services/terminal.service';
 export class AnalyticComponent {
 
   apiResponse: any;
-  data: any[] = [];
+  data: any[] = [
+
+    {
+      id:1,
+      invoiceNumber:"10000000",
+      customerName:"John Doe",
+      date:"13-04-2023",
+      amount:"500",
+      email:"johnDoe@gmail.com",
+      productId:60,
+      status:'succeded'
+    },
+    {
+      id:2,
+      invoiceNumber:"10000000",
+      customerName:"John Doe",
+      date:"13-04-2023",
+      amount:"500",
+      email:"johnDoe@gmail.com",
+      productId:60,
+      status:'succeded'
+    },
+    {
+      id:3,
+      invoiceNumber:"10000000",
+      customerName:"John Doe",
+      date:"13-04-2023",
+      amount:"500",
+      email:"johnDoe@gmail.com",
+      productId:60,
+      status:'succeded'
+    },
+    {
+      id:4,
+      invoiceNumber:"10000000",
+      customerName:"John Doe",
+      date:"13-04-2023",
+      amount:"500",
+      email:"johnDoe@gmail.com",
+      productId:60,
+      status:'succeded'
+    },
+
+  ];
   page: number = 0;
   size: number = 10;
   analyticsOverview: any;
