@@ -57,6 +57,8 @@ import { CardpaymentComponent } from './components/cardpayment/cardpayment.compo
 import { AboutComponent } from './components/about/about.component';
 import { ReceiptComponent } from './components/receipt/receipt.component';
 import { NfcComponent } from './components/nfc/nfc.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -112,7 +114,8 @@ import { NfcComponent } from './components/nfc/nfc.component';
     NgxOtpInputModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule 
+    NgToastModule, 
+    NgxChartsModule
 
 
     // ManageTerminalRoutingModule,

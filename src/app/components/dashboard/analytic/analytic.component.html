@@ -1,4 +1,4 @@
-<div class="bg-[#F5F4F7] h-fit md:p-[2rem] p-[2rem]">
+<!-- <div class="bg-[#F5F4F7] h-fit md:p-[2rem] p-[2rem]">
     <div class="flex justify-between items-center mb-[5rem]">
         <div class="flex justify-between items-center w-[100%]">
             <div class="">
@@ -74,21 +74,12 @@
     </div>
 
 
-
-    <!-- Table =============== -->
     <div class="relative overflow-x-auto sm:rounded-lg">
 
         <table class="w-full text-[14px] leading-[150%] text-[#4B5563] text-left ">
             <thead
                 class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#fff]">
                 <tr class="border-b">
-                    <!-- <th scope="col" class="p-[2rem]">
-                        <div class="flex items-center">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">Payment ID</label>
-                        </div>
-                    </th> -->
                     <th scope="col" class="p-[2rem]">
                         Invoice Number
                     </th>
@@ -118,13 +109,6 @@
             <tbody>
                 <tr  *ngFor="let terminal of data"
                     class="border-separate border-0 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <!-- <td class="w-4 p-[2rem]">
-                        <div class="flex items-center">
-                            <input id="checkbox-table-search-3" type="checkbox"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
-                        </div>
-                    </td> -->
 
                     <td class="p-[2rem]  ">
                         {{terminal.invoiceNumber}}
@@ -199,7 +183,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+
 
 
 <!-- 
@@ -231,3 +218,57 @@
         display custom fields.
         change the description to desc instead of service type
       -->
+
+
+<div class="transaction_card grid gap-[2rem] md:grid-cols-3  rounded-[10px] p-[30px]">
+
+    <div class="col-span-1 p-[2rem] bg-[#fff] rounded-[15px]">
+        <div class="flex justify-between mb-[30px]">
+            <div class="deposit">
+                <p>Deposit</p>
+            </div>
+            <div class="">
+                <p class="text-[#9155FD]">View All</p>
+            </div>
+        </div>
+
+        <div class="my-[1rem]" *ngFor="let deposit of deposits">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-[2rem]">
+                    <div class="">
+                        <img src="/assets/images/calc.png" class="h-[40px]" />
+                    </div>
+                    <div class="leading-[5px]">
+                        <div class="text-[12px]">
+                            <h3>{{deposit?.location}}</h3>
+                        </div>
+                        <div class="text-[grey] text-[12px]">
+                            <p>{{deposit?.operatorName}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="justify-end">
+                    <p [ngClass]="{'red': deposit.amount < 0, 'green': deposit.amount >= 0 }">NGN{{ deposit?.amount }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <ngx-charts-bar-vertical-2d 
+        [view]="[width, height]" 
+        [customColors]="barChartcustomColors"
+        [results]="multi" 
+        [gradient]="gradient" 
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis" 
+        [legend]="showLegend" 
+        [showXAxisLabel]="showXAxisLabel" 
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel" 
+        [yAxisLabel]="yAxisLabel" >
+    </ngx-charts-bar-vertical-2d>
+
+</div>
