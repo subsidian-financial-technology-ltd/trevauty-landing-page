@@ -185,15 +185,34 @@ export class AnalyticComponent {
   //   domain: ['green', 'blue', 'red', 'red', 'green', 'blue']
   // };
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA',  '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
-  barChartcustomColors = [
-    { name: "Sunday", value: '#febb00' },
-    { name: "Monday", value: '#1dd068' },
-    { name: "Teusday", value: '#1dd068' },
-    { name: "Wednesday", value: '#febb00' },
-  ]
+  customColors = (value: any) => {
+    console.log(value);
+    return "#299D91";
+  }
+
+  // customColors = (value: any, series: any) => {
+  //   const pairColors = ['#FF0000', '#0000FF']; // Red and Blue for each pair
+  
+  //   // Find the index of the series within its parent
+  //   const seriesIndex = series.findIndex((s: any) => s.name === series.name);
+  
+  //   // Return the color for the pair
+  //   return pairColors[seriesIndex % pairColors.length];
+  // }
+
+
+
+  
+
+  // barChartcustomColors = [
+  //   { name: "Sunday", value: '#febb00' },
+  //   { name: "Monday", value: '#1dd068' },
+  //   { name: "Teusday", value: '#1dd068' },
+  //   { name: "Wednesday", value: '#febb00' },
+  // ]
   //pie
   showLabels = true;
   // data goes here
