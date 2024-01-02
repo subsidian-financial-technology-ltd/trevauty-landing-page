@@ -1,4 +1,4 @@
-<!-- <div class="bg-[#F5F4F7] h-fit md:p-[2rem] p-[2rem]">
+<div class="bg-[#F5F4F7] h-fit md:p-[2rem] p-[2rem]">
     <div class="flex justify-between items-center mb-[5rem]">
         <div class="flex justify-between items-center w-[100%]">
             <div class="">
@@ -17,7 +17,7 @@
 
 
     <div class="flex items-center justify-between pb-4 ">
-        <div class="w-[100%] md:flex gap-[2rem] justify-between items-center py-[2rem]">
+        <div class="w-[100%] md:flex gap-[2rem] justify-end items-center py-[2rem]">
 
             <div class="md:w-[50%] w-[100%] flex items-center">
                 <div class="w-[100%] grid md:grid-cols-10 grid-cols-1 gap-[2rem]">
@@ -26,37 +26,7 @@
                             class="bg-[#fff] outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
 
                     </div>
-                    <div class="md:col-span-2 col-span-1 p-[1rem] py-[0.5rem] bg-[#fff] rounded-[8px]">
-                        <select id="countries"
-                            class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            <option selected>
-                                <div><img src="/assets/images/flag.png" alt=""></div>
-                                <span>Date Range</span>
-                            </option>
-                            <option value="US">Success</option>
-                            <option value="CA">Failure</option>
-                            <option value="FR">Pending</option>
-                        </select>
-                    </div>
-                    <div class="md:col-span-3 col-span-1 p-[1rem] py-[0.5rem] bg-[#fff] rounded-[8px]">
-                        <select id="countries"
-                            class="outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option selected>Paystack</option>
-                            <option value="US">Remiter</option>
-                            <option value="CA">Interswitch</option>
-                            <option value="FR">Flutterwave</option>
-                        </select>
-                    </div>
-                    <div class="md:col-span-3 col-span-1 p-[1rem] py-[0.5rem] bg-[#fff] rounded-[8px]">
-                        <select id="countries"
-                            class="outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option selected>Status</option>
-                            <option value="US">All</option>
-                            <option value="CA">Succeded</option>
-                            <option value="FR">Refunded</option>
-                        </select>
-                    </div>
-                   
+
                 </div>
             </div>
 
@@ -77,8 +47,7 @@
     <div class="relative overflow-x-auto sm:rounded-lg">
 
         <table class="w-full text-[14px] leading-[150%] text-[#4B5563] text-left ">
-            <thead
-                class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#fff]">
+            <thead class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#fff]">
                 <tr class="border-b">
                     <th scope="col" class="p-[2rem]">
                         Invoice Number
@@ -90,7 +59,7 @@
                         Date
                     </th>
                     <th scope="col" class="p-[2rem]">
-                        
+
                         Amount
                     </th>
                     <th scope="col" class="p-[2rem]">
@@ -107,7 +76,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr  *ngFor="let terminal of data"
+                <tr *ngFor="let terminal of data"
                     class="border-separate border-0 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                     <td class="p-[2rem]  ">
@@ -183,7 +152,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 
 
@@ -292,12 +261,12 @@
             </div>
         </div>
         <!-- card 1 ends here  -->
- 
+
     </div>
 
 
 
-    <div class="transaction_card grid gap-[2rem] md:grid-cols-3  rounded-[10px] ">
+    <div class="transaction_card grid gap-[2rem] md:grid-cols-3  rounded-[10px]">
 
         <div class="col-span-1 p-[2rem] bg-[#fff] rounded-[15px]">
             <div class="flex justify-between mb-[30px]">
@@ -344,3 +313,278 @@
     </div>
 
 </div>
+
+
+<!-- Payment Receipt starts here -->
+
+<div class="bg-[#7535FD] p-[4rem] flex justify-center">
+    <div class="min-w-[50rem]">
+
+        <div class="flex justify-between items-center pb-[4rem]">
+            <div>
+                <img src="/assets/images/LOGO-white.png" alt="">
+            </div>
+            <p class="text-[#fff]">Payment Receipt</p>
+        </div>
+
+        <div class="bg-[#fff] rounded-[20px] p-[4rem] grid gap-[2rem]">
+
+            <div class="flex justify-center"><img src="/assets/images/tick-circle.png" alt=""></div>
+
+            <div class="text-center font-[NUNITO] text-[18px]">Transaction Successful</div>
+
+            <div class="text-[#3D3D3D] grid gap-[1rem]">
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Transfer to bank</div>
+                    <div>- N 2,500.00</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Charges</div>
+                    <div>2.00</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Date</div>
+                    <div>6th, Sep, 2023</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Time</div>
+                    <div>7:36 PM</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Status</div>
+                    <div>SUCCESS</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Bank Name</div>
+                    <div>Opay</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Account Number</div>
+                    <div>7556367629</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Account Name</div>
+                    <div>Larry Ayo</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-grey pr-[1rem]">
+                    <div>Paid with</div>
+                    <div>Wallet</div>
+                </div>
+
+                <div class="flex justify-between font-[NUNITO-LIGHT] text-[16px] py-[2rem] pr-[1rem]">
+                    <div>Transaction ID</div>
+                    <div>#555678800</div>
+                </div>
+            </div>
+            <div
+                class="bg-[#7535FD] text-[#fff] text-[18px] py-[2rem] px-[3rem] w-fit rounded-[5px] font-[NUNITO-LIGHT] mt-[2rem]">
+                Download Receipt
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Receipt starts here -->
+
+
+
+<div class=" py-[4rem] flex justify-center">
+    <div class="border w-full">
+
+        <div class="bg-[#E4E6E8] flex justify-between items-center p-[4rem]">
+            <div class="flex items-center w-[100px]">
+                <img src="/assets/images/LOGO 1.png" alt="">
+            </div>
+            <p class="text-[#7535FD]">Transaction Receipt</p>
+        </div>
+
+        <div class="bg-[#fff] p-[4rem] grid gap-[2rem]">
+
+            <div class="text-center">Kalon.ng</div>
+
+            <div class="text-center font-[NUNITO-LIGHT] text-[18px]">Lekki, Lagos Nigeria</div>
+
+            <div class="text-[#3D3D3D] grid gap-[1rem]">
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Transaction Date</div>
+                    <div>Oct 21,2023,17:26</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Cardpan</div>
+                    <div>64673958878</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Date</div>
+                    <div>6th, Sep, 2023</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Transaction ref</div>
+                    <div>0000998978</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Transaction Amount</div>
+                    <div>25,000</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Transaction Status</div>
+                    <div class="text-[#1AD598]">Approved</div>
+                </div>
+
+                <div
+                    class="flex justify-between font-[NUNITO-LIGHT] text-[16px] border-b py-[1rem] border-[#747890] pr-[1rem]">
+                    <div>Payment method</div>
+                    <div>POS</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Generate Invoice -->
+
+
+<div class=" py-[4rem] flex justify-center">
+    <div class="border w-full">
+
+        <div class="bg-[#E4E6E8] flex justify-between items-center p-[4rem]">
+            <div class="flex items-center w-[100px]">
+                <img src="/assets/images/LOGO 1.png" alt="">
+            </div>
+            <p class="text-[#7535FD] font-[NUNITO] text-[18px]">Invoice</p>
+        </div>
+
+        <div class="bg-[#fff] p-[4rem] grid gap-[2rem]">
+
+        <div class="flex justify-between">
+            <div>
+                <span>Customer's Name: </span>
+                <span>Maya</span>
+            </div>
+            <div>
+                <span>Invoice ID: </span>
+                <span>#567890</span>
+            </div>
+        </div>
+
+        <div class="flex justify-between">
+            <div>
+                <span>Phone Number: </span>
+                <span>09048377734</span>
+            </div>
+            <div>
+                <span>Date: </span>
+                <span>Sep 20, 2023</span>
+            </div>
+        </div>
+
+
+        <div class="grid py-[2rem]">
+
+            <div class="grid grid-cols-4 font-[NUNITO]">
+                <div class="border text-center p-[1rem]">Description</div>
+                <div class="border text-center p-[1rem]">Price</div>
+                <div class="border text-center p-[1rem]">Qty</div>
+                <div class="border text-center p-[1rem]">Total</div>
+            </div>
+
+            <div class="grid grid-cols-4 text-grey">
+                <div class="border text-center p-[1rem]">Android POS </div>
+                <div class="border text-center p-[1rem]">N 25,000</div>
+                <div class="border text-center p-[1rem]">1</div>
+                <div class="border text-center p-[1rem]">N 25,000</div>
+            </div>
+
+            <div class="grid grid-cols-4 text-grey">
+                <div class="border text-center p-[1rem]">Android POS </div>
+                <div class="border text-center p-[1rem]">N 25,000</div>
+                <div class="border text-center p-[1rem]">1</div>
+                <div class="border text-center p-[1rem]">N 25,000</div>
+            </div>
+            
+        </div>
+
+        <div class="flex justify-between">
+            <div>
+                <span>Payment Info: </span>
+                <span></span>
+            </div>
+            <div>
+                <span>Sub total: </span>
+                <span>N  25,000</span>
+            </div>
+        </div>
+
+        <div class="flex justify-between">
+            <div>
+                <span>Account No: </span>
+                <span>203874568</span>
+            </div>
+            <div>
+                <span>Tax: </span>
+                <span>0.00</span>
+            </div>
+        </div>
+
+        <div class="flex justify-between">
+            <div>
+                <span>Account Name : </span>
+                <span>Trevauty</span>
+            </div>
+            <div>
+                <span>Total: </span>
+                <span>N  25,000</span>
+            </div>
+        </div>
+
+        <div class="flex justify-between">
+            <div>
+                <span>Bank Name : </span>
+                <span>UBA</span>
+            </div>
+        </div>
+            <div
+                class="bg-[#7535FD] text-[#fff] text-[18px] py-[2rem] px-[3rem] w-fit rounded-[5px] font-[NUNITO-LIGHT] mt-[2rem]">
+                Generate Invoice
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Generate Invoice -->
+
+
