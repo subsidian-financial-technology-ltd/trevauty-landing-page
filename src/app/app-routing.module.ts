@@ -31,6 +31,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ReceiptComponent } from './components/receipt/receipt.component';
 import { NfcComponent } from './components/nfc/nfc.component';
 import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/receipt-history.component';
+import { ManageCardsComponent } from './components/dashboard/manage-cards/manage-cards.component';
 
 
 const routes: Routes = [
@@ -46,9 +47,10 @@ const routes: Routes = [
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: 'dashboard', component: OverviewComponent },
-    { path: 'transaction', component: AnalyticComponent },
-    { path: 'receipt-history', component: ReceiptHistoryComponent },
+    { path: 'dashboard', component: AnalyticComponent},
+    { path: 'transaction', component:  ReceiptHistoryComponent},
+    { path: 'settings', component:  OverviewComponent},
+    { path: 'cards', component:  ManageCardsComponent},
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},

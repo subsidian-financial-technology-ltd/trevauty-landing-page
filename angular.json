@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "angular/core",
+              "swimlane/ngx-charts",
+              "@coreui/icons-angular"
+            ],
             "outputPath": "dist/trevauty-app",
             "index": "src/index.html",
             "main": "src/main.ts",

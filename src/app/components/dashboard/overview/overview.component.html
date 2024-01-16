@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="bg-[#F5F4F7] h-fit md:pr-[2rem] p-[2rem] ">
     
     <div class="flex justify-between items-center mb-[3rem]">
@@ -221,7 +221,7 @@
 
 </div>
 
-
+ -->
 
 
 
@@ -240,31 +240,65 @@
 
         <div>
             <p>Your Profile Picture</p>
-            <div class="bg-[url('/assets/images/Upload Image.png')]">
-                <i class="fa fa-user"></i>
-                <i class="fa fa-user"></i>
+            <div class="h-[200px] mb-[2rem] w-[35%] rounded-[2rem] p-[2rem] bg-gradient-to-r from-violet-500 to-fuchsia-500" >
+                <div class="flex justify-end gap-[2rem]">
+                    <img class="cursor-pointer" src="/assets/images/fi_upload-cloud.png" alt="">
+                    <img class="cursor-pointer" src="/assets/images/Delete.png" alt="">
+                </div>
+   
             </div>
 
 
 
-            <div class="">
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 font-medium text-gray-900">Your
-                        email</label>
-                    <input type="email" id="email"
-                        class="bg-gray-50 border border-[#EDF2F6] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
+                    <label for="fullName" class="block mb-2 font-medium text-gray-900">
+                        Full Name</label>
+                    <input type="text" id="fullName"
+                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
                         placeholder="Full Name" required>
                 </div>
+        
                 <div class="mb-5">
-                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">Text</label>
-                    <input type="text" id="text" placeholder="Phone Number"
-                        class="bg-gray-50 border border-[#E0E4EC] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
-                        required>
+                    <label for="email" class="block mb-2 font-medium text-gray-900">Email
+                        Address</label>
+                    <input type="email" id="email"
+                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        placeholder="Email" required>
                 </div>
+        
+        
             </div>
 
-        </div>
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                <div class="mb-5">
+                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
+                        Phone Number</label>
+                    <input type="phone" id="phoneNumber"
+                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        placeholder="Phone Number" required>
+                </div>
+        
+                <div class="mb-5">
+                    <label for="country" class="block mb-2 font-medium text-gray-900">
+                        Country</label>
+                    <input type="text" id="country"
+                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        placeholder="Country" required>
+                </div>
+        
+            </div>
 
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                <div class="mb-5">
+                    <label for="email" class="block mb-2 font-medium text-gray-900">
+                        Address</label>
+                    <input type="email" id="address"
+                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        placeholder="Address" required>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
         <div class="flex gap-[3rem] items-center">
@@ -274,8 +308,6 @@
                 Settings
             </a>
         </div>
-
-
     </div>
 </form>
 
@@ -285,15 +317,13 @@
 
 
 
-<form class="w-[50%] m-auto" action="">
 
-        <div class="mb-5">
-            <label for="email" class="block mb-2 font-medium text-gray-900">Your
-                email</label>
-            <input type="email" id="email"
-                class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                placeholder="Full Name" required>
-        </div>
+
+
+
+
+
+<form class="w-[50%] m-auto" action="">
         <div class="mb-5">
             <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">Text</label>
             <input type="text" id="text" placeholder="Phone Number"

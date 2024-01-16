@@ -59,6 +59,14 @@ import { ReceiptComponent } from './components/receipt/receipt.component';
 import { NfcComponent } from './components/nfc/nfc.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/receipt-history.component';
+import { MenuModule } from 'primeng/menu';
+import { MessageService } from 'primeng/api';
+import { ManageCardsComponent } from './components/dashboard/manage-cards/manage-cards.component';
+import { CalendarModule } from 'primeng/calendar';
+// import { DropdownModule } from '@coreui/angular';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -100,6 +108,7 @@ import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/
     ReceiptComponent,
     NfcComponent,
     ReceiptHistoryComponent,
+    ManageCardsComponent,
     // RefundTransactionComponent
   ],
   imports: [
@@ -117,13 +126,19 @@ import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/
     ReactiveFormsModule,
     HttpClientModule,
     NgToastModule, 
-    NgxChartsModule
+    NgxChartsModule,
+    MenuModule,
+    CalendarModule,
+    NgbDropdownModule,
+    NgbModule
+
+    // DropdownModule
 
 
     // ManageTerminalRoutingModule,
 
   ],
-  providers: [
+  providers: [ MessageService
     // {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   bootstrap: [AppComponent],
