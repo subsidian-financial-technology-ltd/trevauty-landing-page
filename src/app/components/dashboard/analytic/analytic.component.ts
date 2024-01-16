@@ -14,78 +14,14 @@ import { BaseType } from 'd3-selection';
 })
 export class AnalyticComponent {
 
-  apiResponse: any;
-  data: any[] = [
-
-    {
-      id:1,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'approve'
-    },
-    {
-      id:2,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'decline'
-    },
-    {
-      id:3,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'approve'
-    },
-    {
-      id:4,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'decline'
-    },
-
-  ];
-  page: number = 0;
-  size: number = 10;
-  analyticsOverview: any;
-  filterParams : any = {
-    
-  }
-
   constructor(private terminalService: TerminalService) {}
 
   ngOnInit(): void {
-    this.getTerminals();
+    // this.getTerminals();
     this.getAnalyticsOverview();
   }
 
-  getTerminals(): void{
-    console.log(this.page, this.size);
-    this.terminalService.getTransactions(this.page, this.size).subscribe({
-      next:(response: any)=>{
-          this.apiResponse = response;
-          this.data = this.apiResponse?.content;
-          console.log(this.data);
-      },
-      error:(items:any)=>{
-
-      }
-    })
-  }
+  analyticsOverview: any;
 
   getAnalyticsOverview(): void{
     this.terminalService.getAnalyticsOverview().subscribe({
@@ -98,36 +34,6 @@ export class AnalyticComponent {
       }
     })
   }
-
-  
-
-  pageIncrement(){
-    console.log("hello 1");
-    if(this.page < this.apiResponse?.totalPages){
-      this.page + 1;
-    this.getTerminals();
-    }
-  }
-  pageDecrement(){
-    console.log("hello 2");
-    if(this.page > 1){
-      this.page - 1;
-    this.getTerminals();
-    }
-}
-
-  // constructor(private decimalPipe: DecimalPipe) { }
-
-  // public formatNumberWithCommas(number: number) {
-  //   return this.decimalPipe.transform(number, '1.0-0');
-  // }
-
-
-
-
-
-
-
 
   deposits:any = [
     {
@@ -150,16 +56,16 @@ export class AnalyticComponent {
       operatorName:"Mary Smith",
       amount:20000
     },
-    {
-      location:"Unilag Terminal 1",
-      operatorName:"Operator Makinde Alfa",
-      amount:50000
-    },
-    {
-      location:"Unilag Terminal 1",
-      operatorName:"Mary Smith",
-      amount:20000
-    },
+    // {
+    //   location:"Unilag Terminal 1",
+    //   operatorName:"Operator Makinde Alfa",
+    //   amount:50000
+    // },
+    // {
+    //   location:"Unilag Terminal 1",
+    //   operatorName:"Mary Smith",
+    //   amount:20000
+    // },
 
   ];
 
@@ -192,30 +98,8 @@ export class AnalyticComponent {
     console.log(value);
     return "#299D91";
   }
-
-  // customColors = (value: any, series: any) => {
-  //   const pairColors = ['#FF0000', '#0000FF']; // Red and Blue for each pair
   
-  //   // Find the index of the series within its parent
-  //   const seriesIndex = series.findIndex((s: any) => s.name === series.name);
-  
-  //   // Return the color for the pair
-  //   return pairColors[seriesIndex % pairColors.length];
-  // }
-
-
-
-  
-
-  // barChartcustomColors = [
-  //   { name: "Sunday", value: '#febb00' },
-  //   { name: "Monday", value: '#1dd068' },
-  //   { name: "Teusday", value: '#1dd068' },
-  //   { name: "Wednesday", value: '#febb00' },
-  // ]
-  //pie
   showLabels = true;
-  // data goes here
 
 public multi = [
   {

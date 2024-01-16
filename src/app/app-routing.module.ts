@@ -30,6 +30,7 @@ import { CardpaymentComponent } from './components/cardpayment/cardpayment.compo
 import { AboutComponent } from './components/about/about.component';
 import { ReceiptComponent } from './components/receipt/receipt.component';
 import { NfcComponent } from './components/nfc/nfc.component';
+import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/receipt-history.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: OverviewComponent },
     { path: 'transaction', component: AnalyticComponent },
+    { path: 'receipt-history', component: ReceiptHistoryComponent },
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},

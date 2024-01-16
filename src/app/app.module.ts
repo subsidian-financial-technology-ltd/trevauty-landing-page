@@ -58,6 +58,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ReceiptComponent } from './components/receipt/receipt.component';
 import { NfcComponent } from './components/nfc/nfc.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/receipt-history.component';
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     AboutComponent,
     ReceiptComponent,
     NfcComponent,
+    ReceiptHistoryComponent,
     // RefundTransactionComponent
   ],
   imports: [

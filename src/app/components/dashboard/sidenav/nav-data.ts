@@ -43,5 +43,23 @@ export const navbarData: INavbarData[] = [
         // icon: 'assets/icons/Transaction-icon.png',
         icon: 'fas fa-exchange-alt',
         label: 'Transaction'
+    },
+    {
+        routeLink: 'manage-cards',
+        // icon: 'assets/icons/Transaction-icon.png',
+        icon: 'fas fa-exchange-alt',
+        label: 'Manage Cards'
+    },
+    {
+        routeLink: 'generate-invoice',
+        // icon: 'assets/icons/Transaction-icon.png',
+        icon: 'fas fa-exchange-alt',
+        label: 'Generate Invoice'
+    },
+    {
+        routeLink: 'receipt-history',
+        // icon: 'assets/icons/Transaction-icon.png',
+        icon: 'fas fa-exchange-alt',
+        label: 'Receipt History'
     }
 ];
