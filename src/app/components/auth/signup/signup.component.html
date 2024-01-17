@@ -3,7 +3,7 @@
         <div class="flex justify-between flex-col w-[80%] md:w-[50%]">
             <div>
                
-                <div class="font-[DM Sans] font-[700] text-[30px] text-[#000] leading-[56px]">Sign Up</div>
+                <div class="font-[DM Sans] py-[1rem] font-[700] text-[30px] text-[#000] leading-[56px]">Sign Up</div>
 
 
                 <form class="text-[#000] uppercase text-[12px] font-[NUNITO-LIGHT] font-[100]" [formGroup]="myform" (ngSubmit)="onSubmit(myform.value)">
@@ -11,7 +11,7 @@
                     <div class="grid md:grid-cols-2 gap-[2rem]">
                         <div class="w-full"
                             [ngClass]="{'has-error': !formData['firstName'].valid && formData['firstName'].touched}">
-                            <label for="fname">First Name*</label>
+                            <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">First Name *</label>
                             <div class="border-none "
                                 *ngIf="formData['firstName'].touched && formData['firstName'].errors">
                                 <div class="shadow-none border-none  text-danger"
@@ -22,7 +22,7 @@
                                     First Name is not valid, Numeric data not allowed
                                 </div>
                             </div>
-                            <div class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
+                            <div class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                                 <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                     placeholder="First name" name="firstName" formControlName="firstName">
                             </div>
@@ -31,7 +31,7 @@
 
                         <div class="w-full"
                             [ngClass]="{'has-error': !formData['lastName'].valid && formData['lastName'].touched}">
-                            <label for="fname">Last Name*</label>
+                            <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Last Name*</label>
                             <div class="border-none "
                                 *ngIf="formData['lastName'].touched && formData['lastName'].errors">
                                 <div class="shadow-none border-none  text-danger"
@@ -42,7 +42,7 @@
                                     Last Name is not valid, Numeric data not allowed
                                 </div>
                             </div>
-                            <div class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
+                            <div class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                                 <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                     placeholder="Last Name" name="lastName" formControlName="lastName">
                             </div>
@@ -55,7 +55,7 @@
 
                     <div class="w-full "
                     [ngClass]="{'has-error': !formData['email'].valid && formData['email'].touched}">
-                    <label for="fname">BUSINESS Type*</label>
+                    <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">BUSINESS Type*</label>
                     <div class="border-none " *ngIf="formData['email'].touched && formData['email'].errors">
                         <div class="shadow-none border-none  text-danger"
                             *ngIf="formData['email'].errors['required']">
@@ -65,7 +65,7 @@
                             BUSINESS Type is not valid, Alphabets not allowed
                         </div>
                     </div>
-                    <div class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
+                    <div class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                         <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                             placeholder="BUSINESS Type" name="email" formControlName="email">
                     </div>
@@ -78,7 +78,7 @@
 
                     <div class="w-full "
                         [ngClass]="{'has-error': !formData['email'].valid && formData['email'].touched}">
-                        <label for="fname">Email*</label>
+                        <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Email*</label>
                         <div class="border-none " *ngIf="formData['email'].touched && formData['email'].errors">
                             <div class="shadow-none border-none  text-danger"
                                 *ngIf="formData['email'].errors['required']">
@@ -88,7 +88,7 @@
                                 Email is not valid, Alphabets not allowed
                             </div>
                         </div>
-                        <div class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
+                        <div class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                             <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                 placeholder="mail@simmmple.com" name="email" formControlName="email">
                         </div>
@@ -99,7 +99,7 @@
 
                     <div class="w-full "
                         [ngClass]="{'has-error': !formData['phoneNumber'].valid && formData['phoneNumber'].touched}">
-                        <label for="fname">Location*</label>
+                        <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Location*</label>
                         <div class="border-none "
                             *ngIf="formData['phoneNumber'].touched && formData['phoneNumber'].errors">
                             <div class="shadow-none border-none  text-danger"
@@ -111,7 +111,7 @@
                                 Location is not valid, Alphabets not allowed
                             </div>
                         </div>
-                        <div class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
+                        <div class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                             <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                 placeholder="Location" name="phoneNumber" formControlName="phoneNumber">
                         </div>
@@ -124,7 +124,7 @@
 
                     <div class="w-full "
                     [ngClass]="{'has-error': !formData['phoneNumber'].valid && formData['phoneNumber'].touched}">
-                    <label for="fname">Request for POS*</label>
+                    <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Request for POS*</label>
                     <div class="border-none "
                         *ngIf="formData['phoneNumber'].touched && formData['phoneNumber'].errors">
                         <div class="shadow-none border-none  text-danger"
@@ -136,7 +136,7 @@
                             Request for POS is not valid, Alphabets not allowed
                         </div>
                     </div>
-                    <div class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
+                    <div class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                         <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                             placeholder="Request for POS" name="phoneNumber" formControlName="phoneNumber">
                     </div>
@@ -147,7 +147,7 @@
 
                     <div class="w-full"
                         [ngClass]="{'has-error': !formData['password'].valid && formData['password'].touched}">
-                        <label for="password">Password*</label>
+                        <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="password">Password*</label>
                         <div class="border-none " *ngIf="formData['password'].touched && formData['password'].errors">
                             <div class="shadow-none border-none  text-danger"
                                 *ngIf="formData['password'].errors['required']">
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                         <div
-                            class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between items-center mb-[10px]">
+                            class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between items-center mb-[10px]">
                             <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" [type]="password"
                                 placeholder="mail@simmmple.com" name="password" formControlName="password">
                             <!-- <img (click)="toggleShowPassword()" src="/assets/images/eye.png"> -->
@@ -169,7 +169,7 @@
 
                     <div class="w-full"
                         [ngClass]="{'has-error': !formData['password'].valid && formData['password'].touched}">
-                        <label for="password">Confirm Password*</label>
+                        <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="password">Confirm Password*</label>
                         <div class="border-none " *ngIf="formData['password'].touched && formData['password'].errors">
                             <div class="shadow-none border-none  text-danger"
                                 *ngIf="formData['password'].errors['required']">
@@ -180,7 +180,7 @@
                             </div>
                         </div>
                         <div
-                            class="rounded-[100px] border px-[1rem] py-[0.8rem] flex justify-between items-center mb-[10px]">
+                            class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between items-center mb-[10px]">
                             <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]"
                                 [type]="confirmPassword" placeholder="***********" name="password"
                                 formControlName="password">
@@ -197,7 +197,7 @@
                             </div>
                         </div>
                         <div class="form-check flex gap-[2rem] items-center">
-                            <label class="form-check-label">
+                            <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="agreeWithTermsAndCondition"
                                     formControlName="agreeWithTermsAndCondition">
                                 <span class="ml-[1rem] font-[200] lowercase text-[12px] font-[100] font-[NUNITO-LIGHT]">I acknowledge that I have read and do hereby accept the terms and conditions in Trevauty Agreement and agree to receive valuable emails from Trevauty. 
@@ -208,7 +208,7 @@
 
                     </div>
                     <button type="submit"
-                        class="w-full gap-2.5 text-white mx-0 my-4 pl-2 pr-[8px,] py-[10px,] p-[1.2rem] rounded-[100px] border-[none] bg-[#7b57fc]">Create an Account</button>
+                        class="w-full gap-2.5 text-white mx-0 my-4 pl-2 pr-[8px,] py-[10px,] p-[1.2rem] rounded-[8px] border-[none] bg-[#7b57fc]">Create an Account</button>
                 </form>
                 <div class="flex justify-center">
                     <p class="font-[DM Sans] text-[#707EAE] py-[1rem]">Have an account?<a href="#"
