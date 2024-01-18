@@ -230,16 +230,21 @@
     scrollbar-width: thin;
     // scrollbar-color: #556268 transparent;
 }
+
 .log-out{
-    background-color: #7B57FC;
-    color: #fff;
-    // position:;
-    margin-top: 200px;
-    left: 0;
-    // display: block;
+    // padding: 1rem;
+    // justify-content: center;
     text-align: center;
-    padding: 20px;
     display: flex;
+    width: 80%;
+    margin: auto;
+    border-radius: 8px;
+    background-color: #fff;
+    height: 40px;
+    color: #7B57FC;
+    margin-top: 200px;
+    padding: 1rem 1rem;
+    font-weight: 900;
     gap: 1rem;
-    justify-content: center;
 }
+
