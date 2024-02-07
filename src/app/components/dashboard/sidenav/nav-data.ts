@@ -44,18 +44,18 @@ export const navbarData: INavbarData[] = [
         icon: 'fas fa-exchange-alt',
         label: 'Transaction'
     },
-    {
-        routeLink: 'manage-cards',
-        // icon: 'assets/icons/Transaction-icon.png',
-        icon: 'fas fa-exchange-alt',
-        label: 'Manage Cards'
-    },
-    {
-        routeLink: 'generate-invoice',
-        // icon: 'assets/icons/Transaction-icon.png',
-        icon: 'fas fa-exchange-alt',
-        label: 'Generate Invoice'
-    },
+    // {
+    //     routeLink: 'manage-cards',
+    //     // icon: 'assets/icons/Transaction-icon.png',
+    //     icon: 'fas fa-exchange-alt',
+    //     label: 'Manage Cards'
+    // },
+    // {
+    //     routeLink: 'generate-invoice',
+    //     // icon: 'assets/icons/Transaction-icon.png',
+    //     icon: 'fas fa-exchange-alt',
+    //     label: 'Generate Invoice'
+    // },
     {
         routeLink: 'cards',
         // icon: 'assets/icons/Transaction-icon.png',
@@ -63,7 +63,7 @@ export const navbarData: INavbarData[] = [
         label: 'Manage Cards'
     },
     {
-        routeLink: 'settings',
+        routeLink: 'profile',
         // icon: 'assets/icons/Transaction-icon.png',
         icon: 'fas fa-gear',
         label: 'Settings'

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-cards',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ManageCardsComponent{
   formGroup: FormGroup ;
 
-  constructor(){
+  constructor(private router: Router){
 
     console.log("entered the constructor");
     this.formGroup = new FormGroup({
@@ -23,4 +24,7 @@ export class ManageCardsComponent{
   //     });
   // } 
 
+  goToAddCard(){
+    this.router.navigate(["dashboard/add-card"])
+  }
 }

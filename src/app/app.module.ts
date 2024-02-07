@@ -66,6 +66,7 @@ import { CalendarModule } from 'primeng/calendar';
 // import { DropdownModule } from '@coreui/angular';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddCardComponent } from './components/dashboard/add-card/add-card.component';
 
 
 
@@ -109,6 +110,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NfcComponent,
     ReceiptHistoryComponent,
     ManageCardsComponent,
+    AddCardComponent,
     // RefundTransactionComponent
   ],
   imports: [

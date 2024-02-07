@@ -35,9 +35,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "https://code.jquery.com/jquery-3.5.1.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {

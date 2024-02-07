@@ -14,7 +14,7 @@ export class ProfileHomeComponent {
   constructor(private router: Router) {
     this.navLinks = [
         {
-            label: 'Overview',
+            label: 'Profile Details',
             link: '/dashboard/profile/user',
             index: 0
         }, 
