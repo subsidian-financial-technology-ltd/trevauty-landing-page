@@ -43,7 +43,8 @@ const routes: Routes = [
   { path: 'card', component: CardpaymentComponent },
   { path: 'pos', component: PosComponent },
   { path: 'inventory', component: InventorymanagementComponent },
-  { path: 'signup', component: SignupComponent, canActivate:[authGuard] },
+  // { path: 'signup', component: SignupComponent, canActivate:[authGuard] },
+  { path: 'signup', component: SignupComponent},
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent, children: [

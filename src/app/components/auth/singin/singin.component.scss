@@ -1,5 +1,36 @@
+body {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}   
+
+.hide-desktop{
+    display: none;
+
+}
+
+
+
+.desktop{
+    display: hidden;
+}
+
+
 @media screen and (max-width: 800px) {
+    div{
+        // background-color: red;
+    }
     .right{
         display: none;
+    }
+
+    .mobile{
+        display: none;
+
+    }
+
+    .hide-desktop{
+        display: grid;
+    
     }
 }

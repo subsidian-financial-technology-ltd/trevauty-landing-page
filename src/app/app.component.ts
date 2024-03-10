@@ -17,8 +17,8 @@ export class AppComponent {
     '/card',
     '/pos',
     '/inventory',
-    '/signup',
-    '/login',
+    // '/signup',
+    // '/login',
     '/password-reset'
   ];
 
