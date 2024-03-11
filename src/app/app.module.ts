@@ -67,6 +67,9 @@ import { CalendarModule } from 'primeng/calendar';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddCardComponent } from './components/dashboard/add-card/add-card.component';
+import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 
 
 
@@ -111,6 +114,8 @@ import { AddCardComponent } from './components/dashboard/add-card/add-card.compo
     ReceiptHistoryComponent,
     ManageCardsComponent,
     AddCardComponent,
+    ResetPasswordOtpComponent,
+    ConfirmPasswordComponent,
     // RefundTransactionComponent
   ],
   imports: [
@@ -125,6 +130,7 @@ import { AddCardComponent } from './components/dashboard/add-card/add-card.compo
     RefundTransactionModule,
     FormsModule,
     NgxOtpInputModule,
+    NgOtpInputModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgToastModule, 

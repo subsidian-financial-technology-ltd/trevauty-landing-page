@@ -33,6 +33,8 @@ import { NfcComponent } from './components/nfc/nfc.component';
 import { ReceiptHistoryComponent } from './components/dashboard/receipt-history/receipt-history.component';
 import { ManageCardsComponent } from './components/dashboard/manage-cards/manage-cards.component';
 import { AddCardComponent } from './components/dashboard/add-card/add-card.component';
+import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
+import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 
 
 const routes: Routes = [
@@ -47,6 +49,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
+  { path: 'otp', component: ResetPasswordOtpComponent },
+  { path: 'confirm-password', component: ConfirmPasswordComponent },
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: AnalyticComponent},

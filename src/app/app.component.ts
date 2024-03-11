@@ -19,7 +19,7 @@ export class AppComponent {
     '/inventory',
     // '/signup',
     // '/login',
-    '/password-reset'
+    // '/password-reset'
   ];
 
   showNavbar: boolean = false;
