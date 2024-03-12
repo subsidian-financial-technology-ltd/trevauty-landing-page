@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ConfirmPasswordComponent {
 
 
-  showModal = true;
+  showModal = false;
   authForm: FormGroup;
   showPassword: boolean = false;
   password: string = "password";
@@ -78,7 +78,7 @@ export class ConfirmPasswordComponent {
   }
 
   onSubmit(user: any): void {
-    this.toggleModal();
+    // this.toggleModal();
 
     // window.localStorage.setItem("token");
     console.log(this.formSubmitted);
