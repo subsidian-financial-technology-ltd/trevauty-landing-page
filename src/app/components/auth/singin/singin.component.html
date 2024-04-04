@@ -95,14 +95,14 @@
                         </div>
 
                         <div class="form-check flex  justify-between items-center p-0">
-                            <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT] w-[100%]">
+                            <label class="flex items-center text-[#555555] text-[10px] font-[NUNITO-LIGHT] w-[100%]">
                                 <input type="checkbox" class="form-check-input" name="agreeWithTermsAndCondition"
                                     formControlName="agreeWithTermsAndCondition">
                                 <div class="flex justify-between gap-[6rem] w-[100%]">
                                     <span
-                                        class=" font-[200] text-[12px] font-[100] font-[NUNITO-LIGHT] ml-[2rem]">Remember
+                                        class="font-[200] text-[12px] font-[100] font-[NUNITO-LIGHT] ml-[2rem]">Remember
                                         me </span>
-                                    <span class="font-[DM Sans] text-[#707EAE]"><a href="#"
+                                    <span class="font-[DM Sans] text-[#707EAE]"><a href="/password-reset"
                                             class="font-[700] text-[#A80D0D] no-underline text-right"> Forgot Password</a>
                                     </span>
                                 </div>
@@ -118,7 +118,7 @@
 
                         <div class="form-check m-auto capitalize justify-center flex gap-[1rem] items-center">
                             <span class="text-[#333333]">Don't have an account?</span>
-                            <span class="text-[#7B57FC]">Sign Up</span>
+                            <a href="/signup" class="text-[#7B57FC]">Sign Up</a>
                         </div>
                     </form>
 
@@ -168,9 +168,7 @@
                   <div class="text-center">Kindly put in <b>Trevauty</b> secret pin number</div>
               </div>
               <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
-                  <ngx-otp-input [config]="otpInputConfig" (otpChange)="handeOtpChange($event)"
-                      (fill)="handleFillEvent($event)">
-                  </ngx-otp-input>
+
                   <div class="flex">
                       <span>you don't Trevauty secret pin number ? </span> <a href=""
                           class="text-[#7B57FC] underline">click here to start</a>

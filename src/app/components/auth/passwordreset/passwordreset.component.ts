@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./passwordreset.component.scss']
 })
 export class PasswordresetComponent {
-  passwordResetForm: FormGroup;	  
+  passwordResetForm: FormGroup; 
   apiResponse:any;
   showSuccessResponse : boolean = false;
 

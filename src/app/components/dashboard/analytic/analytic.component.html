@@ -3,40 +3,40 @@
 
 
 
-<div class="p-[30px] grid gap-[4rem]">
+<div class="md:p-[30px] p-[10px] grid gap-[4rem]">
 
-    <div class="grid md:grid-cols-2 gap-[7rem] font-[NUNITO] w-[70%]">
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-[7rem] font-[NUNITO] md:w-[70%] w-[100%]">
 
         <!-- card 1 starts here  -->
         <div class="grid gap-[2rem]">
-            <div class="text-[24px] text-[grey]">
+            <div class="md:text-[24px] text-[14px] text-[grey]">
                 Total Balance
             </div>
-            <div class="bg-[#fff] rounded-[10px] p-[4rem] grid gap-[1rem]">
+            <div class="bg-[#fff] rounded-[10px] md:p-[4rem] p-[1rem] grid gap-[1rem] md:w-full">
 
                 <div class="border-b-[1px] border-grey border-b py-[0rem] flex justify-between">
-                    <p class="font-[900] text-[24px]">$240,399</p>
+                    <p class="font-[900] md:text-[24px] text-[14px]">$240,399</p>
                     <p>All Accounts</p>
                 </div>
 
                 <div class="bg-[#299D91] rounded-[10px] p-[2rem]">
                     <div class="flex justify-between items-center">
-                        <div class="text-[#F2F2F2] text-[18px] font-[200]">Account type</div>
+                        <div class="text-[#F2F2F2] text-[14px] md:text-[18px] font-[200]">Account type</div>
                         <div>
                             <img src="/assets/images/Mastercard (1).png" class="" alt="">
                         </div>
                     </div>
 
                     <div class="">
-                        <h1 class="text-[#FFF] text-[14px] font-[800]">Credit Card</h1>
+                        <h1 class="text-[#FFF] text-[14px] md:text-[18px] font-[800]">Credit Card</h1>
                     </div>
 
                     <div class="flex justify-between items-center">
-                        <p class="text-[#F2F2F2] text-[16px] font-[200]">
+                        <div class="text-[#F2F2F2] text-[16px] font-[200]">
                             **** **** **** 2598
-                        </p>
-                        <div class="flex gap-[2rem]">
-                            <div class="text-[#F2F2F2] text-[18px] font-[200]">$25000</div>
+                        </div>
+                        <div class="flex gap-[2rem] items-center">
+                            <div class="text-[#F2F2F2] md:text-[18px] text-[14px] font-[200]">$25000</div>
                             <img src="/assets/images/arrow-right-up.png" class="" alt="">
                         </div>
                     </div>
@@ -150,12 +150,13 @@
         </div>
 
 
-        <ngx-charts-bar-vertical-2d [view]="[width, height]" [customColors]="customColors" [results]="multi"
+        <!-- <ngx-charts-bar-vertical-2d [view]="[width, height]" [customColors]="customColors" [results]="multi"
             [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
             [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
             [yAxisLabel]="yAxisLabel">
-        </ngx-charts-bar-vertical-2d>
+        </ngx-charts-bar-vertical-2d> -->
     </div>
+
 </div>
 
 

@@ -86,7 +86,7 @@
                         <!-- businaess type starts -->
     
     
-                        <div class="w-full "
+                        <!-- <div class="w-full "
                             [ngClass]="{'has-error': !formData['email'].valid && formData['email'].touched}">
                             <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">BUSINESS Type*</label>
                             <div class="border-none " *ngIf="formData['email'].touched && formData['email'].errors">
@@ -103,7 +103,7 @@
                                 <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                     placeholder="BUSINESS Type" name="email" formControlName="email">
                             </div>
-                        </div>
+                        </div> -->
     
     
                         <!-- businaess type starts -->
@@ -134,22 +134,21 @@
     
                         <div class="w-full "
                             [ngClass]="{'has-error': !formData['phoneNumber'].valid && formData['phoneNumber'].touched}">
-                            <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Location*</label>
+                            <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Phone number*</label>
                             <div class="border-none "
                                 *ngIf="formData['phoneNumber'].touched && formData['phoneNumber'].errors">
                                 <div class="shadow-none border-none  text-danger"
                                     *ngIf="formData['phoneNumber'].errors['required']">
-                                    Location is required
+                                    Phone number is required
                                 </div>
                                 <div class="shadow-none text-danger" *ngIf="formData['phoneNumber'].errors['pattern']">
-    
-                                    Location is not valid, Alphabets not allowed
+                                    Phone number is not valid, Alphabets not allowed
                                 </div>
                             </div>
                             <div
                                 class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
                                 <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
-                                    placeholder="Location" name="phoneNumber" formControlName="phoneNumber">
+                                    placeholder="Phone Number" name="phoneNumber" formControlName="phoneNumber">
                             </div>
                         </div>
     
@@ -159,24 +158,24 @@
                         <!-- Request for POS starts-->
     
                         <div class="w-full "
-                            [ngClass]="{'has-error': !formData['phoneNumber'].valid && formData['phoneNumber'].touched}">
+                            [ngClass]="{'has-error': !formData['dateOfBirth'].valid && formData['dateOfBirth'].touched}">
                             <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="fname">Request for
                                 POS*</label>
                             <div class="border-none "
-                                *ngIf="formData['phoneNumber'].touched && formData['phoneNumber'].errors">
+                                *ngIf="formData['dateOfBirth'].touched && formData['dateOfBirth'].errors">
                                 <div class="shadow-none border-none  text-danger"
-                                    *ngIf="formData['phoneNumber'].errors['required']">
-                                    Request for POS is required
+                                    *ngIf="formData['dateOfBirth'].errors['required']">
+                                    Date of Birth is required
                                 </div>
-                                <div class="shadow-none text-danger" *ngIf="formData['phoneNumber'].errors['pattern']">
+                                <div class="shadow-none text-danger" *ngIf="formData['dateOfBirth'].errors['pattern']">
     
-                                    Request for POS is not valid, Alphabets not allowed
+                                    Date of Birth is not valid, Alphabets not allowed
                                 </div>
                             </div>
                             <div
                                 class="rounded-[8px] bg-[#fff] border px-[1rem] py-[0.8rem] flex justify-between mb-[10px]">
-                                <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
-                                    placeholder="Request for POS" name="phoneNumber" formControlName="phoneNumber">
+                                <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="date"
+                                    placeholder="Request for POS" name="dateOfBirth" formControlName="dateOfBirth">
                             </div>
                         </div>
     
@@ -205,7 +204,7 @@
                         </div>
     
     
-                        <div class="w-full"
+                        <!-- <div class="w-full"
                             [ngClass]="{'has-error': !formData['password'].valid && formData['password'].touched}">
                             <label class="text-[#555555] text-[10px] font-[NUNITO-LIGHT]" for="password">Confirm
                                 Password*</label>
@@ -223,13 +222,13 @@
                                 <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]"
                                     [type]="confirmPassword" placeholder="***********" name="password"
                                     formControlName="password">
-                                <!-- <img (click)="toggleShowConfirmPassword()" src="/assets/images/eye.png"> -->
+                                <img (click)="toggleShowConfirmPassword()" src="/assets/images/eye.png">
                             </div>
-                        </div>
+                        </div> -->
 
 
 
-                        <div class="form-group"
+                        <!-- <div class="form-group"
                             [ngClass]="{'has-error': !formData['agreeWithTermsAndCondition'].valid && formData['agreeWithTermsAndCondition'].touched}">
                             <div *ngIf="formData['agreeWithTermsAndCondition'].touched && formData['agreeWithTermsAndCondition'].errors"
                                 style="margin-top:10px">
@@ -240,7 +239,7 @@
                             </div>
 
 
-                        </div>
+                        </div> -->
 
                         <div class="form-group"
                         [ngClass]="{'has-error': !formData['agreeWithTermsAndCondition'].valid && formData['agreeWithTermsAndCondition'].touched}">
@@ -255,7 +254,7 @@
                                 <input type="checkbox" class="form-check-input" name="agreeWithTermsAndCondition"
                                     formControlName="agreeWithTermsAndCondition">
                                 <span
-                                    class="ml-[1rem] font-[200] lowercase text-[12px] font-[100] font-[NUNITO-LIGHT]">I
+                                    class="ml-[1rem] lowercase text-[12px] font-[100] font-[NUNITO-LIGHT]"> <span class="uppercase">I</span>
                                     acknowledge that I have read and do hereby accept the terms and conditions in
                                     Trevauty Agreement and agree to receive valuable emails from Trevauty.
                                 </span>
@@ -264,12 +263,12 @@
                     </div>
 
                         <button type="submit"
-                            class="w-full gap-2.5 text-white mx-0 my-4 pl-2 pr-[8px,] py-[10px,] p-[1.2rem] rounded-[8px] border-[none] bg-[#7b57fc]">Create
+                            class="w-full gap-2.5 text-white mx-0 my-4 pl-2 pr-[8px] py-[10px] p-[1.2rem] rounded-[8px] border-[none] bg-[#7b57fc]">Create
                             an Account</button>
 
                         <div class="form-check m-auto capitalize justify-center flex gap-[1rem] items-center">
-                            <span class="text-[#333333]">Don't have an account?</span>
-                            <span class="text-[#7B57FC]">Sign Up</span>
+                            <span class="text-[#333333]">Already have an account?</span>
+                            <a href="/login" class="text-[#7B57FC]">Login</a>
                         </div>
                     </form>
 
@@ -292,12 +291,4 @@
 
 
 
-
-
-
-
-
-
-
-
-<!-- <ng-toast></ng-toast> -->
+<ng-toast></ng-toast>

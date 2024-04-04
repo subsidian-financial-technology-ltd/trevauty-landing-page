@@ -71,6 +71,8 @@
 
 .sidenav-collapsed {
     width: 25.5625rem;
+    // display: none;
+    // width: 0%;
 }
 
 
@@ -248,5 +250,11 @@
     padding: 1rem 1rem;
     font-weight: 900;
     gap: 1rem;
+}
+
+@media only screen and (max-width:480px) {
+    .sidenav{
+        display: none;
+    } 
 }
 

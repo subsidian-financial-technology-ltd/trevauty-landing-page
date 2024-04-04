@@ -1,0 +1,1 @@
+export  const baseURL = "http://open-receipt.subsidian.net/";

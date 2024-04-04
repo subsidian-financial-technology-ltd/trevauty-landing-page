@@ -78,7 +78,7 @@ export class ConfirmPasswordComponent {
   }
 
   onSubmit(user: any): void {
-    // this.toggleModal();
+    this.toggleModal();
 
     // window.localStorage.setItem("token");
     console.log(this.formSubmitted);

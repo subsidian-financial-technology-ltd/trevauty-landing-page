@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { TokenService } from './token.service';
+import { baseURL } from './utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
+  baseURL = baseURL;
   singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
   // authToken = window.localStorage.getItem("token");
   // TokenService.getToken();
@@ -79,14 +80,14 @@ export class AuthService {
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(`${this.baseURL}api/v1/authenticate/register`, signup);
+    return this.http.post<any>(`${this.baseURL}api/v1/auth/sign-up`, signup);
   }
 
   accountLogin(authCredentials:any): Observable<any>{
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(`${this.baseURL}api/v1/authenticate/auth`, authCredentials);
+    return this.http.post<any>(`${this.baseURL}api/v1/auth/login`, authCredentials);
   }
 
   validateToken(tokenDetails: any): Observable<any>{
@@ -97,22 +98,25 @@ export class AuthService {
     return this.http.post<any>(`${this.baseURL}api/v1/authenticate/login`, tokenDetails, { headers: headers });
   }
 
+  // this method takes only the email in case of forget password in the profile page. may be removed
   forgotPasswordAuth(authCredentials:any): Observable<any>{
-    console.log("hello world");
+    console.log("entered forgot password")
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(this.singupUrl, authCredentials);
   }
 
+  // this method takes only the email in case of forget password in the auth form
   passwordReset(usersDetail:any): Observable<any>{
-    console.log("hello world");
+    console.log("entered reset password")
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(`${this.baseURL}api/v1/authenticate/forget_password`, usersDetail);
   }
 
+  // takes in the password and confirm password fields 
   changePasswordAuth(usersDetail:any): Observable<any>{
-    console.log("hello world");
+    console.log("entered change password")
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(this.singupUrl, usersDetail);
