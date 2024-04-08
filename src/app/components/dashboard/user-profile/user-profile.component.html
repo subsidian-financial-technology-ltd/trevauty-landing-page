@@ -34,69 +34,242 @@
 
 
 
-<form class="grid grid-cols-2 bg-[#fff] p-[3rem] gap-[3rem]">
+<form class="grid grid-cols-2 bg-[#fff] p-[3rem] gap-[3rem]"
+[formGroup]="myform" (ngSubmit)="onSubmit(myform.value)"
+>
     <div>
 
         <div>
             <p>Your Profile Picture</p>
-            <div class="h-[200px] mb-[2rem] w-[35%] rounded-[2rem] p-[2rem] bg-gradient-to-r from-violet-500 to-fuchsia-500" >
+            <div
+                class="h-[200px] mb-[2rem] w-[35%] rounded-[2rem] p-[2rem] bg-gradient-to-r from-violet-500 to-fuchsia-500">
                 <div class="flex justify-end gap-[2rem]">
                     <img class="cursor-pointer" src="/assets/images/fi_upload-cloud.png" alt="">
                     <img class="cursor-pointer" src="/assets/images/Delete.png" alt="">
                 </div>
-   
+
             </div>
 
 
 
             <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="fullName" class="block mb-2 font-medium text-gray-900">
-                        Full Name</label>
-                    <input type="text" id="fullName"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                        placeholder="Full Name" required>
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['address'].valid && formData['address'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="address">Address*</label>
+                    <div class="border-none " *ngIf="formData['address'].touched && formData['address'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['address'].errors['required']">
+                            The Address is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['address'].errors['pattern']">
+
+                            The Address is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="1234567890" name="address" formControlName="address">
+                    </div>
                 </div>
-        
-                <div class="mb-5">
-                    <label for="email" class="block mb-2 font-medium text-gray-900">Email
-                        Address</label>
-                    <input type="email" id="email"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                        placeholder="Email" required>
+
+                <div class="w-full"
+                [ngClass]="{'has-error': !formData['nin'].valid && formData['nin'].touched}">
+                <label class="block mb-2 font-medium text-gray-900" for="nin">NIN*</label>
+                <div class="border-none " *ngIf="formData['nin'].touched && formData['nin'].errors">
+                    <div class="shadow-none border-none  text-danger"
+                        *ngIf="formData['nin'].errors['required']">
+                        The NIN is required
+                    </div>
+                    <div class="shadow-none text-danger" *ngIf="formData['nin'].errors['pattern']">
+
+                        The NIN is not valid
+                    </div>
                 </div>
-        
-        
+                <div class=" mb-5">
+                    <input
+                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        placeholder="1234567890" name="nin" formControlName="nin">
+                </div>
+            </div>
+
+
             </div>
 
             <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
-                        Phone Number</label>
-                    <input type="phone" id="phoneNumber"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                        placeholder="Phone Number" required>
+
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['country'].valid && formData['country'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="country">Country*</label>
+                    <div class="border-none " *ngIf="formData['country'].touched && formData['country'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['country'].errors['required']">
+                            The Country is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['country'].errors['pattern']">
+
+                            The Country is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="Nigeria" name="country" formControlName="country">
+                    </div>
                 </div>
-        
-                <div class="mb-5">
-                    <label for="country" class="block mb-2 font-medium text-gray-900">
-                        Country</label>
-                    <input type="text" id="country"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                        placeholder="Country" required>
+
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['bvn'].valid && formData['bvn'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="bvn">BVN*</label>
+                    <div class="border-none " *ngIf="formData['bvn'].touched && formData['bvn'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['bvn'].errors['required']">
+                            The BVN is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['bvn'].errors['pattern']">
+
+                            The BVN is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="1234567890" name="bvn" formControlName="bvn">
+                    </div>
                 </div>
-        
+
             </div>
 
+
             <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="email" class="block mb-2 font-medium text-gray-900">
-                        Address</label>
-                    <input type="email" id="address"
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['first6digits'].valid && formData['first6digits'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="first6digits">First 6 digits *</label>
+                    <div class="border-none " *ngIf="formData['first6digits'].touched && formData['first6digits'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['first6digits'].errors['required']">
+                            The first6digits is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['first6digits'].errors['pattern']">
+
+                            The first6digits is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="123456" name="first6digits" formControlName="first6digits">
+                    </div>
+                </div>
+
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['last4digits'].valid && formData['last4digits'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="last4digits">Last 4 Digits*</label>
+                    <div class="border-none " *ngIf="formData['last4digits'].touched && formData['last4digits'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['last4digits'].errors['required']">
+                            The Last 4 digits is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['last4digits'].errors['pattern']">
+
+                            The Last 4 digits is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="1234" name="last4digits" formControlName="last4digits">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['issuer'].valid && formData['issuer'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="issuer">Issuer *</label>
+                    <div class="border-none " *ngIf="formData['issuer'].touched && formData['issuer'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['issuer'].errors['required']">
+                            The issuer is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['issuer'].errors['pattern']">
+
+                            The issuer is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="mail@simmmple.com" name="issuer" formControlName="issuer">
+                    </div>
+                </div>
+
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['cardType'].valid && formData['cardType'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="cardType">cardType*</label>
+                    <div class="border-none " *ngIf="formData['cardType'].touched && formData['cardType'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['cardType'].errors['required']">
+                            The card type is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['cardType'].errors['pattern']">
+
+                            The card type is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <select  id="" name="cardType" formControlName="cardType"
                         class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                        placeholder="Address" required>
+                        >
+                            <option value="visa">VISA CARD</option>
+                            <option value="master">MASTER CARD</option>
+                            <option value="verve">VERVE CARD</option>
+
+                        </select>
+                        <!-- <input
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="1234567890" name="cardType" formControlName="cardType"> -->
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            
+
+
+
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['expiry'].valid && formData['expiry'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="expiry">expiry *</label>
+                    <div class="border-none " *ngIf="formData['expiry'].touched && formData['expiry'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['expiry'].errors['required']">
+                            The expiry is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['expiry'].errors['pattern']">
+
+                            The expiry is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            type="date"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="mail@simmmple.com" name="expiry" formControlName="expiry">
+                    </div>
                 </div>
             </div>
+
+            <button type="submit" 
+            class="w-fit gap-2.5 text-white mx-0 my-4 px-[2rem] py-[10px] p-[1.2rem] rounded-[4px] border-[none] bg-[#7b57fc]"
+            >Create</button>
+
+
         </div>
     </div>
 </form>
@@ -114,32 +287,28 @@
 
 
 <form class="w-[50%] m-auto" action="">
-        <div class="mb-5">
-            <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">Text</label>
-            <input type="text" id="text" placeholder="Phone Number"
-                class="border border-[#E0E4EC] text-gray-900 bg-[#F2F2F2] rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                required>
-        </div>
+    <div class="mb-5">
+        <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">Text</label>
+        <input type="text" id="text" placeholder="Phone Number"
+            class="border border-[#E0E4EC] text-gray-900 bg-[#F2F2F2] rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+            required>
+    </div>
 
-        <div class="mb-5">
-            <label for="email" class="block mb-2 font-medium text-gray-900">Your
-                email</label>
-            <input type="email" id="email"
-                class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                placeholder="Full Name" required>
-        </div>
-        <div class="mb-5">
-            <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">Text</label>
-            <input type="text" id="text" placeholder="Phone Number"
-                class="border border-[#E0E4EC] text-gray-900 bg-[#F2F2F2] rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                required>
-        </div>
+    <div class="mb-5">
+        <label for="email" class="block mb-2 font-medium text-gray-900">Your
+            email</label>
+        <input type="email" id="email"
+            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+            placeholder="Full Name" required>
+    </div>
+    <div class="mb-5">
+        <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">Text</label>
+        <input type="text" id="text" placeholder="Phone Number"
+            class="border border-[#E0E4EC] text-gray-900 bg-[#F2F2F2] rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+            required>
+    </div>
 
-        <button type="submit"
-        class="text-white bg-[#7B57FC] focus:ring-4 focus:outline-none text-[16px] focus:ring-blue-300 font-medium rounded-[15px] w-full px-5 py-4 text-center tracking-wide">Generate Receipt</button>
+    <button type="submit"
+        class="text-white bg-[#7B57FC] focus:ring-4 focus:outline-none text-[16px] focus:ring-blue-300 font-medium rounded-[15px] w-full px-5 py-4 text-center tracking-wide">Generate
+        Receipt</button>
 </form>
-
-
-
-
-

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgxOtpInputConfig } from 'ngx-otp-input';
 import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 // import {Component} from '@angular/core';
 
 
@@ -320,8 +321,14 @@ if (this.authForm.valid) {
       window.localStorage.setItem("token", response?.token);
 
       this.showSuccessResponse(this.message, "Login", 3000);
-      if(response?.response){
-        alert(response?.response);
+      if(response?.data){
+        alert(response?.message);
+        TokenService.setToken(response?.data?.accessToken);
+        if(response.data.registrationCompleted){
+          this.router.navigate(['dashboard']);
+        }else{
+          this.router.navigate(['dashboard/profile']);
+        }
 
       }else{
         alert(response?.debugMessage);
@@ -329,7 +336,6 @@ if (this.authForm.valid) {
 
       this.toggleModal();
       
-      // this.router.navigate(['login']);
     },
     error: (error) => {
       console.log("sign up failed", error);

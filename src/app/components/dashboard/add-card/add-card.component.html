@@ -29,65 +29,128 @@
         </div>
 
 
-        <form class="" action="" [formGroup]="formGroup">
+        <form class="" action="" [formGroup]="myform" (ngSubmit)="onSubmit(myform.value)">
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['first6digits'].valid && formData['first6digits'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="first6digits">First 6 digits *</label>
+                    <div class="border-none " *ngIf="formData['first6digits'].touched && formData['first6digits'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['first6digits'].errors['required']">
+                            The first6digits is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['first6digits'].errors['pattern']">
 
-            <div class="w-full grid grid-cols-2 gap-[2rem]">
-                <div class="grid gap-[3rem]">
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 font-medium text-[#7B57FC]">
-                            Add first 6 digits</label>
-                        <input type="email" id="address"
-                            class="border border-black text-gray-900  rounded-[4px] block w-full p-4"
-                            placeholder="123456" required>
+                            The first6digits is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="123456" name="first6digits" formControlName="first6digits">
                     </div>
                 </div>
 
-                <div class="grid gap-[3rem]">
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 font-medium text-[#7B57FC]">
-                            Add last 4 digits</label>
-                        <input type="email" id="address"
-                            class="border border-black text-gray-900  rounded-[4px] block w-full p-4" placeholder="1234"
-                            required>
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['last4digits'].valid && formData['last4digits'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="last4digits">Last 4 Digits*</label>
+                    <div class="border-none " *ngIf="formData['last4digits'].touched && formData['last4digits'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['last4digits'].errors['required']">
+                            The Last 4 digits is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['last4digits'].errors['pattern']">
+
+                            The Last 4 digits is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="1234" name="last4digits" formControlName="last4digits">
                     </div>
                 </div>
 
             </div>
 
 
-            <div class="w-full grid grid-cols-2 gap-[2rem]">
-                <div class="grid gap-[3rem]">
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 font-medium text-[#7B57FC]">
-                            Issuers</label>
-                        <input type="email" id="address"
-                            class="border border-black text-gray-900  rounded-[4px] block w-full p-4"
-                            placeholder="Bank Name" required>
+            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['issuer'].valid && formData['issuer'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="issuer">Issuer *</label>
+                    <div class="border-none " *ngIf="formData['issuer'].touched && formData['issuer'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['issuer'].errors['required']">
+                            The issuer is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['issuer'].errors['pattern']">
+
+                            The issuer is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <input
+                            class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="mail@simmmple.com" name="issuer" formControlName="issuer">
                     </div>
                 </div>
-                <div class=" grid gap-[3rem]">
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 font-medium text-[#7B57FC]">
-                            Card Type</label>
-                        <input type="email" id="address"
-                            class="border border-black text-gray-900  rounded-[4px] block w-full p-4"
-                            placeholder="Visa Card" required>
+
+                <div class="w-full"
+                    [ngClass]="{'has-error': !formData['cardType'].valid && formData['cardType'].touched}">
+                    <label class="block mb-2 font-medium text-gray-900" for="cardType">Card Type*</label>
+                    <div class="border-none " *ngIf="formData['cardType'].touched && formData['cardType'].errors">
+                        <div class="shadow-none border-none  text-danger"
+                            *ngIf="formData['cardType'].errors['required']">
+                            The card type is required
+                        </div>
+                        <div class="shadow-none text-danger" *ngIf="formData['cardType'].errors['pattern']">
+
+                            The card type is not valid
+                        </div>
+                    </div>
+                    <div class=" mb-5">
+                        <select  id="" name="cardType" formControlName="cardType"
+                        class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        >
+                            <option value="visa">VISA CARD</option>
+                            <option value="master">MASTER CARD</option>
+                            <option value="verve">VERVE CARD</option>
+
+                        </select>
+                        <!-- <input
+                            class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                            placeholder="1234567890" name="cardType" formControlName="cardType"> -->
                     </div>
                 </div>
+
             </div>
 
 
             <div class="w-full grid gap-[3rem]">
-                <div class="mb-5">
-                    <label for="expiry-date" class="block mb-2 font-medium text-[#7B57FC]">
-                        Enter expiry date</label>
 
-                    <div class="card flex justify-content-center">
-                        <input type="date" id="address"
-                            class="border border-black text-gray-900  rounded-[4px] block w-full p-4" placeholder="1234"
-                            required>
+                <div class="w-full mb-5"
+                [ngClass]="{'has-error': !formData['expiry'].valid && formData['expiry'].touched}">
+                <label class="block mb-2 font-medium text-gray-900" for="expiry">expiry *</label>
+                <div class="border-none " *ngIf="formData['expiry'].touched && formData['expiry'].errors">
+                    <div class="shadow-none border-none  text-danger"
+                        *ngIf="formData['expiry'].errors['required']">
+                        The expiry is required
+                    </div>
+                    <div class="shadow-none text-danger" *ngIf="formData['expiry'].errors['pattern']">
+
+                        The expiry is not valid
                     </div>
                 </div>
+                <div class=" mb-5">
+                    <input
+                        type="date"
+                        class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                        placeholder="mail@simmmple.com" name="expiry" formControlName="expiry">
+                </div>
+            </div>
+
+
+
             </div>
 
             <div class="text-[#7B57FC]">NOTE</div>
@@ -95,7 +158,7 @@
                 Your account details is secure. The card information you provided are basic. Do not share your PIN with
                 anyone or our agent.
             </div>
-            <button class="bg-[#7B57FC] text-[#fff] my-[2rem] px-[2rem] p-[1rem] rounded-[8px]">Add Card</button>
+            <button type="submit" class="bg-[#7B57FC] text-[#fff] my-[2rem] px-[2rem] p-[1rem] rounded-[8px]">Add Card</button>
         </form>
 
     </div>

@@ -13,6 +13,18 @@ export class TerminalService {
 
   constructor(private http: HttpClient) { }
 
+
+  addCardPan(userDetails:any): Observable<any>{
+    console.log("hello world");
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${this.baseURL}api/v1/customer/add-customer-profile`,{ headers:headers }, userDetails);
+  }
+
+
   terminalRequest(userDetails:any){
     console.log("hello world");
     const headers = new HttpHeaders()
