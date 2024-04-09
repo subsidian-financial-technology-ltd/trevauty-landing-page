@@ -35,6 +35,7 @@ import { ManageCardsComponent } from './components/dashboard/manage-cards/manage
 import { AddCardComponent } from './components/dashboard/add-card/add-card.component';
 import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
+import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
 
 
 const routes: Routes = [
@@ -58,6 +59,7 @@ const routes: Routes = [
     // { path: 'settings', component:  OverviewComponent},
     { path: 'cards', component:  ManageCardsComponent},
     { path: 'add-card', component:  AddCardComponent},
+    { path: 'edit-card', component: EditCardComponent},
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},

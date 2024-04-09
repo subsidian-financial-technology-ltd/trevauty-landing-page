@@ -96,6 +96,7 @@ export class ProfileAuthComponent {
     for (let i in this.passwordResetDetails.controls)
       this.passwordResetDetails.controls[i].markAsTouched();
   }
+  
   validateFormForgotPasswordEmail() {
     for (let i in this.forgotPasswordDetails.controls)
       this.forgotPasswordDetails.controls[i].markAsTouched();

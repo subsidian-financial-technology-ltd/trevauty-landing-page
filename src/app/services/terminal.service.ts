@@ -24,9 +24,25 @@ export class TerminalService {
     return this.http.post<any>(`${this.baseURL}api/v1/customer/add-customer-profile`,{ headers:headers }, userDetails);
   }
 
+  getCardList(): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.get<any>(`${this.baseURL}api/v1/customer/fetch-all-card-pan`,{ headers:headers });
+  }
+
+  getCard(id:any){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+
+    return this.http.get<any>(this.baseURL + id, { headers:headers });
+  }
+
 
   terminalRequest(userDetails:any){
-    console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
     return this.http.post<any>(`${this.baseURL}api/v1/terminal/terminal_request`, userDetails);

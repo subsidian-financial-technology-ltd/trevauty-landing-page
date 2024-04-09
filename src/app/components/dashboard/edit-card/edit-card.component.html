@@ -1,0 +1,129 @@
+<div class="w-[full] bg-[#fff] p-[2rem]">
+    <div class="w-[100%] py-[1rem] flex justify-between items-center mb-[2rem] border-y">
+        <h1>EDIT CARD</h1>
+        <p class="text-[#7B57FC] text-[18px] cursor-pointer" (click)="goToManageCard()">
+            MANAGE SAVED CARDS
+        </p>
+
+    </div>
+
+
+
+
+
+
+
+    <div class="grid md:grid-cols-2 gap-[4rem]">
+        <div>
+            <div
+                class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-cyan-500 to-blue-500">
+                <div class="flex justify-between items-center">
+                    <div>Credit</div>
+                    <div>
+                        <img src="/assets/images/master-card.png" alt="">
+                    </div>
+                </div>
+                <div class="grid gap-[1rem]">
+                    <div>Maya Cara</div>
+                    <div>5242 - 4343 - 8348 - 4878</div>
+                </div>
+            </div>
+    
+        </div>
+
+
+        <div class="w-[80%]">
+            <h1 class="py-[2rem]">Card Details</h1>
+
+            <div class="w-full">
+                <form action="" class="w-full grid gap-[2rem]" [formGroup]="cardDetails" (ngSubmit)="submit()">
+                    <div class="w-full  border-b">
+                        <label for="" class="font-[200]">CARDHOLDER NAME</label>
+
+                        <div class="border-none " *ngIf="formData['name'].touched && formData['name'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['name'].errors['required']">
+                                Name is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['name'].errors['pattern']">
+                                Name is not valid
+                            </div>
+                        </div>
+
+                        <div class="w-full py-2">
+                            <input type="text" name="" id="" class="bg-transparent" formControlName="name">
+                        </div>
+                    </div>
+
+                    <div class="w-full  border-b">
+                        <label for="" class="font-[200]">CARD NUMBER</label>
+
+                        <div class="border-none " *ngIf="formData['cardPan'].touched && formData['cardPan'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['cardPan'].errors['required']">
+                                Card pan is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['cardPan'].errors['pattern']">
+                                Card pan is not valid
+                            </div>
+                        </div>
+
+                        <div class="w-full py-2">
+                            <input type="text" name="" id="" class="bg-transparent" formControlName="cardPan" >
+
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-[2rem]">
+                        <div  class="col-span-1" >
+                            <label for="" class="font-[200]">EXPIRY MONTH</label>
+
+
+                            <div class="border-none " *ngIf="formData['expiryMonth'].touched && formData['expiryMonth'].errors">
+                                <div class="shadow-none border-none  text-danger"
+                                    *ngIf="formData['expiryMonth'].errors['required']">
+                                    Expiry is required
+                                </div>
+                                <div class="shadow-none text-danger" *ngIf="formData['expiryMonth'].errors['pattern']">
+                                    Expiry is not valid
+                                </div>
+                            </div>
+                            
+                            <div class="w-full border-b py-2">
+                                <input type="text" name="" id="" class="bg-transparent" formControlName="expiryMonth">
+    
+                            </div>
+                        </div>
+
+                        <div class="col-span-1">
+                            <label for="" class="font-[200]">EXPIRY YEAR</label>
+
+                            <div class="border-none " *ngIf="formData['expiryYear'].touched && formData['expiryYear'].errors">
+                                <div class="shadow-none border-none  text-danger"
+                                    *ngIf="formData['expiryYear'].errors['required']">
+                                    Expiry is required
+                                </div>
+                                <div class="shadow-none text-danger" *ngIf="formData['expiryYear'].errors['pattern']">
+                                    Expiry is not valid
+                                </div>
+                            </div>
+                            <div class="w-full border-b py-2">
+                                <input type="text" name="" id="" class="bg-transparent" formControlName="expiryYear">
+    
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-[#7B57FC] rounded-[4px] p-[1rem] text-[#fff] w-[100px]" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+
+
+
+</div>

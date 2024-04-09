@@ -1,4 +1,3 @@
-
 <div class="w-[100%] py-[1rem] flex justify-between items-center mb-[2rem] border-y">
     <h1>MANAGE SAVED CARDS</h1>
     <p class="text-[#7B57FC] text-[18px] cursor-pointer" (click)="goToAddCard()">
@@ -8,42 +7,83 @@
 </div>
 
 
-<div class="grid md:grid-cols-3 gap-[4rem]">
-    <div class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-cyan-500 to-blue-500">
-        <div class="flex justify-between items-center">
-            <div >Credit</div>
-            <div>
-                <img src="/assets/images/master-card.png" alt="">
+
+
+<div class="grid md:grid-cols-3 gap-[4rem]" *ngFor="let card of cardList">
+    <div>
+        <div
+            class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-cyan-500 to-blue-500">
+            <div class="flex justify-between items-center">
+                <div>Credit</div>
+                <div>
+                    <img src="/assets/images/master-card.png" alt="">
+                </div>
+            </div>
+            <div class="grid gap-[1rem]">
+                <div>{{card.name}}</div>
+                <div>{{card.cardPan}}</div>
+            </div>
+            <div
+                class="bg-[#fff] cursor-pointer shadow flex items-center  w-[40px] h-[40px] rounded-[40px] p-[0.5rem] absolute left-[43%] bottom-[-10%]">
+                <img class="m-auto" src="/assets/icons/delete-icon.png" alt="">
             </div>
         </div>
-        <div class="grid gap-[1rem]">
-            <div>Maya Claims</div>
-            <div>5242 - 4343 - 8348 - 4878</div>
-        </div>
-        <div class="bg-[#fff] cursor-pointer shadow flex items-center  w-[40px] h-[40px] rounded-[40px] p-[0.5rem] absolute left-[43%] bottom-[-10%]"> 
-            <img class="m-auto" src="/assets/icons/delete-icon.png" alt="">
-        </div>
+        <div class="text-[#9155FD] py-[1rem] cursor-pointer" (click)="goToEditCard()">View card details</div>
+
     </div>
 
-
-    <div class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative  max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-purple-500 to-pink-500">
-
-        <div class="flex justify-between items-center">
-            <div >Credit</div>
-            <div>
-                <img src="/assets/images/visa-card.png" alt="">
-            </div>
-        </div>
-
-        <div class="grid gap-[1rem]">
-            <div>Maya Claims</div>
-            <div>5242 - 4343 - 8348 - 4878</div>
-        </div>
-        <div class="bg-[#fff] cursor-pointer shadow flex items-center  w-[40px] h-[40px] rounded-[40px] p-[0.5rem] absolute left-[43%] bottom-[-10%]"> 
-            <img class="m-auto" src="/assets/icons/delete-icon.png" alt="">
-        </div>
-    </div>
 </div>
 
 
 
+<div class="grid md:grid-cols-3 gap-[4rem]">
+    <div>
+        <div
+            class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-cyan-500 to-blue-500">
+            <div class="flex justify-between items-center">
+                <div>Credit</div>
+                <div>
+                    <img src="/assets/images/master-card.png" alt="">
+                </div>
+            </div>
+            <div class="grid gap-[1rem]">
+                <div>Maya Cara</div>
+                <div>5242 - 4343 - 8348 - 4878</div>
+            </div>
+            <div
+                class="bg-[#fff] cursor-pointer shadow flex items-center  w-[40px] h-[40px] rounded-[40px] p-[0.5rem] absolute left-[43%] bottom-[-10%]">
+                <img class="m-auto" src="/assets/icons/delete-icon.png" alt="">
+            </div>
+        </div>
+        <div class="text-[#9155FD] py-[1rem] cursor-pointer" (click)="goToEditCard()">View card details</div>
+
+    </div>
+
+
+    <div>
+
+
+        <div
+            class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative  max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-purple-500 to-pink-500">
+
+            <div class="flex justify-between items-center">
+                <div>Credit</div>
+                <div>
+                    <img src="/assets/images/visa-card.png" alt="">
+                </div>
+            </div>
+
+            <div class="grid gap-[1rem]">
+                <div>Maya Claims</div>
+                <div>5242 - 4343 - 8348 - 4878</div>
+            </div>
+            <div
+                class="bg-[#fff] cursor-pointer shadow flex items-center  w-[40px] h-[40px] rounded-[40px] p-[0.5rem] absolute left-[43%] bottom-[-10%]">
+                <img class="m-auto" src="/assets/icons/delete-icon.png" alt="">
+            </div>
+        </div>
+        <div class="text-[#9155FD] py-[1rem] cursor-pointer" (click)="goToEditCard()">View card details</div>
+
+    </div>
+
+</div>

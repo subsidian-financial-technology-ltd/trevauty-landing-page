@@ -70,6 +70,7 @@ import { AddCardComponent } from './components/dashboard/add-card/add-card.compo
 import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
+import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
 
 
 
@@ -116,6 +117,7 @@ import { ConfirmPasswordComponent } from './components/auth/confirm-password/con
     AddCardComponent,
     ResetPasswordOtpComponent,
     ConfirmPasswordComponent,
+    EditCardComponent,
     // RefundTransactionComponent
   ],
   imports: [
