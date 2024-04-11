@@ -12,7 +12,7 @@ export class DashboardService {
     providedIn: 'root'
   })
   
-    baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
+    baseURL = `http://open-receipt.subsidian.net/`;
     singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
     // authToken = window.localStorage.getItem("token");
     authToken = TokenService.getToken();

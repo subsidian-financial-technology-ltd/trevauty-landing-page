@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { CustomerDetails } from 'src/app/types/Type';
 
 @Component({
   selector: 'app-user-profile',
@@ -31,6 +33,40 @@ export class UserProfileComponent {
   confirmPassword: string = "password";
   message: string = "";
   apiResponse: any;
+  customerDetails: CustomerDetails = {
+    country:"",
+    bvn:"",
+    nin:"",
+    address: "098756",
+    last4digits:"",
+    first6digits:"",
+    issuer:"",
+    cardType:"",
+    expiry:""
+
+  };
+
+  // constructor(private http: HttpClient,
+  //   private formBuilder: FormBuilder,
+  //   private authService: AuthService,
+  //   private router: Router,
+  //   private toast: NgToastService,
+  //   private customerService: CustomerService
+
+
+  // ) {
+  //   this.myform = new FormGroup({
+  //     country: new FormControl(this.customerDetails.country, [Validators.required, Validators.pattern('^[a-zA-Z\\s]+$')]),
+  //     bvn: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+  //     address: new FormControl('', [Validators.required]),
+  //     nin: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+  //     first6digits: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+  //     last4digits: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+  //     issuer: new FormControl('', [Validators.required]),
+  //     cardType: new FormControl('', [Validators.required]),
+  //     expiry: new FormControl('', [Validators.required]),
+  //   });
+  // }
 
 
 
@@ -39,20 +75,24 @@ export class UserProfileComponent {
     private authService: AuthService,
     private router: Router,
     private toast: NgToastService,
+    private customerService: CustomerService,
 
   ) {
     this.myform = new FormGroup({
-      country: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z\\s]+$')]),
-      bvn: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
-      address: new FormControl('', [Validators.required]),
-      nin: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
-      first6digits: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
-      last4digits: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
-      issuer: new FormControl('', [Validators.required]),
-      cardType: new FormControl('', [Validators.required]),
-      expiry: new FormControl('', [Validators.required]),
+      country: new FormControl(this.customerDetails.country, [Validators.required, Validators.pattern('^[a-zA-Z\\s]+$')]),
+      bvn: new FormControl(this.customerDetails.bvn, [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+      address: new FormControl(this.customerDetails.address, [Validators.required]),
+      nin: new FormControl(this.customerDetails.nin, [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+      first6digits: new FormControl(this.customerDetails.first6digits, [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+      last4digits: new FormControl(this.customerDetails.last4digits, [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+      issuer: new FormControl(this.customerDetails.issuer, [Validators.required]),
+      cardType: new FormControl(this.customerDetails.cardType, [Validators.required]),
+      expiry: new FormControl(this.customerDetails.expiry, [Validators.required]),
     });
   }
+
+
+
 
   get formData() { return this.myform?.controls; };
 
@@ -71,8 +111,22 @@ export class UserProfileComponent {
     this.toast.error({ detail: message, summary: header, duration: duration });
   }
 
+  getCustomerDetails(){
+    this.customerService.getCustomerDetails().subscribe({
+      next: (res: any) => {
+        this.customerDetails = res;
+      }, 
+      error: (err: any) => {
+        console.error(err);
+      this.showErrorResponse(this.message, "Customer Details", 3000);
+
+      }
+    })
+  }
+
   ngOnInit() {
     console.log("hello world");
+    this.getCustomerDetails();
     this.toast.success({ detail: "hello", summary: "message", duration: 5000 });
 
   }

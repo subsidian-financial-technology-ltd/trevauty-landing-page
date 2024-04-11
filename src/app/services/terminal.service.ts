@@ -2,13 +2,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from './token.service';
+import { FormGroup } from '@angular/forms';
+import { baseURL } from './utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TerminalService {
 
-  baseURL = `http://trevauty-pos-application-env.eba-gjfmg4zb.eu-west-1.elasticbeanstalk.com/`;
+
+  baseURL = `http://open-receipt.subsidian.net/`;
   authToken = TokenService.getToken();
 
   constructor(private http: HttpClient) { }
@@ -21,15 +24,26 @@ export class TerminalService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.post<any>(`${this.baseURL}api/v1/customer/add-customer-profile`,{ headers:headers }, userDetails);
+    return this.http.post<any>(`${baseURL}api/v1/customer/add-customer-profile`, userDetails ,{ headers:headers });
   }
+
+  editCardPan(cardDetails: any) : Observable<any>{
+    console.log("hello world");
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.put<any>(`${baseURL}api/v1/customer/update-pan`, cardDetails ,{ headers:headers });
+  }
+
 
   getCardList(): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.get<any>(`${this.baseURL}api/v1/customer/fetch-all-card-pan`,{ headers:headers });
+    return this.http.get<any>(`${baseURL}api/v1/customer/fetch-all-card-pan`,{ headers:headers });
   }
 
   getCard(id:any){
@@ -38,7 +52,7 @@ export class TerminalService {
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
 
-    return this.http.get<any>(this.baseURL + id, { headers:headers });
+    return this.http.get<any>(baseURL + id, { headers:headers });
   }
 
 

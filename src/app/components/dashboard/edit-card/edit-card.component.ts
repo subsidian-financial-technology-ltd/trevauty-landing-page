@@ -1,6 +1,8 @@
+import { NotExpr } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { TerminalService } from 'src/app/services/terminal.service';
 
 @Component({
@@ -13,7 +15,11 @@ export class EditCardComponent {
   cardDetails: FormGroup;
   cardId: any;
 
-  constructor(private router : Router, private cardService: TerminalService){
+  constructor(private router : Router,
+    private cardService: TerminalService,
+    private toast: NgToastService
+
+  ){
 
     this.cardDetails = new FormGroup({
       name : new FormControl('', [Validators.required]),
@@ -28,6 +34,7 @@ export class EditCardComponent {
     for (let i in this.cardDetails.controls)
       this.cardDetails.controls[i].markAsTouched();
   }
+
   get formData() {
     return this.cardDetails.controls
   }
@@ -44,15 +51,31 @@ export class EditCardComponent {
   }
 
   ngOnInit(){
-    this.getCardDetail();
+    // this.getCardDetail();
   }
 
   goToManageCard(){
     this.router.navigate(["dashboard/edit-card"])
   }
 
+  showSuccessResponse(message: string, header: string, duration: number) {
+    this.toast.success({ detail: message, summary: header, duration: duration });
+  }
+  showErrorResponse(message: string, header: string, duration: number) {
+    this.toast.error({ detail: message, summary: header, duration: duration });
+  }
+
   submit(){
     console.log(this.cardDetails.value);
+    this.cardService.editCardPan(this.cardDetails.value).subscribe({
+      next : (res: any) =>{
+        this.showSuccessResponse(res, "Update Card Pan", 3000);
+      }, 
+      error: (err: any) => {
+        this.showErrorResponse(err, "Update Card Pan", 3000);
+        console.error(err);
+      }
+    })
   }
 
 }

@@ -1,21 +1,21 @@
 <div class="md:w-[50%] w-[100%] mt-[3rem]">
     <form [formGroup]="passwordResetDetails" (ngSubmit)="onSubmit(passwordResetDetails.value)" action="" class="w-[80%] grid gap-[3rem]">
-        <div [ngClass]="{'has-error': !formData['password'].valid && formData['password'].touched}">
+        <div [ngClass]="{'has-error': !formData['oldPassword'].valid && formData['oldPassword'].touched}">
             <div class="text-[#4C535F]">
                 <label for="">Password</label>
             </div>
-            <div class="border-none " *ngIf="formData['password'].touched && formData['password'].errors">
+            <div class="border-none " *ngIf="formData['oldPassword'].touched && formData['oldPassword'].errors">
                 <div class="shadow-none border-none  text-danger"
-                    *ngIf="formData['password'].errors['required']">
+                    *ngIf="formData['oldPassword'].errors['required']">
                     Password is required
                 </div>
-                <div class="shadow-none text-danger" *ngIf="formData['password'].errors['pattern']">
+                <div class="shadow-none text-danger" *ngIf="formData['oldPassword'].errors['pattern']">
             
                     Password is not valid
                 </div>
             </div>
             <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
-                <input [type]="password" placeholder="Please enter your password" class="bg-[transparent] w-[95%]" formControlName="password" name="password">
+                <input [type]="password" placeholder="Please enter your password" class="bg-[transparent] w-[95%]" formControlName="oldPassword" name="oldPassword">
                 <span>
                     <img (click)="toggleShowPassword()" src="/assets/images/showPassword.png" alt="">
                 </span>
@@ -64,7 +64,7 @@
             </div>
         
             <div class="flex bg-[#FCFCFC] p-[1.5rem] rounded-[7.69px] border">
-                <input [type]="confirmNewPassword" placeholder="Please enter your confirmNewPassword" class="bg-[transparent] w-[95%]">
+                <input [type]="confirmNewPassword" placeholder="Please enter your confirmNewPassword" class="bg-[transparent] w-[95%]" formControlName="confirmNewPassword">
                 <span>
                     <img (click)="toggleShowConfirmNewPassword()" src="/assets/images/showPassword.png" alt="">
                 </span>

@@ -34,7 +34,7 @@ export class ProfileAuthComponent {
     private toast: NgToastService
   ) {
     this.passwordResetDetails = new FormGroup({
-      password: new FormControl('', [Validators.required]),
+      oldPassword: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
       confirmNewPassword : new FormControl('', [Validators.required])
     })
@@ -122,7 +122,7 @@ export class ProfileAuthComponent {
   onSubmit(passwordResetDetails: any) {
     console.log(this.passwordResetDetails);
     if (this.passwordResetDetails.valid) {
-      this.authService.accountLogin(passwordResetDetails).subscribe({
+      this.authService.changePasswordAuth(passwordResetDetails).subscribe({
         next: (res: any) => {
           console.log(res);
           this.resetFormInput();

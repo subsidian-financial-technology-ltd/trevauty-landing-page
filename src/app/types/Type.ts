@@ -91,4 +91,17 @@ export interface ContactVerificationResponse {
     cardPan: String
   }
 
+  export interface CustomerDetails {
+    country: String | null;
+    bvn: String | null;
+    nin: String | null;
+    address: String | null;
+    first6digits: String | null;
+    last4digits: String | null;
+    issuer: String | null;
+    cardType: String | null;
+    expiry: String | null;
+
+  }
+
 

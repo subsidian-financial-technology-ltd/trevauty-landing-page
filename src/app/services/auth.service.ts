@@ -127,9 +127,11 @@ export class AuthService {
   // takes in the password and confirm password fields 
   changePasswordAuth(usersDetail:any): Observable<any>{
     console.log("entered change password")
-    const headers = new HttpHeaders()
-    .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.singupUrl, usersDetail);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${this.baseURL}api/v1/customer/change-password`, usersDetail, { headers: headers  });
   }
 
   getTerminalAnalysis(): Observable<any>{

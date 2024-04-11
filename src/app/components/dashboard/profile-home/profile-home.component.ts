@@ -28,11 +28,11 @@ export class ProfileHomeComponent {
           link: '/dashboard/profile/auth',
           index: 2
       }, 
-      {
-          label: 'Help',
-          link: '/dashboard/profile/help',
-          index: 3
-      }
+      // {
+      //     label: 'Help',
+      //     link: '/dashboard/profile/help',
+      //     index: 3
+      // }
     ];
   }
   ngOnInit(): void {
