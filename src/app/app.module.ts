@@ -71,6 +71,7 @@ import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/
 import { NgOtpInputModule } from 'ng-otp-input';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
+import { GenerateInvoiceComponent } from './components/dashboard/generate-invoice/generate-invoice.component';
 
 
 
@@ -118,6 +119,7 @@ import { EditCardComponent } from './components/dashboard/edit-card/edit-card.co
     ResetPasswordOtpComponent,
     ConfirmPasswordComponent,
     EditCardComponent,
+    GenerateInvoiceComponent,
     // RefundTransactionComponent
   ],
   imports: [

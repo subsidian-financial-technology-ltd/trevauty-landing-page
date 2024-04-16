@@ -1,0 +1,402 @@
+
+<div *ngIf="showInvoicePdf"
+    class="outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto">
+        <div class="border-0 flex flex-col w-full  outline-none focus:outline-none">
+            <div class="grid place-items-center items-center p-[4rem] w-full">
+
+
+                <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
+
+                    <div class="bg-[#fff]  flex justify-center">
+                        <div class="">
+
+
+                            <div class=" flex justify-center">
+                                <div class="border w-full">
+
+                                    <div class="bg-[#7535FD] flex justify-between items-center p-[4rem]">
+                                        <div>
+                                            <p class="text-[#fff] font-[NUNITO] text-[30px]">Invoice</p>
+                                            <div class="flex items-center w-[100px]">
+                                                <img src="/assets/images/LOGO 1.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="text-[#fff] text-right text-[12px]">
+                                            <p>Marx Properties</p>
+                                            <p>42, Adeyemi Street, Ikate</p>
+                                            <p>+(234)-8104213955</p>
+                                            <p>Marxpropertiesng@gmail.com</p>
+                                        </div> 
+                                    </div>
+
+                                    <div class="bg-[#fff] p-[4rem] grid gap-[2rem]">
+
+                                        <div class="flex justify-between">
+
+                                            <div class="grid gap-[1rem]">
+                                                <div class="text-[18px] font-[600]">Bill To</div>
+                                                <div class="text-[12px]">
+                                                    <span class="font-[600]">Customer's Name: </span>
+                                                    <span>Maya</span>
+                                                </div>
+                                                <div class="text-[12px]">
+                                                    <span class="font-[600]">Invoice Date: </span>
+                                                    <span>07/02/2026</span>
+                                                </div>
+                                                <div class="text-[12px]">
+                                                    <span class="font-[600]">Payment Due </span>
+                                                    <span>07/02/2026</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="grid gap-[1rem]">
+                                                <div class="text-[18px] font-[600]">Invoice Details</div>
+
+                                                <div class="text-[12px]">
+                                                    <span class="font-[600]">Invoice ID: </span>
+                                                    <span>09048377734</span>
+                                                </div>
+                                                <div class="text-[12px]">
+                                                    <span class="font-[600]">Invoice Date: </span>
+                                                    <span>Sep 20, 2023</span>
+                                                </div>
+                                                <div class="text-[12px]">
+                                                    <span class="font-[600]">Payment Due: </span>
+                                                    <span>Sep 20, 2023</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="grid py-[2rem]">
+
+                                            <div class="grid bg-[#f9f9f9] grid-cols-5 font-[NUNITO]">
+                                                <div class="border-t text-center p-[1rem]">Description</div>
+                                                <div class="border-t text-center p-[1rem]">Unit Price</div>
+                                                <div class="border-t text-center p-[1rem]">Quantity</div>
+                                                <div class="border-t text-center p-[1rem]">Tax</div>
+                                                <div class="border-t text-center p-[1rem]">Total</div>
+                                            </div>
+
+                                            <div class="grid grid-cols-5 text-grey">
+                                                <div class="border-t text-center p-[1rem]">Android POS </div>
+                                                <div class="border-t text-center p-[1rem]">N 25,000</div>
+                                                <div class="border-t text-center p-[1rem]">1</div>
+                                                <div class="border-t text-center p-[1rem]">N 25,000</div>
+                                                <div class="border-t text-center p-[1rem]">N 25,000</div>
+                                            </div>
+
+                                            <div class="grid grid-cols-5 text-grey">
+                                                <div class="border-y text-center p-[1rem]">Android POS </div>
+                                                <div class="border-y text-center p-[1rem]">N 25,000</div>
+                                                <div class="border-y text-center p-[1rem]">1</div>
+                                                <div class="border-y text-center p-[1rem]">N 25,000</div>
+                                                <div class="border-y text-center p-[1rem]">N 25,000</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="flex justify-end">
+
+                                            <div>
+                                                <span>Sub total: </span>
+                                                <span>N 25,000</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex justify-end">
+                                            <div>
+                                                <span>Tax: </span>
+                                                <span>0.00</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex justify-end">
+                                            <div class="border-y-2 border-[#7535FD] py-[1.5rem]">
+                                                <span>Total: </span>
+                                                <span>N 25,000</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex justify-center gap-[2rem]">
+                                            <div 
+                                                class="bg-[#7535FD] text-[#fff] text-[14px] py-[1.5rem] px-[3rem] w-fit rounded-[5px] font-[NUNITO-LIGHT] mt-[2rem]">
+                                                Share Invoice
+                                            </div>
+
+                                            <div (click)="toggleShowInvoicePdf()"
+                                                class="bg-[#7535FD] text-[#fff] text-[14px] py-[1.5rem] px-[3rem] w-fit rounded-[5px] font-[NUNITO-LIGHT] mt-[2rem] cursor-pointer">
+                                                Download Invoice
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="flex items-center justify-end p-6 rounded-b">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="!showInvoicePdf" class="shadow-lg w-full rounded-[10px]">
+    <div class="bg-[#7535FD] rounded-t-[10px] flex justify-between items-center p-[4rem]">
+        <div>
+            <p class="text-[#fff] font-[NUNITO] text-[30px]">Invoice</p>
+            <div class="flex items-center w-[100px]">
+                <img src="/assets/images/LOGO 1.png" alt="">
+            </div>
+        </div>
+        <div class="text-[#fff] text-right text-[12px]">
+            <p>Marx Properties</p>
+            <p>42, Adeyemi Street, Ikate</p>
+            <p>+(234)-8104213955</p>
+            <p>Marxpropertiesng@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="bg-[#fff] p-[4rem] grid gap-[2rem]">
+
+
+
+
+
+
+
+
+        <form class="rounded-[10px] relative grid gap-[4rem]" action="" [formGroup]="myform"
+            (ngSubmit)="onSubmit(myform.value)">
+            <div class="w-full absolute border-b left-0 p-[2rem] mb-[2rem]"> Customer Details</div>
+
+            <div class="shadow-lg p-[2rem] rounded-[10px]">
+
+                <div class="w-full grid md:grid-cols-2 gap-[3rem] mt-[6rem]">
+                    <div class="w-full" [ngClass]="{'has-error': !formData['name'].valid && formData['name'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="name">Name *</label>
+                        <div class="border-none " *ngIf="formData['name'].touched && formData['name'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['name'].errors['required']">
+                                The name is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['name'].errors['pattern']">
+
+                                The name is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="Name" name="name" formControlName="name">
+                        </div>
+                    </div>
+
+                    <div class="w-full"
+                        [ngClass]="{'has-error': !formData['phoneNumber'].valid && formData['phoneNumber'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="phoneNumber">Phone Number*</label>
+                        <div class="border-none "
+                            *ngIf="formData['phoneNumber'].touched && formData['phoneNumber'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['phoneNumber'].errors['required']">
+                                Phone Number is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['phoneNumber'].errors['pattern']">
+
+                                Phone Number is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="1234" name="phoneNumber" formControlName="phoneNumber">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                    <div class="w-full"
+                        [ngClass]="{'has-error': !formData['emailAddress'].valid && formData['emailAddress'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="emailAddress">EmailAddress *</label>
+                        <div class="border-none "
+                            *ngIf="formData['emailAddress'].touched && formData['emailAddress'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['emailAddress'].errors['required']">
+                                The emailAddress is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['emailAddress'].errors['pattern']">
+
+                                The emailAddress is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="mail@simmmple.com" name="emailAddress" formControlName="emailAddress">
+                        </div>
+                    </div>
+
+                    <div class="w-full"
+                        [ngClass]="{'has-error': !formData['address'].valid && formData['address'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="address">Address*</label>
+                        <div class="border-none " *ngIf="formData['address'].touched && formData['address'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['address'].errors['required']">
+                                Address is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['address'].errors['pattern']">
+
+                                Address is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="Address" name="address" formControlName="address">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="grid py-[2rem] shadow-lg p-[2rem] rounded-[10px]">
+
+                <div class="grid bg-[#f9f9f9] grid-cols-5 font-[NUNITO]">
+                    <div class="border-t text-center p-[1rem]">Description</div>
+                    <div class="border-t text-center p-[1rem]">Unit Price</div>
+                    <div class="border-t text-center p-[1rem]">Quantity</div>
+                    <div class="border-t text-center p-[1rem]">Tax</div>
+                    <div class="border-t text-center p-[1rem]">Total</div>
+                </div>
+
+                <div class="grid grid-cols-5 text-grey">
+                    <div class="border-t text-center p-[1rem]">Android POS </div>
+                    <div class="border-t text-center p-[1rem]">N 25,000</div>
+                    <div class="border-t text-center p-[1rem]">1</div>
+                    <div class="border-t text-center p-[1rem]">N 25,000</div>
+                    <div class="border-t text-center p-[1rem]">N 25,000</div>
+                </div>
+
+                <div class="grid grid-cols-5 text-grey">
+                    <div class="border-y text-center p-[1rem]">Android POS </div>
+                    <div class="border-y text-center p-[1rem]">N 25,000</div>
+                    <div class="border-y text-center p-[1rem]">1</div>
+                    <div class="border-y text-center p-[1rem]">N 25,000</div>
+                    <div class="border-y text-center p-[1rem]">N 25,000</div>
+                </div>
+
+            </div>
+
+
+            <div class="grid gap-[2rem]">
+                <div class="font-[NUNITO] text-[24px]">Invoice Details</div>
+                <div class="w-full grid md:grid-cols-3 gap-[3rem] shadow-lg p-[2rem] rounded-[10px]">
+                    <div class="w-full"
+                        [ngClass]="{'has-error': !formData['invoiceDate'].valid && formData['invoiceDate'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="invoiceDate">Invoice Date *</label>
+                        <div class="border-none "
+                            *ngIf="formData['invoiceDate'].touched && formData['invoiceDate'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['invoiceDate'].errors['required']">
+                                The invoiceDate is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['invoiceDate'].errors['pattern']">
+
+                                The invoiceDate is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="mail@simmmple.com" name="invoiceDate" formControlName="invoiceDate"
+                                type="date">
+                        </div>
+                    </div>
+
+                    <div class="w-full"
+                        [ngClass]="{'has-error': !formData['invoiceNumber'].valid && formData['invoiceNumber'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="invoiceNumber">Invoice Number*</label>
+                        <div class="border-none "
+                            *ngIf="formData['invoiceNumber'].touched && formData['invoiceNumber'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['invoiceNumber'].errors['required']">
+                                invoiceNumber is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['invoiceNumber'].errors['pattern']">
+
+                                invoiceNumber is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="invoiceNumber" name="invoiceNumber" formControlName="invoiceNumber">
+                        </div>
+                    </div>
+
+
+
+                    <div class="w-full"
+                        [ngClass]="{'has-error': !formData['paymentDueDate'].valid && formData['paymentDueDate'].touched}">
+                        <label class="block mb-2 font-medium text-gray-900" for="paymentDueDate">Payment Due Date
+                            *</label>
+                        <div class="border-none "
+                            *ngIf="formData['paymentDueDate'].touched && formData['paymentDueDate'].errors">
+                            <div class="shadow-none border-none  text-danger"
+                                *ngIf="formData['paymentDueDate'].errors['required']">
+                                The paymentDueDate is required
+                            </div>
+                            <div class="shadow-none text-danger" *ngIf="formData['paymentDueDate'].errors['pattern']">
+
+                                The paymentDueDate is not valid
+                            </div>
+                        </div>
+                        <div class=" mb-5">
+                            <input
+                                class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                                placeholder="mail@simmmple.com" name="paymentDueDate" formControlName="paymentDueDate"
+                                type="date">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-[2rem]">
+
+                <div (click)="toggleShowInvoicePdf()"
+                    class="bg-[#7535FD] cursor-pointer text-[#fff] text-[14px] py-[1.5rem] px-[3rem] w-fit rounded-[5px] font-[NUNITO-LIGHT] mt-[2rem]">
+                    Generate Invoice
+                </div>
+            </div>
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

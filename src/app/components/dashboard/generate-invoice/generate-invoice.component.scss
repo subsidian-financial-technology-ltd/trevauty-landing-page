@@ -1,0 +1,61 @@
+
+// <div class="w-full grid md:grid-cols-3 gap-[3rem] shadow-lg p-[2rem]">
+// <div class="w-full" [ngClass]="{'has-error': !formData['invoiceDate'].valid && formData['invoiceDate'].touched}">
+//     <label class="block mb-2 font-medium text-gray-900" for="invoiceDate">Invoice Date *</label>
+//     <div class="border-none " *ngIf="formData['invoiceDate'].touched && formData['invoiceDate'].errors">
+//         <div class="shadow-none border-none  text-danger" *ngIf="formData['invoiceDate'].errors['required']">
+//             The invoiceDate is required
+//         </div>
+//         <div class="shadow-none text-danger" *ngIf="formData['invoiceDate'].errors['pattern']">
+
+//             The invoiceDate is not valid
+//         </div>
+//     </div>
+//     <div class=" mb-5">
+//         <input
+//             class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+//             placeholder="mail@simmmple.com" name="invoiceDate" formControlName="invoiceDate" type="date">
+//     </div>
+// </div>
+
+// <div class="w-full"
+//     [ngClass]="{'has-error': !formData['invoiceNumber'].valid && formData['invoiceNumber'].touched}">
+//     <label class="block mb-2 font-medium text-gray-900" for="invoiceNumber">Invoice Number*</label>
+//     <div class="border-none " *ngIf="formData['invoiceNumber'].touched && formData['invoiceNumber'].errors">
+//         <div class="shadow-none border-none  text-danger"
+//             *ngIf="formData['invoiceNumber'].errors['required']">
+//             invoiceNumber is required
+//         </div>
+//         <div class="shadow-none text-danger" *ngIf="formData['invoiceNumber'].errors['pattern']">
+
+//             invoiceNumber is not valid
+//         </div>
+//     </div>
+//     <div class=" mb-5">
+//         <input
+//             class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+//             placeholder="invoiceNumber" name="invoiceNumber" formControlName="invoiceNumber">
+//     </div>
+// </div>
+
+
+
+// <div class="w-full" [ngClass]="{'has-error': !formData['paymentDueDate'].valid && formData['paymentDueDate'].touched}">
+//     <label class="block mb-2 font-medium text-gray-900" for="paymentDueDate">Payment Due Date *</label>
+//     <div class="border-none " *ngIf="formData['paymentDueDate'].touched && formData['paymentDueDate'].errors">
+//         <div class="shadow-none border-none  text-danger" *ngIf="formData['paymentDueDate'].errors['required']">
+//             The paymentDueDate is required
+//         </div>
+//         <div class="shadow-none text-danger" *ngIf="formData['paymentDueDate'].errors['pattern']">
+
+//             The paymentDueDate is not valid
+//         </div>
+//     </div>
+//     <div class=" mb-5">
+//         <input
+//             class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+//             placeholder="mail@simmmple.com" name="paymentDueDate" formControlName="paymentDueDate" type="date">
+//     </div>
+// </div>
+
+// </div>

@@ -21,7 +21,7 @@ import { UserProfileComponent } from './components/dashboard/user-profile/user-p
 import { EditUserFormComponent } from './components/dashboard/edit-user-form/edit-user-form.component';
 import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
 import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
-import { authGuard } from './pageGuard/auth.guard';
+import { AuthGuard } from './pageGuard/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { InventorymanagementComponent } from './components/inventorymanagement/inventorymanagement.component';
@@ -36,10 +36,11 @@ import { AddCardComponent } from './components/dashboard/add-card/add-card.compo
 import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
+import { GenerateInvoiceComponent } from './components/dashboard/generate-invoice/generate-invoice.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: LandingpageComponent },
+  { path: 'home', component: LandingpageComponent},
   { path: 'nfc', component: NfcComponent },
   { path: 'about', component: AboutComponent },
   { path: 'receipt', component: ReceiptComponent },
@@ -52,14 +53,15 @@ const routes: Routes = [
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'otp', component: ResetPasswordOtpComponent },
   { path: 'confirm-password', component: ConfirmPasswordComponent },
-  { path: 'dashboard', component: DashboardComponent, children: [
+  { path: 'dashboard', component: DashboardComponent,  children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: 'dashboard', component: AnalyticComponent},
-    { path: 'transaction', component:  ReceiptHistoryComponent},
+    { path: 'dashboard', component: AnalyticComponent , canActivate: [AuthGuard]},
+    { path: 'transaction', component:  ReceiptHistoryComponent , canActivate: [AuthGuard]},
+    { path: 'generate-invoice', component:  GenerateInvoiceComponent , canActivate: [AuthGuard]},
     // { path: 'settings', component:  OverviewComponent},
-    { path: 'cards', component:  ManageCardsComponent},
-    { path: 'add-card', component:  AddCardComponent},
-    { path: 'edit-card', component: EditCardComponent},
+    { path: 'cards', component:  ManageCardsComponent , canActivate: [AuthGuard]},
+    { path: 'add-card', component:  AddCardComponent , canActivate: [AuthGuard]},
+    { path: 'edit-card', component: EditCardComponent , canActivate: [AuthGuard]},
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},
@@ -84,7 +86,7 @@ const routes: Routes = [
         { path:"help", component:ProfileHelpComponent },
       ]}
     ]}
-  ], canActivate:[authGuard]},
+  ], canActivate:[AuthGuard]},
   { path: '**', redirectTo: 'login' }
 
 ];
