@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import jsPDF from 'jspdf';
 import { NgToastService } from 'ng-angular-popup';
 import { TerminalService } from 'src/app/services/terminal.service';
+import html2canvas from 'html2canvas';
 
 
 interface RowData {
@@ -22,20 +24,20 @@ interface RowData {
 export class GenerateInvoiceComponent {
 
   invoice = {
-    name:"",
-    phoneNumber:"",
-    emailAddress:"",
-    address:"",
-    rows : [
+    name: "",
+    phoneNumber: "",
+    emailAddress: "",
+    address: "",
+    rows: [
       this.createRowObject('Item 1', 10, 2, 3)
     ],
-    invoiceDate:"",
-    invoiceNumber:"",
-    paymentDueDate:""
+    invoiceDate: "",
+    invoiceNumber: "",
+    paymentDueDate: ""
 
   }
 
-  createRowObject(description: string, unitPrice: number, quantity:number, tax: number) {
+  createRowObject(description: string, unitPrice: number, quantity: number, tax: number) {
     return {
       description: description,
       unitPrice: unitPrice,
@@ -45,28 +47,28 @@ export class GenerateInvoiceComponent {
     };
   }
 
-  getSubTotal(): number{
+  getSubTotal(): number {
     let subTotal = 0;
-      this.invoice.rows.map((item : any)=>{
+    this.invoice.rows.map((item: any) => {
       subTotal = subTotal + item.total;
-  });
-  return subTotal;
-}
+    });
+    return subTotal;
+  }
 
-getTaxSubTotal(): number{
-  let subTotal = 0;
-    this.invoice.rows.map((item : any)=>{
-    subTotal = subTotal + item.tax;
-});
-return subTotal;
-}
+  getTaxSubTotal(): number {
+    let subTotal = 0;
+    this.invoice.rows.map((item: any) => {
+      subTotal = subTotal + item.tax;
+    });
+    return subTotal;
+  }
 
-getTotal(): number{
-  return this.getSubTotal() - this.getTaxSubTotal();
-}
+  getTotal(): number {
+    return this.getSubTotal() - this.getTaxSubTotal();
+  }
 
 
-  goToManageCard(){
+  goToManageCard() {
     this.router.navigate(["dashboard/cards"])
 
   }
@@ -101,17 +103,14 @@ getTotal(): number{
     });
   }
 
-  get formData() { 
+  get formData() {
     return this.myform?.controls;
-   };
+  };
 
   validateForm() {
-
     for (let i in this.myform?.controls)
       this.myform?.controls[i].markAsTouched();
-
   }
-
 
   showSuccessResponse(message: string, header: string, duration: number) {
     this.toast.success({ detail: message, summary: header, duration: duration });
@@ -123,7 +122,6 @@ getTotal(): number{
   ngOnInit() {
     console.log("hello world");
     this.toast.success({ detail: "hello", summary: "message", duration: 5000 });
-
   }
 
   resetFormInputs() {
@@ -136,61 +134,74 @@ getTotal(): number{
   onSubmit(): void {
     console.log(this.invoice);
     this.toggleShowInvoicePdf();
-    // console.log("this.myform.value");
+  }
+  
 
-    // console.log(this.myform?.value);
-    // this.showSuccessResponse(this.message, "Sign Up", 3000);
-    // this.toast.success({ detail: "hello", summary: "message", duration: 5000 });
+  @ViewChild('pdfContent', { static: false }) pdfContent: ElementRef | any;
 
+  generatePDF(): void {
+    // const content = this.pdfContent.nativeElement;
+    // const doc = new jsPDF();
+    // doc.html(content, {
+    //   fontFaces: 
+    //   [
+    //     {
+    //       // css: '@font-face { font-family: "Arial"; src: url(https://cdnjs.cloudflare.com/ajax/libs/jsPDF/2.4.0/jspdf.woff); }',
+    //       weight: 'normal',
+    //       stretch: 'normal',
+    //       style: 'italic',
+    //       family: 'Arial',
+    //       src:[
+    //         {
+    //         url:"",
+    //         format: "truetype"
+    //         }
 
-    //   this.cardservice.addCardPan(this.myform.value).subscribe({
-    //     next: (response: any) => {
-    //       console.log("response =>>>>", response);
-    //       this.myform.markAsPristine(); 
-    //       this.myform.markAsUntouched(); 
-    //       if (response?.message) {
-    //         console.log("step 1")
-    //         this.message = response?.message;
-    //         this.showSuccessResponse(this.message, "Sign Up", 3000);
-    //         alert(this.message);
-
-    //       } else {
-    //         console.log("step 2")
-
-    //         this.showErrorResponse(response?.debugMessage, "Sign up", 3000);
-    //         alert(response?.debugMessage);
-
-    //       }
-
-    //     },
-    //     error: (error: any) => {
-    //       console.log("sign up failed", error);
-    //       if (error.status === 400 && error.error && error.error.errors) {
-    //         let errRes = error?.response;
-    //         let errReason = error?.debugMessage;
-    //         this.showErrorResponse(errRes + errReason, "Sign Up", 3000);
-    //         const validationErrors = error.error.errors;
-    //       }
+    //       ]
     //     }
-    //   });
-  }
+    //   ]
+    //   ,
+    //   callback: (doc) => {
+    //     doc.save('test.pdf');
+    //   }
+    // });
 
-  toggleShowInvoicePdf(){
+
+    if (!this.pdfContent) {
+      console.error("Element 'pdfContent' is not defined.");
+      return;
+    }
+
+    html2canvas(this.pdfContent.nativeElement).then((canvas) => {
+      const fileWidth = 210;
+      const fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      const PDF = new jsPDF('p', 'mm', 'a4');
+      const position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, 297, '', 'FAST');
+      PDF.save('angular-demo.pdf');
+    });
+
+
+}
+
+
+  toggleShowInvoicePdf() {
     this.showInvoicePdf = !this.showInvoicePdf;
+    // this.generatePDF();
+
   }
-
-
 
   addRow() {
     console.log("add row");
     this.invoice.rows.push({ description: '', unitPrice: 0, quantity: 0, tax: 0, total: 0 });
-
-    console.log(this.invoice.rows);
   }
 
   removeRow(index: number) {
     this.invoice.rows.splice(index, 1);
   }
+
+  
 
 
 }

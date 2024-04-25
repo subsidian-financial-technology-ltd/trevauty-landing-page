@@ -4,14 +4,14 @@
             <div class="grid place-items-center items-center p-[4rem] w-full">
 
 
-                <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
+                <div  class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
 
-                    <div class="bg-[#fff]  flex justify-center">
+                    <div class="flex justify-center">
                         <div class="">
 
 
                             <div class=" flex justify-center">
-                                <div class="border w-full">
+                                <div #pdfContent class="border w-full ">
 
                                     <div class="bg-[#7535FD] flex justify-between items-center p-[4rem]">
                                         <div>
@@ -118,7 +118,7 @@
                                                 Share Invoice
                                             </div>
 
-                                            <div (click)="toggleShowInvoicePdf()"
+                                            <div (click)="generatePDF()"
                                                 class="bg-[#7535FD] text-[#fff] text-[14px] py-[1.5rem] px-[3rem] w-fit rounded-[5px] font-[NUNITO-LIGHT] mt-[2rem] cursor-pointer">
                                                 Download Invoice
                                             </div>
@@ -161,11 +161,6 @@
     </div>
 
     <div class="bg-[#fff] p-[4rem] grid gap-[2rem]">
-
-
-
-
-
 
 
 
@@ -330,7 +325,11 @@
                     <input type="number" placeholder="Tax" class="text-center" [(ngModel)]="row.tax" name="tax-{{i}}" min="1">
                   </div>
                   <div class=" text-center p-[1rem] flex justify-center col-span-2">
-                    <input type="number" placeholder="Total" class="text-center" [(ngModel)]="row.total" name="total-{{i}}" min="1">
+                    <!-- <input type="number" placeholder="Total" class="text-center" [(ngModel)]="row.total" name="total-{{i}}" min="1"> -->
+                    <div type="number" placeholder="Total" class="text-center">
+                        {{row.total}}
+                    </div>
+
                   </div>
                   <div class="text-center p-[1rem] flex justify-center">
                     <div class="shadow-lg p-[1rem] rounded-[30px] cursor-pointer h-[30px] w-[30px] flex justify-center items-center" (click)="removeRow(i)">
@@ -396,6 +395,7 @@
                                 class="bg-[#fff] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
                                 placeholder="invoiceNumber" name="invoiceNumber" [(ngModel)]="invoice.invoiceNumber">
                         </div>
+                                
                     </div>
 
 
@@ -434,20 +434,6 @@
                     Generate Invoice
                 </button>
             </div>
-
-
         </form>
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 </div>
