@@ -1,4 +1,7 @@
-export  const baseURL = "http://open-receipt.subsidian.net/";
+// export  const baseURL = "http://open-receipt.subsidian.net/";
+export  const baseURL = "https://open-receipt.subsidian.net/";
+
+// /swagger-ui/index.html
 
 
 import { Injectable } from '@angular/core';

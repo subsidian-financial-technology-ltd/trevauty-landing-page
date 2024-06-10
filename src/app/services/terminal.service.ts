@@ -97,7 +97,7 @@ export class TerminalService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.get<any>(`${this.baseURL}api/v1/analytic/transactions?page=${page}&size=${size}`, { headers: headers });
+    return this.http.get<any>(`${this.baseURL}api/v1/customer/fetch-all-receipts?page=${page}&size=${size}`, { headers: headers });
   }
   
   getAnalyticsOverview(): Observable<any>{

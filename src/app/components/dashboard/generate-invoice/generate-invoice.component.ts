@@ -76,13 +76,10 @@ export class GenerateInvoiceComponent {
   showModal = false;
   formSubmitted: boolean = false;
   otp: string = "";
-
   myform: FormGroup;
   message: string = "";
   apiResponse: any;
   showInvoicePdf: boolean = false;
-
-
 
   constructor(private http: HttpClient,
     private formBuilder: FormBuilder,
@@ -135,38 +132,11 @@ export class GenerateInvoiceComponent {
     console.log(this.invoice);
     this.toggleShowInvoicePdf();
   }
-  
+
 
   @ViewChild('pdfContent', { static: false }) pdfContent: ElementRef | any;
 
   generatePDF(): void {
-    // const content = this.pdfContent.nativeElement;
-    // const doc = new jsPDF();
-    // doc.html(content, {
-    //   fontFaces: 
-    //   [
-    //     {
-    //       // css: '@font-face { font-family: "Arial"; src: url(https://cdnjs.cloudflare.com/ajax/libs/jsPDF/2.4.0/jspdf.woff); }',
-    //       weight: 'normal',
-    //       stretch: 'normal',
-    //       style: 'italic',
-    //       family: 'Arial',
-    //       src:[
-    //         {
-    //         url:"",
-    //         format: "truetype"
-    //         }
-
-    //       ]
-    //     }
-    //   ]
-    //   ,
-    //   callback: (doc) => {
-    //     doc.save('test.pdf');
-    //   }
-    // });
-
-
     if (!this.pdfContent) {
       console.error("Element 'pdfContent' is not defined.");
       return;
@@ -181,10 +151,7 @@ export class GenerateInvoiceComponent {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, 297, '', 'FAST');
       PDF.save('angular-demo.pdf');
     });
-
-
-}
-
+  }
 
   toggleShowInvoicePdf() {
     this.showInvoicePdf = !this.showInvoicePdf;
@@ -200,8 +167,4 @@ export class GenerateInvoiceComponent {
   removeRow(index: number) {
     this.invoice.rows.splice(index, 1);
   }
-
-  
-
-
 }

@@ -97,7 +97,7 @@ export class AuthService {
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(`${this.baseURL}api/v1/auth/login`, authCredentials);
+    return this.http.post<any>(`${this.baseURL}api/v1/auth/login`, authCredentials, { headers: headers });
   }
 
   validateToken(tokenDetails: any): Observable<any>{

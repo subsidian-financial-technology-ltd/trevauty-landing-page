@@ -85,20 +85,6 @@ export class SignupComponent {
     }
   }
 
-  // resetFormInputs() {
-  //   this.myform.setValue({
-  //     firstName: '',
-  //     lastName: '',
-  //     phoneNumber: '',
-  //     password: '',
-  //     email: '',
-  //     cOption: '',
-  //     optionsRadios: '',
-  //     agreeWithTermsAndCondition: '',
-  //     address: '',
-  //     dateOfBirth: ''
-  //   });
-  // }
 
 
   showSuccessResponse(message: string, header: string, duration: number) {
