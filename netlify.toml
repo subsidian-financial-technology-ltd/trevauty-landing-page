@@ -1,6 +1,6 @@
 [build]
   command = "CI='' ng build"
-  publish = "/dist/"
+  publish = "/dist/trevauty-app"
   base ="/"
 
 [[redirects]]
