@@ -72,7 +72,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
 import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
 import { GenerateInvoiceComponent } from './components/dashboard/generate-invoice/generate-invoice.component';
-
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -142,7 +142,8 @@ import { GenerateInvoiceComponent } from './components/dashboard/generate-invoic
     MenuModule,
     CalendarModule,
     NgbDropdownModule,
-    NgbModule
+    NgbModule,
+    CommonModule
 
     // DropdownModule
 

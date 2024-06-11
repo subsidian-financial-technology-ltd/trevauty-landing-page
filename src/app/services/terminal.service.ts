@@ -1,21 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from './token.service';
 import { FormGroup } from '@angular/forms';
 import { baseURL } from './utils';
+import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class TerminalService {
 
+export class TerminalService {
 
   baseURL = `http://open-receipt.subsidian.net/`;
   authToken = TokenService.getToken();
 
   constructor(private http: HttpClient) { }
-
 
   addCardPan(userDetails:any): Observable<any>{
     console.log("hello world");
@@ -29,14 +29,12 @@ export class TerminalService {
 
   editCardPan(cardDetails: any) : Observable<any>{
     console.log("hello world");
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
     return this.http.put<any>(`${baseURL}api/v1/customer/update-pan`, cardDetails ,{ headers:headers });
   }
-
 
   getCardList(): Observable<any>{
     const headers = new HttpHeaders({
@@ -54,7 +52,6 @@ export class TerminalService {
 
     return this.http.get<any>(baseURL + id, { headers:headers });
   }
-
 
   terminalRequest(userDetails:any){
     const headers = new HttpHeaders()
