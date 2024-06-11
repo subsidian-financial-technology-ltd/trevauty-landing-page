@@ -143,9 +143,11 @@ import { CommonModule } from '@angular/common';
     CalendarModule,
     NgbDropdownModule,
     NgbModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
 
     // DropdownModule
+    
 
 
     // ManageTerminalRoutingModule,
