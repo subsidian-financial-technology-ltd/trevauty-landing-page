@@ -3,6 +3,11 @@
   publish = "/"
   base ="/"
 
+
+[headers]
+  mime = "application/javascript"
+  mime = "application/javascript"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
