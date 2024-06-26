@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +72,9 @@ import { ConfirmPasswordComponent } from './components/auth/confirm-password/con
 import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
 import { GenerateInvoiceComponent } from './components/dashboard/generate-invoice/generate-invoice.component';
 import { CommonModule } from '@angular/common';
+// import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 @NgModule({
