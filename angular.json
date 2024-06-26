@@ -25,7 +25,6 @@
             "outputPath": "dist/trevauty-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "baseHref": "/trevauty-app/",
             "polyfills": [
               "zone.js"
             ],

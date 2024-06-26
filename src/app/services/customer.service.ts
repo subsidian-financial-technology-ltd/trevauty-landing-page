@@ -13,12 +13,12 @@ export class CustomerService {
 
   getCustomerDetails() : Observable<any>{
     console.log("hello world");
-
+    
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.get<any>(`${baseURL}api/v1/customer/fetch-customer-data` ,{ headers:headers });
+    return this.http.get<any>(`${baseURL}api/v1/customer/fetch-customer-data`,{ headers:headers });
   }
 
 
