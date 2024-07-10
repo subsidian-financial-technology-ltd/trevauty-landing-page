@@ -53,6 +53,7 @@ export class AddCardComponent {
     this.myform = new FormGroup({
       first6digits: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
       last4digits: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+      country: new FormControl('Nigeria', [Validators.required]),
       issuer: new FormControl('', [Validators.required]),
       cardType: new FormControl('', [Validators.required]),
       expiry: new FormControl('', [Validators.required]),

@@ -61,7 +61,7 @@ const routes: Routes = [
     // { path: 'settings', component:  OverviewComponent},
     { path: 'cards', component:  ManageCardsComponent , canActivate: [AuthGuard]},
     { path: 'add-card', component:  AddCardComponent , canActivate: [AuthGuard]},
-    { path: 'edit-card', component: EditCardComponent , canActivate: [AuthGuard]},
+    { path: 'edit-card/:id', component: EditCardComponent , canActivate: [AuthGuard]},
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},

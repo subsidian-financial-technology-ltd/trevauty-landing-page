@@ -22,7 +22,7 @@ export class ProfileAuthComponent {
   showConfirmNewPassword: boolean = false;
   password:string = "password";
   newPassword:string = "password";
-  confirmNewPassword = "password"
+  confirmPassword = "password"
   showModal = false;
   showOtpModal = false;
   showResetPasswordModal = false;
@@ -36,7 +36,7 @@ export class ProfileAuthComponent {
     this.passwordResetDetails = new FormGroup({
       oldPassword: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
-      confirmNewPassword : new FormControl('', [Validators.required])
+      confirmPassword : new FormControl('', [Validators.required])
     })
 
     this.forgotPasswordDetails = new FormGroup({
@@ -71,11 +71,11 @@ export class ProfileAuthComponent {
   }
 
   toggleShowConfirmNewPassword(){
-    if (this.confirmNewPassword === 'password') {
-      this.confirmNewPassword = 'text';
+    if (this.confirmPassword === 'password') {
+      this.confirmPassword = 'text';
       this.showConfirmNewPassword = true;
     } else {
-      this.confirmNewPassword = 'password';
+      this.confirmPassword = 'password';
       this.showConfirmNewPassword = false;
     }
   }
@@ -84,7 +84,7 @@ export class ProfileAuthComponent {
     this.passwordResetDetails.setValue({
       password: "",
       newPassword: "",
-      confirmNewPassword :''
+      confirmPassword :''
     })
   }
 

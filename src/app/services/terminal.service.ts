@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class TerminalService {
 
-  baseURL = `http://open-receipt.subsidian.net/`;
+  // baseURL = `http://open-receipt.subsidian.net/`;
   authToken = TokenService.getToken();
 
   constructor(private http: HttpClient) { }
@@ -24,7 +24,7 @@ export class TerminalService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.post<any>(`${baseURL}api/v1/customer/add-customer-profile`, userDetails ,{ headers:headers });
+    return this.http.post<any>(`${baseURL}api/v1/customer/add-pan-number`, userDetails ,{ headers:headers });
   }
 
   editCardPan(cardDetails: any) : Observable<any>{
@@ -56,28 +56,28 @@ export class TerminalService {
   terminalRequest(userDetails:any){
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(`${this.baseURL}api/v1/terminal/terminal_request`, userDetails);
+    return this.http.post<any>(`${baseURL}api/v1/terminal/terminal_request`, userDetails);
   }
 
   terminalRefundRequest(userDetails:any){
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(`${this.baseURL}api/v1/terminal/refund/terminal_refund_request`, userDetails);
+    return this.http.post<any>(`${baseURL}api/v1/terminal/refund/terminal_refund_request`, userDetails);
   }
 
   accountLogin(authCredentials:any){
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.baseURL, authCredentials);
+    return this.http.post<any>(baseURL, authCredentials);
   }
 
   passwordReset(usersDetail:any){
     console.log("hello world");
     const headers = new HttpHeaders()
     .append('Content-Type', 'application/json')
-    return this.http.post<any>(this.baseURL, usersDetail);
+    return this.http.post<any>(baseURL, usersDetail);
   }
 
   getTerminals(): Observable<any> {
@@ -94,7 +94,7 @@ export class TerminalService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.get<any>(`${this.baseURL}api/v1/customer/fetch-all-receipts?page=${page}&size=${size}`, { headers: headers });
+    return this.http.get<any>(`${baseURL}api/v1/customer/fetch-all-receipts?page=${page}&size=${size}`, { headers: headers });
   }
   
   getAnalyticsOverview(): Observable<any>{
@@ -102,7 +102,16 @@ export class TerminalService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.get<any>(`${this.baseURL}api/v1/analytic/terminal_statistic`, { headers: headers });
+    return this.http.get<any>(`${baseURL}api/v1/analytic/terminal_statistic`, { headers: headers });
   }
+
+  getCardBy(cardPan: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.get<any>(`${baseURL}api/v1/customer/fetch-card-pan/${cardPan}`, { headers: headers });
+  }
+  
   
 }

@@ -87,8 +87,13 @@ export interface ContactVerificationResponse {
   }
 
   export interface CardResponse {
-    name: String | null;
+    cardOwner: String | null;
     cardPan: String
+    cardType: String | null;
+    country: String | null;
+    expiry: string | null;
+    id: String | null;
+    issuer: String | null;
   }
 
   export interface CustomerDetails {

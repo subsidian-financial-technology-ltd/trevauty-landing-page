@@ -322,7 +322,8 @@ if (this.authForm.valid) {
 
       this.showSuccessResponse(this.message, "Login", 3000);
       if(response?.data){
-        alert(response?.message);
+        // alert(response?.message);
+        this.showSuccessResponse(response?.message, "Login", 3000);
         TokenService.setToken(response?.data?.accessToken);
         if(response.data.registrationCompleted){
           this.router.navigate(['dashboard']);

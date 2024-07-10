@@ -86,11 +86,13 @@ export class AuthService {
   addCustomerProfile(userDetails:any): Observable<any>{
     console.log("hello world");
 
+    console.log({userDetails})
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.post<any>(`${this.baseURL}api/v1/customer/add-customer-profile`,{ headers:headers }, userDetails);
+    return this.http.put<any>(`${this.baseURL}api/v1/customer/add-customer-profile`,userDetails,{ headers:headers });
   }
 
   accountLogin(authCredentials:any): Observable<any>{
@@ -131,7 +133,7 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.post<any>(`${this.baseURL}api/v1/customer/change-password`, usersDetail, { headers: headers  });
+    return this.http.put<any>(`${this.baseURL}api/v1/customer/change-password`, usersDetail, { headers: headers  });
   }
 
   getTerminalAnalysis(): Observable<any>{

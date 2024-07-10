@@ -18,14 +18,14 @@
             <div
                 class="px-[3rem] py-[2rem] grid gap-[3rem] text-[#fff] relative max-w-[40rem] h-[220px] rounded-[20px] bg-gradient-to-r from-cyan-500 to-blue-500">
                 <div class="flex justify-between items-center">
-                    <div>Credit</div>
+                    <div>{{cardEntity?.cardType}}</div>
                     <div>
                         <img src="/assets/images/master-card.png" alt="">
                     </div>
                 </div>
                 <div class="grid gap-[1rem]">
-                    <div>Maya Cara</div>
-                    <div>5242 - 4343 - 8348 - 4878</div>
+                    <div>{{cardEntity?.cardOwner}}</div>
+                    <div>{{cardEntity?.cardPan}}</div>
                 </div>
             </div>
     
@@ -79,18 +79,18 @@
                             <label for="" class="font-[200]">EXPIRY MONTH</label>
 
 
-                            <div class="border-none " *ngIf="formData['expiryMonth'].touched && formData['expiryMonth'].errors">
+                            <div class="border-none " *ngIf="formData['expiry'].touched && formData['expiry'].errors">
                                 <div class="shadow-none border-none  text-danger"
-                                    *ngIf="formData['expiryMonth'].errors['required']">
+                                    *ngIf="formData['expiry'].errors['required']">
                                     Expiry is required
                                 </div>
-                                <div class="shadow-none text-danger" *ngIf="formData['expiryMonth'].errors['pattern']">
+                                <div class="shadow-none text-danger" *ngIf="formData['expiry'].errors['pattern']">
                                     Expiry is not valid
                                 </div>
                             </div>
                             
                             <div class="w-full border-b py-2">
-                                <input type="text" name="" id="" class="bg-transparent" formControlName="expiryMonth">
+                                <input type="text" name="" id="" class="bg-transparent" formControlName="expiry">
     
                             </div>
                         </div>

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from './services/token.service';
+import { baseURL } from './services/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class DashboardService {
     providedIn: 'root'
   })
   
-    baseURL = `http://open-receipt.subsidian.net/`;
+    // baseURL = `http://open-receipt.subsidian.net/`;
     singupUrl = 'https://smartb2c.ubagroup.com/bscv2/api/Accounts/Login';
     // authToken = window.localStorage.getItem("token");
     authToken = TokenService.getToken();
@@ -82,14 +83,14 @@ export class DashboardService {
       console.log("hello world");
       const headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
-      return this.http.post<any>(`${this.baseURL}api/v1/authenticate/register`, signup);
+      return this.http.post<any>(`${baseURL}api/v1/authenticate/register`, signup);
     }
   
     accountLogin(authCredentials:any): Observable<any>{
       console.log("hello world");
       const headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
-      return this.http.post<any>(`${this.baseURL}api/v1/authenticate/auth`, authCredentials);
+      return this.http.post<any>(`${baseURL}api/v1/authenticate/auth`, authCredentials);
     }
   
     validateToken(tokenDetails: any): Observable<any>{
@@ -97,7 +98,7 @@ export class DashboardService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`
       });
-      return this.http.post<any>(`${this.baseURL}api/v1/authenticate/login`, tokenDetails, { headers: headers });
+      return this.http.post<any>(`${baseURL}api/v1/authenticate/login`, tokenDetails, { headers: headers });
     }
   
     forgotPasswordAuth(authCredentials:any): Observable<any>{
@@ -126,7 +127,7 @@ export class DashboardService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`
       });
-      return this.http.get<any>(`${this.baseURL}api/v1/analytic/dashboard`, { headers: headers });
+      return this.http.get<any>(`${baseURL}api/v1/analytic/dashboard`, { headers: headers });
     }
 
     getDeposit(): Observable<any>{
@@ -134,7 +135,7 @@ export class DashboardService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`
       });
-      return this.http.get<any>(`${this.baseURL}api/v1/analytic/deposit_data?page=0&size=5`, { headers: headers });
+      return this.http.get<any>(`${baseURL}api/v1/analytic/deposit_data?page=0&size=5`, { headers: headers });
     }
 
     getWithdrawal(): Observable<any>{
@@ -142,7 +143,7 @@ export class DashboardService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`
       });
-      return this.http.get<any>(`${this.baseURL}api/v1/analytic/withdrawal_data?page=0&size=5`, { headers: headers });
+      return this.http.get<any>(`${baseURL}api/v1/analytic/withdrawal_data?page=0&size=5`, { headers: headers });
     }
     
 
@@ -151,7 +152,7 @@ export class DashboardService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`
       });
-      return this.http.get<any>(`${this.baseURL}api/v1/customer/deposit_data?page=0&size=5`, { headers: headers });
+      return this.http.get<any>(`${baseURL}api/v1/customer/deposit_data?page=0&size=5`, { headers: headers });
     }
 
     getTransactions(): Observable<any>{
@@ -159,7 +160,7 @@ export class DashboardService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.authToken}`
       });
-      return this.http.get<any>(`${this.baseURL}api/v1/analytic/transactions`, { headers: headers });
+      return this.http.get<any>(`${baseURL}api/v1/analytic/transactions`, { headers: headers });
     }
 
     

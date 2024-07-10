@@ -34,7 +34,7 @@ export class UserProfileComponent {
   message: string = "";
   apiResponse: any;
   customerDetails: CustomerDetails = {
-    country:"",
+    country:"Nigeria",
     bvn:"",
     nin:"",
     address: "098756",

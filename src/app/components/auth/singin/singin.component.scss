@@ -9,16 +9,9 @@ body {
 
 }
 
-
-
 .desktop {
     display: hidden;
 }
-
-// .disabled-button {
-//     background-color: red;
-//     color: white;
-// }
 
 .enabled-button {
     background-color: green;
@@ -27,16 +20,27 @@ body {
 
 .disabled-button {
     cursor: not-allowed;
-  }
+}
 
 .green-background {
     background-color: green;
 }
+.ng-toast {
+    background-color: red;
+    border: 1px solid black;
+}
+
+::ng-deep .ng-toast {
+    /* your styles here */
+    // background-color: red;
+    // border: 1px solid black;
+    display: block !important;
+    opacity: 1 !important;
+  }
 
 
 @media screen and (max-width: 800px) {
     div {
-        // background-color: red;
     }
 
     .right {

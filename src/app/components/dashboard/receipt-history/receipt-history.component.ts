@@ -21,7 +21,6 @@ export class ReceiptHistoryComponent {
     
   }
   data: any[] = [
-
     {
       id:1,
       invoiceNumber:"10000000",
