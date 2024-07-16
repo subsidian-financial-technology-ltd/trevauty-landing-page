@@ -35,8 +35,9 @@ import { ManageCardsComponent } from './components/dashboard/manage-cards/manage
 import { AddCardComponent } from './components/dashboard/add-card/add-card.component';
 import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
-import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
+import { GetCardComponent } from './components/dashboard/get-card/get-card.component';
 import { GenerateInvoiceComponent } from './components/dashboard/generate-invoice/generate-invoice.component';
+import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
 
 
 const routes: Routes = [
@@ -61,7 +62,8 @@ const routes: Routes = [
     // { path: 'settings', component:  OverviewComponent},
     { path: 'cards', component:  ManageCardsComponent , canActivate: [AuthGuard]},
     { path: 'add-card', component:  AddCardComponent , canActivate: [AuthGuard]},
-    { path: 'edit-card/:id', component: EditCardComponent , canActivate: [AuthGuard]},
+    { path: 'edit-card/:id', component:  EditCardComponent , canActivate: [AuthGuard]},
+    { path: 'get-card/:id', component: GetCardComponent , canActivate: [AuthGuard]},
     { path: 'manage-terminal', component: ManageTerminalComponent, children:[
       { path: '', component: ManageTerminalHomeComponent, children:[
         { path:"", redirectTo: 'list', pathMatch: 'full'},

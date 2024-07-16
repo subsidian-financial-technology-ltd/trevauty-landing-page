@@ -69,11 +69,12 @@ import { AddCardComponent } from './components/dashboard/add-card/add-card.compo
 import { ResetPasswordOtpComponent } from './components/auth/reset-password-otp/reset-password-otp.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { ConfirmPasswordComponent } from './components/auth/confirm-password/confirm-password.component';
-import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
+import { GetCardComponent } from './components/dashboard/get-card/get-card.component';
 import { GenerateInvoiceComponent } from './components/dashboard/generate-invoice/generate-invoice.component';
 import { CommonModule } from '@angular/common';
 // import { BrowserModule } from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
+import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
 
 
 
@@ -120,8 +121,9 @@ import { BrowserModule } from '@angular/platform-browser';
     AddCardComponent,
     ResetPasswordOtpComponent,
     ConfirmPasswordComponent,
-    EditCardComponent,
+    GetCardComponent,
     GenerateInvoiceComponent,
+    EditCardComponent
     // RefundTransactionComponent
   ],
   imports: [

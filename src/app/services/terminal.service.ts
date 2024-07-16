@@ -27,6 +27,17 @@ export class TerminalService {
     return this.http.post<any>(`${baseURL}api/v1/customer/add-pan-number`, userDetails ,{ headers:headers });
   }
 
+  updateCardPan(userDetails:any): Observable<any>{
+    console.log("hello world");
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/customer/update-pan`, userDetails ,{ headers:headers });
+  }
+  
+
   editCardPan(cardDetails: any) : Observable<any>{
     console.log("hello world");
     const headers = new HttpHeaders({
@@ -87,7 +98,6 @@ export class TerminalService {
   getActionTerminals(): Observable<any>{
     return this.http.get<any>('assets/data/actionTerminal.json');
   }
-
 
   getTransactions(page: number, size:number): Observable<any>{
     const headers = new HttpHeaders({

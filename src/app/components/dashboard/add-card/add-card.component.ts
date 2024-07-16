@@ -63,10 +63,8 @@ export class AddCardComponent {
   get formData() { return this.myform?.controls; };
 
   validateForm() {
-
     for (let i in this.myform?.controls)
       this.myform?.controls[i].markAsTouched();
-
   }
 
 

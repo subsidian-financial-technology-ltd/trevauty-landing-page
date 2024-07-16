@@ -9,6 +9,7 @@ import { TerminalService } from 'src/app/services/terminal.service';
 export class DeactivateTerminalsComponent {
 
   constructor(private terminalService: TerminalService){
+    
   }
 
   data: any[] = []

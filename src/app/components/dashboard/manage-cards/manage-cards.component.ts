@@ -34,8 +34,8 @@ export class ManageCardsComponent{
     this.router.navigate(["dashboard/add-card"])
   }
 
-  goToEditCard(id: String){
-    this.router.navigate(["dashboard/edit-card/" + id])
+  goToGetCard(id: String){
+    this.router.navigate(["dashboard/get-card/" + id])
   }
 
   ngOnInit(){
