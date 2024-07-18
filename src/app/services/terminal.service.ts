@@ -106,6 +106,16 @@ export class TerminalService {
     });
     return this.http.get<any>(`${baseURL}api/v1/customer/fetch-all-receipts?page=${page}&size=${size}`, { headers: headers });
   }
+
+  getTransactionByReceiptRef(receiptRef: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.get<any>(`${baseURL}api/v1/customer/fetch-receipt-by-${receiptRef}-ref`, { headers: headers });
+  }
+
+  
   
   getAnalyticsOverview(): Observable<any>{
     const headers = new HttpHeaders({

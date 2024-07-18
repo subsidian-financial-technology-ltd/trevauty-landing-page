@@ -11,58 +11,19 @@ import { MenuItem, MessageService } from 'primeng/api';
 })
 export class ReceiptHistoryComponent {
 
+  isLoading = false;
   showReceiptModal = false;
   showInvoiceModal = false;
   apiResponse: any;
   page: number = 0;
   size: number = 10;
   analyticsOverview: any;
+  recieptDetail: any;
+  receiptRef: string = ""
   filterParams : any = {
     
   }
-  data: any[] = [
-    {
-      id:1,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'approve'
-    },
-    {
-      id:2,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'decline'
-    },
-    {
-      id:3,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'approve'
-    },
-    {
-      id:4,
-      invoiceNumber:"10000000",
-      customerName:"John Doe",
-      date:"13-04-2023",
-      amount:"500",
-      email:"johnDoe@gmail.com",
-      productId:60,
-      status:'decline'
-    },
-
-  ];
+  data: any[] = [];
 
 
   constructor(private terminalService: TerminalService,
@@ -70,63 +31,87 @@ export class ReceiptHistoryComponent {
     
     ) {}
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.getReceipts();
     this.showMenu();
-    this.getTerminals();
     // this.getAnalyticsOverview();
   }
 
-  toggleReceiptModal(): void {
+  toggleReceiptModal(id: string): void {
     // this.showModal = !this.showModal;
+    this.receiptRef = id;
+    console.log(this.receiptRef);
+    this.getTransactionByReceiptRef();
     this.showReceiptModal = !this.showReceiptModal;
+
   }
 
-  toggleInvoiceModal(): void {
+  toggleInvoiceModal(id: string): void {
+    this.receiptRef = id;
+    console.log(this.receiptRef);
     this.showInvoiceModal = !this.showInvoiceModal;
   }
 
-  downloadReceipt(){
-    console.log("download btn clicked");
-    this.toggleReceiptModal();
+  downloadReceipt(id: string){
+    console.log("download btn clicked 1" + id);
+    this.receiptRef = id;
+    console.log(this.receiptRef);
+    this.toggleReceiptModal(id);
   }
   
-  downloadInvoice(): void {
-    console.log("download btn clicked");
-    this.toggleInvoiceModal();
+  downloadInvoice(id: string): void {
+    console.log("download btn clicked 2");
+    this.receiptRef = id;
+    console.log(this.receiptRef);
+    // this.toggleInvoiceModal();
   }
 
-  getTerminals(): void{
+  getReceipts(): void{
+    this.isLoading = false;
     console.log(this.page, this.size);
     this.terminalService.getTransactions(this.page, this.size).subscribe({
       next:(response: any)=>{
+        this.isLoading = true;
           this.apiResponse = response;
-          this.data = this.apiResponse?.content;
-          console.log(this.data);
+          this.data = response?.data?.content;
       },
       error:(items:any)=>{
-
+        this.isLoading = true;
       }
     })
   }
 
+  getTransactionByReceiptRef(){
+    this.isLoading = false;
+    this.terminalService.getTransactionByReceiptRef(this.receiptRef).subscribe({
+      next:(response: any) => {
+        console.log(response);
+        this.isLoading = true;
+          this.recieptDetail = response?.data;
+        console.log(this.recieptDetail);
+      },
+      error:(items:any)=>{
+        this.isLoading = true;
+      }
+    })
+  }
 
   pageIncrement(){
-    console.log("hello 1");
-    if(this.page < this.apiResponse?.totalPages){
-      this.page + 1;
-    this.getTerminals();
+    console.log("hello 1", this.apiResponse?.data?.totalPages);
+    if(this.page < this.apiResponse?.data?.totalPages){
+      console.log("is true");
+      this.page = this.page + 1;
+    this.getReceipts();
     }
   }
+
   pageDecrement(){
     console.log("hello 2");
-    if(this.page > 1){
-      this.page - 1;
-    this.getTerminals();
+    if(this.page >= 1){
+      this.page = this.page - 1;
+    this.getReceipts();
     }
 }
-
-
-
 
 items: MenuItem[] | undefined;
 
