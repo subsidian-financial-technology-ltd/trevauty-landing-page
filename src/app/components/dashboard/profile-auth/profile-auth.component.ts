@@ -26,6 +26,7 @@ export class ProfileAuthComponent {
   showModal = false;
   showOtpModal = false;
   showResetPasswordModal = false;
+  isLoading = false;
 
 
   constructor(
@@ -49,6 +50,14 @@ export class ProfileAuthComponent {
 
     })
   }
+
+  showSuccessResponse(message: string, header: string, duration: number) {
+    this.toast.success({ detail: message, summary: header, duration: duration });
+    }
+    showErrorResponse(message: string, header: string, duration: number) {
+    this.toast.error({ detail: message, summary: header, duration: duration });
+    }
+    
 
   toggleShowPassword(){
     if (this.password === 'password') {
@@ -120,14 +129,20 @@ export class ProfileAuthComponent {
   }
 
   onSubmit(passwordResetDetails: any) {
+    this.isLoading = true;
     console.log(this.passwordResetDetails);
     if (this.passwordResetDetails.valid) {
       this.authService.changePasswordAuth(passwordResetDetails).subscribe({
         next: (res: any) => {
+          this.isLoading = false;
           console.log(res);
+          res.errorMessage && this.showErrorResponse( "Change Password",res.errorMessage, 3000);
+          res.status === 'ACCEPTED' && this.showSuccessResponse( "Change Password",res.data, 3000);
+
           this.resetFormInput();
         },
         error: (err: any) => {
+          this.isLoading = false;
           console.log(err)
         }
 

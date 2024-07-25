@@ -46,7 +46,7 @@
 
     <div class="relative overflow-x-auto sm:rounded-lg">
 
-        <table class="w-full text-[14px] leading-[150%] text-[#4B5563] text-left ">
+        <table *ngIf="isLoading; else elseBlock" class="w-full text-[14px] leading-[150%] text-[#4B5563] text-left ">
             <thead class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#e1e1e1]">
                 <tr class="border-b">
                     <th scope="col" class="p-[2rem]">
@@ -143,20 +143,24 @@
                             <div class="rounded-[8px]" ngbDropdownMenu>
                                 <button class="text-[12px] leading-[2rem]" (click)="toggleReceiptModal(receipt.receiptRef)"
                                     ngbDropdownItem>Download Receipt</button>
-                                <button class="text-[12px] leading-[2rem]" (click)="toggleInvoiceModal(receipt.receiptRef)"
-                                    ngbDropdownItem>Download Invoice</button>
+                                <!-- <button class="text-[12px] leading-[2rem]" (click)="toggleInvoiceModal(receipt.receiptRef)" -->
+                                    <!-- ngbDropdownItem>Download Invoice</button> -->
                             </div>
                         </div>
                     </td>
                 </tr>
 
             </tbody>
-            <ng-template #elseBlock>
+            <!-- <ng-template #elseBlock>
                 <div class="loader">
                     <div class="spinner"></div>
                 </div>
-            </ng-template> 
+            </ng-template>  -->
         </table>
+
+        <ng-template #elseBlock>
+            <app-table-loader></app-table-loader>
+        </ng-template> 
 
         <div class="mt-[4rem] bg-[#fff] flex justify-between p-[1rem] px-[2rem]">
             <div>

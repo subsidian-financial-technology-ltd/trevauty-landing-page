@@ -216,6 +216,8 @@ apiResponse:any;
 message:string = "";
 otp:string  = "";
 otpObj: FormGroup;
+isLoading: boolean = false;
+
 
 constructor( private http: HttpClient,
   private formBuilder: FormBuilder,
@@ -226,7 +228,7 @@ constructor( private http: HttpClient,
   
   ) {
   this.authForm = new FormGroup({
-    email: new FormControl(  '',  [Validators.required, Validators.pattern('^.+@.+\..+$')]),
+     email: new FormControl(  '',  [Validators.required, Validators.pattern('^.+@.+\..+$')]),
      password: new FormControl(  '',  [Validators.required]),
      keepMeLoggedIn : new FormControl(false),
 
@@ -301,18 +303,24 @@ Object.keys(this.authForm.controls).forEach(key => {
 }
 
 onSubmit(user: any): void {
+  console.log("hello world 2")
+  this.isLoading = true;
+
+  console.log(this.isLoading);
+
   this.toggleModal();
   this.showSuccessResponse(this.message, "Login", 3000);
 
 // this.toggleModal();
 
 // window.localStorage.setItem("token");
-console.log(this.formSubmitted);
+// console.log(this.formSubmitted);
 this.formSubmitted = true;
 if (this.authForm.valid) {
   console.log({ user });
   this.authService.accountLogin(this.authForm.value).subscribe({
     next: (response) => {
+      this.isLoading = false;
       console.log("response =>>>>", response);
       this.apiResponse = response;
       console.log(this.apiResponse);
@@ -322,7 +330,7 @@ if (this.authForm.valid) {
 
       this.showSuccessResponse(this.message, "Login", 3000);
       if(response?.data){
-        // alert(response?.message);
+
         this.showSuccessResponse(response?.message, "Login", 3000);
         TokenService.setToken(response?.data?.accessToken);
         if(response.data.registrationCompleted){
@@ -332,7 +340,8 @@ if (this.authForm.valid) {
         }
 
       }else{
-        alert(response?.debugMessage);
+        this.isLoading = false;
+        this.showErrorResponse(response?.debugMessage, "Sign In", 300);
       }
 
       this.toggleModal();

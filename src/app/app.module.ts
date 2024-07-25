@@ -75,6 +75,10 @@ import { CommonModule } from '@angular/common';
 // import { BrowserModule } from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditCardComponent } from './components/dashboard/edit-card/edit-card.component';
+import { SpinLoaderComponent } from './components/loaders/spin-loader/spin-loader.component';
+import { Col3LoaderComponent } from './components/loaders/col-3-loader/col-3-loader.component';
+import { CardDisplayLoaderComponent } from './components/loaders/card-display-loader/card-display-loader.component';
+import { TableLoaderComponent } from './components/loaders/table-loader/table-loader.component';
 
 
 
@@ -123,7 +127,11 @@ import { EditCardComponent } from './components/dashboard/edit-card/edit-card.co
     ConfirmPasswordComponent,
     GetCardComponent,
     GenerateInvoiceComponent,
-    EditCardComponent
+    EditCardComponent,
+    SpinLoaderComponent,
+    Col3LoaderComponent,
+    CardDisplayLoaderComponent,
+    TableLoaderComponent
     // RefundTransactionComponent
   ],
   imports: [

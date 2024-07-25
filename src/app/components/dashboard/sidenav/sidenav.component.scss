@@ -3,27 +3,20 @@
 }
 
 .active-link {
-    // background-color: white; 
-    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
     color: #000;
+    background: #F3F0FF;
+    padding:1rem 0rem;
+    border-right: 3px solid #7B57FC;
   }
 
 .sidenav {
     transition: all .5s ease;
     position: fixed;
-    // z-index: 2;
     top: 0;
     width: 9rem;
     height: fit-content;
-    // height: 100vh;
     padding: 2rem 0;
-    // padding: 2rem 0;
-    // box-shadow: 0px 18px 32px rgba(0, 0, 0, 0.1);
-    // display: grid;
-    // background-color: red;
     height: 100vh;
-    // background-color:#fff;
-    background-color:#864DFD;
     gap:1rem;
 
     .logo-container {
@@ -42,13 +35,11 @@
             }
         }
 
-
         .logo-text {
             margin-left: 1.5rem;
             font-size: 24px;
             font-weight: 700;
         }
-
 
         .btn-close {
             margin-left: auto;
@@ -59,9 +50,7 @@
             background-color: transparent;
             border: none;
 
-
             .fa-times {
-                // color: #fff;
                 font-size: 24px;
             }
         }
@@ -71,35 +60,25 @@
 
 .sidenav-collapsed {
     width: 25.5625rem;
-    // display: none;
-    // width: 0%;
 }
 
 
 .sidenav-nav {
     list-style: none;
-    margin:2rem 0;
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    gap: 1rem;
     cursor: pointer;
 
     .sidenav-nav-item {
         width: 100%;
-        margin: auto;
-        margin-bottom: 0.625rem;
-        // background-color: red;
-        padding:1rem 0rem;
-        // border-radius: 10px;
+        border: 1px solid #e6e0fe;
+
 
         .sidenav-nav-link {
             display: flex;
-            padding: 1.5rem 1.5rem;
+            padding: 3rem 1.5rem;
             align-items: center;
-            // color: #f3f3f3;
             text-decoration: none;
-            // border-radius: 0.625rem;
             transition: all .3s ease;
 
             .sidenav-link-icon {
@@ -120,12 +99,8 @@
         }
 
         .sidenav-nav-link:hover {
-            // background-color: #fff;
-            // color: #000;
-
 
             .menu-collapse-icon {
-                // color: #000;
             }
         }
     }
@@ -133,8 +108,6 @@
 
 
 .active {
-    // background-color: #fff;
-
 
     .menu-collapse-icon,
     .sidenav-link-icon,
@@ -145,8 +118,6 @@
 
 
 .active-sublevel {
-    // color: #f3f3f3 !important;
-    // opacity: 1 !important;
 }
 
 
@@ -188,12 +159,10 @@
             }
         }
         .sublevel-nav-link:hover {
-            // color: #f3f3f3;
         }
     }
 }
 
-//scrollbar and visibility on hover and focus
 
 .scrollwrap {
     overflow-y: auto;
@@ -225,29 +194,23 @@
 }
 
 .scrollwrap::-webkit-scrollbar-thumb {
-    // background-color: #556268;
     border-radius: 20px;
 }
-// works on firefox
 .scrollwrap {
     scrollbar-width: thin;
-    // scrollbar-color: #556268 transparent;
 }
 
 .log-out{
-    // padding: 1rem;
-    // justify-content: center;
     text-align: center;
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: auto;
-    border-radius: 8px;
-    background-color: #fff;
-
-    height: 40px;
-    color: #7B57FC;
+    // border-radius: 8px;
+    background-color: #7B57FC;
+    // height: 40px;
+    color: #fff;
     margin-top: 200px;
-    padding: 1rem 1rem;
+    padding: 2rem 3rem;
     font-weight: 900;
     gap: 1rem;
 }

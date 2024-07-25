@@ -12,6 +12,8 @@ import { CardResponse } from 'src/app/types/Type';
 export class ManageCardsComponent{
   formGroup: FormGroup ;
   cardList: CardResponse[] = [];
+  isLoading: boolean = false;
+  skeletonItems = Array(2).fill(0); 
   
 
   constructor(private router: Router,
@@ -43,13 +45,16 @@ export class ManageCardsComponent{
   }
 
   getCardList(){
+    this.isLoading = true;
     this.cardService.getCardList().subscribe({
       next: (response: any) => {
         console.log(response);
         this.cardList = response.data;
+        this.isLoading = false;
+
       },
       error: (err: any) => {
-
+        this.isLoading = false;
       }
     })
   }

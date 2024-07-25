@@ -1,5 +1,5 @@
 <div class="h-fit md:h-[100vh] bg-[#f9f9f9] md:bg-[#fff]">
-    
+
     <div class="pt-[3rem] hide-desktop">
         <img class="h-[40px] mt-[-5px] ml-[1rem]" src="/assets/images/LOGO 1.png" alt="">
     </div>
@@ -8,7 +8,7 @@
         <div class="grid desktop md:hidden h-fit">
             <div class="flex justify-center h-[300px]">
                 <img class="h-[100%] md:h-[50%]" src="assets/images/OBJECTS.png">
-                                      
+
             </div>
             <span class="text-center font-[NUNITO] font-[700] text-[20px]">Login to your account</span>
             <span class="flex justify-center items-center mt-[1rem]">
@@ -17,7 +17,8 @@
             </span>
 
         </div>
-        <div class=" h-fit md:h-[100%] px-[1rem] md:px-[2rem] md:w-full flex justify-center bg-[#fff] rounded-[4px] md:bg-transparent w-[90%] m-auto py-[2rem] ">
+        <div
+            class=" h-fit md:h-[100%] px-[1rem] md:px-[2rem] md:w-full flex justify-center bg-[#fff] rounded-[4px] md:bg-transparent w-[90%] m-auto py-[2rem] ">
             <div class="m-auto flex justify-between flex-col md:w-[50%] w-full">
                 <div class="md:mb-[15rem]">
                     <div class="my-[2rem] mobile">
@@ -77,19 +78,15 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group"
-                            [ngClass]="{'has-error': !formData['agreeWithTermsAndCondition'].valid && formData['agreeWithTermsAndCondition'].touched}">
-                            <div *ngIf="formData['agreeWithTermsAndCondition'].touched && formData['agreeWithTermsAndCondition'].errors"
+                            [ngClass]="{'has-error': !formData['agreeWithTermsAndCondition']?.valid && formData['agreeWithTermsAndCondition']?.touched}">
+                            <div *ngIf="formData['agreeWithTermsAndCondition']?.touched && formData['agreeWithTermsAndCondition'].errors"
                                 style="margin-top:10px">
                                 <div class="text-danger"
                                     *ngIf="formData['agreeWithTermsAndCondition'].errors['required']">
                                     The Check option is required
                                 </div>
                             </div>
-
-
                         </div>
 
                         <div class="form-check flex  justify-between items-center p-0">
@@ -97,22 +94,22 @@
                                 <input type="checkbox" class="form-check-input" name="agreeWithTermsAndCondition"
                                     formControlName="agreeWithTermsAndCondition">
                                 <div class="flex justify-between gap-[6rem] w-[100%]">
-                                    <span
-                                        class="font-[200] text-[12px] font-[NUNITO-LIGHT] ml-[2rem]">Remember
+                                    <span class="font-[200] text-[12px] font-[NUNITO-LIGHT] ml-[2rem]">Remember
                                         me </span>
                                     <span class="font-[DM Sans] text-[#707EAE]"><a href="/password-reset"
-                                            class="font-[700] text-[#A80D0D] no-underline text-right"> Forgot Password</a>
+                                            class="font-[700] text-[#A80D0D] no-underline text-right"> Forgot
+                                            Password</a>
                                     </span>
                                 </div>
-
                             </label>
                         </div>
 
-                        <button type="submit" [disabled]="authForm.invalid"
-                            [ngClass]="authForm.invalid ? 'disabled-button': 'enabled-button' "
-                            class="w-full gap-2.5 text-white mx-0 my-4 pl-2 pr-[8px,] py-[10px,] p-[1.2rem] rounded-[8px] border-[none] bg-[#7b57fc]"
-                            >Create
-                            an Account</button>
+                        <button type="submit" [disabled]="authForm.invalid || isLoading"
+                            [ngClass]="{'opacity-[60%]' : authForm.invalid}"
+                            class="w-full flex justify-center gap-6 text-white mx-0 my-4 pl-2 pr-[8px,] py-[10px,] p-[1.5rem] rounded-[8px] border-[none] bg-[#7b57fc]">
+                            <span>Sign In</span>
+                            <span *ngIf="isLoading" class="spinner"></span>
+                        </button>
 
                         <div class="form-check m-auto capitalize justify-center flex gap-[1rem] items-center">
                             <span class="text-[#333333]">Don't have an account?</span>
@@ -148,35 +145,34 @@
   </button> -->
 
 
-  <div *ngIf="showModal"
-  class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-  <div class="relative w-full my-6 mx-auto max-w-3xl">
-      <!--content-->
-      <div
-          class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-          <div class="grid place-items-center items-center p-[4rem] w-full">
-              <div class="flex justify-end w-full">
-                  <span class="cursor-pointer" (click)="toggleModal()"><img src="/assets/images/x.png" alt=""></span>
-              </div>
-              <div class="py-[2rem] grid gap-[1rem]">
-                  <div class="text-center text-[24px] font-[600] leading-[30px]">Pin</div>
-                  <div class="text-center">Kindly put in <b>Trevauty</b> secret pin number</div>
-              </div>
-              <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
+<div *ngIf="showModal"
+    class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto max-w-3xl">
+        <!--content-->
+        <div
+            class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <div class="grid place-items-center items-center p-[4rem] w-full">
+                <div class="flex justify-end w-full">
+                    <span class="cursor-pointer" (click)="toggleModal()"><img src="/assets/images/x.png" alt=""></span>
+                </div>
+                <div class="py-[2rem] grid gap-[1rem]">
+                    <div class="text-center text-[24px] font-[600] leading-[30px]">Pin</div>
+                    <div class="text-center">Kindly put in <b>Trevauty</b> secret pin number</div>
+                </div>
+                <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
 
-                  <div class="flex">
-                      <span>you don't Trevauty secret pin number ? </span> <a href=""
-                          class="text-[#7B57FC] underline">click here to start</a>
-                  </div>
-              </div>
+                    <div class="flex">
+                        <span>you don't Trevauty secret pin number ? </span> <a href=""
+                            class="text-[#7B57FC] underline">click here to start</a>
+                    </div>
+                </div>
 
-          </div>
-          <div class="flex items-center justify-end p-6 rounded-b">
-          </div>
-      </div>
-  </div>
+            </div>
+            <div class="flex items-center justify-end p-6 rounded-b">
+            </div>
+        </div>
+    </div>
 </div>
 <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
 
 <ng-toast></ng-toast>
-
